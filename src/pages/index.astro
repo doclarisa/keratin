@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import QuoteForm from "../components/QuoteForm.astro";
 import { SITE } from "../config";
+import heroPhoto from "../assets/images/keratin-hero.jpg";
 
 const title = "Keratin Treatment Elmwood Park, IL | Smooth, Frizz-Free Hair";
 const description =
@@ -87,38 +89,84 @@ const faqSchema = {
 
 <Layout title={title} description={description} path="/" ogImage="/images/og-keratin.svg" schema={[hairSalonSchema, faqSchema]}>
   <!-- Hero: above-the-fold H1 + intro + dual CTA (call / form) -->
-  <section class="bg-gradient-to-b from-brand-50 to-white">
-    <div class="max-w-6xl mx-auto px-4 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-start">
+  <header class="pt-10 md:pt-16 pb-6">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-[1.05fr_.95fr] gap-9 md:gap-14 items-center">
       <div>
-        <p class="text-brand-600 font-semibold text-sm uppercase tracking-wide mb-3">Elmwood Park, IL</p>
-        <h1 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 leading-tight mb-5">
-          Keratin Treatment in Elmwood Park, IL
+        <span class="eyebrow">Elmwood Park, IL</span>
+        <h1 class="text-[38px] md:text-[58px] font-serif font-semibold text-brand-900 leading-[1.08] tracking-tight mt-4 mb-5">
+          Keratin Treatment in Elmwood Park
         </h1>
-        <p class="text-lg text-slate-700 leading-relaxed mb-6">
+        <p class="text-lg text-stone-700 leading-relaxed max-w-[34em]">
           Looking for a keratin treatment in Elmwood Park? You're in the right place. A professional keratin
           smoothing treatment tames frizz, cuts your styling time dramatically, and leaves your hair glossy and
           manageable for months — whether it's thick, curly, color-treated, or just worn down by Chicago humidity.
           Below you'll find everything worth knowing before you book: the types of keratin treatments available,
-          what they cost, how long they last, and the formaldehyde-free options you should ask about. When you're
-          ready, request a quote and we'll get you booked with an experienced local keratin specialist.
+          what they cost, how long they last, and the formaldehyde-free options you should ask about.
         </p>
-        <a
-          href={`tel:${SITE.phone}`}
-          class="hidden md:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full px-6 py-3 transition-colors"
-        >
-          Call {SITE.phoneDisplay}
-        </a>
+        <div class="flex flex-wrap gap-3.5 mt-7">
+          <a
+            href={`tel:${SITE.phone}`}
+            class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base rounded-full px-6 py-4 shadow-soft transition-colors"
+          >
+            📞 Call {SITE.phoneDisplay}
+          </a>
+          <a
+            href="#quote"
+            class="inline-flex items-center gap-2 border-[1.5px] border-brand-200 text-brand-900 font-semibold text-base rounded-full px-6 py-4 hover:border-brand-600 hover:text-brand-600 transition-colors"
+          >
+            Get a free quote →
+          </a>
+        </div>
       </div>
-      <div class="md:pl-6">
-        <img
-          src="/images/keratin-treatment-elmwood-park.svg"
-          alt="Keratin treatment being applied at an Elmwood Park salon"
-          width="1200"
-          height="900"
-          class="w-full h-auto rounded-2xl shadow-lg mb-6"
+
+      <div class="relative aspect-[4/5] md:aspect-[4/5] rounded-[22px] overflow-hidden shadow-soft order-first md:order-none bg-brand-800">
+        <Image
+          src={heroPhoto}
+          alt="Close-up of smooth, glossy, healthy hair after a keratin treatment"
+          width={700}
+          height={875}
+          quality={50}
+          format="webp"
+          class="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
           fetchpriority="high"
         />
-        <QuoteForm />
+        <div class="absolute inset-0 [background:linear-gradient(0deg,rgba(36,26,21,.35)_0%,transparent_40%)]"></div>
+        <p class="absolute left-4 bottom-4 text-[11px] tracking-wide text-white/85 bg-black/30 px-2.5 py-1.5 rounded-md backdrop-blur-sm">
+          Stock photo — swap for a real salon photo when available
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quote form: kept high on the page (spec requires it above the fold alongside click-to-call) -->
+  <section id="quote" class="max-w-6xl mx-auto px-4 py-4">
+    <div class="grid md:grid-cols-[1fr_auto] gap-8 items-center bg-brand-100/60 border border-brand-200 rounded-[22px] p-6 md:p-8">
+      <div>
+        <h2 class="text-xl md:text-2xl font-serif font-semibold text-brand-900 mb-1.5">Prefer not to call right now?</h2>
+        <p class="text-stone-600 text-[15px] max-w-md">Send us your info and we'll get back to you with a same-day quote — no obligation.</p>
+      </div>
+      <QuoteForm compact />
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="bg-white border border-brand-200 rounded-[18px] p-7">
+        <div class="w-[38px] h-[38px] rounded-full border-[1.5px] border-brand-600 text-brand-600 font-serif font-semibold text-sm flex items-center justify-center mb-4">01</div>
+        <h3 class="text-lg font-serif font-semibold text-brand-900 mb-1.5">Consultation First</h3>
+        <p class="text-[15px] text-stone-600">Every appointment starts by assessing your hair type and goals — not a one-size-fits-all treatment.</p>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-7">
+        <div class="w-[38px] h-[38px] rounded-full border-[1.5px] border-brand-600 text-brand-600 font-serif font-semibold text-sm flex items-center justify-center mb-4">02</div>
+        <h3 class="text-lg font-serif font-semibold text-brand-900 mb-1.5">Formaldehyde-Free Options</h3>
+        <p class="text-[15px] text-stone-600">Ask for cysteine-based or nanoplasty treatments if formaldehyde is a concern for you.</p>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-7">
+        <div class="w-[38px] h-[38px] rounded-full border-[1.5px] border-brand-600 text-brand-600 font-serif font-semibold text-sm flex items-center justify-center mb-4">03</div>
+        <h3 class="text-lg font-serif font-semibold text-brand-900 mb-1.5">Serving the Area</h3>
+        <p class="text-[15px] text-stone-600">Elmwood Park and nearby — River Grove, River Forest, Forest Park, Oak Park, Berwyn &amp; Melrose Park.</p>
       </div>
     </div>
   </section>
@@ -142,44 +190,57 @@ const faqSchema = {
       Different hair, different goals — there's more than one kind of treatment, and the right one depends on your
       hair type and how much time you want to invest.
     </p>
+  </div>
 
-    <h3>Brazilian Blowout</h3>
-    <p>
-      A smoothing treatment with virtually no downtime — you can wash and style your hair the same day. It reduces
-      frizz and adds shine while keeping some of your natural volume and movement. Great for people who want
-      smoother, more manageable hair without going fully straight.
-      <a href="/brazilian-blowout/" class="text-brand-600 font-medium">Learn more about Brazilian blowouts →</a>
-    </p>
+  <div class="max-w-3xl mx-auto px-4 not-prose mb-10">
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="bg-white border border-brand-200 rounded-[18px] p-6 hover:shadow-soft hover:-translate-y-0.5 transition">
+        <h3 class="text-xl font-serif font-semibold text-brand-900 mb-1.5">Brazilian Blowout</h3>
+        <p class="font-serif text-[15px] font-semibold text-brand-600 mb-2.5">No downtime — wash same day</p>
+        <p class="text-[15px] text-stone-600 mb-2">
+          Reduces frizz and adds shine while keeping some natural volume and movement. Great for smoother, more
+          manageable hair without going fully straight.
+        </p>
+        <a href="/brazilian-blowout/" class="text-brand-600 font-medium text-sm">Learn more →</a>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-6 hover:shadow-soft hover:-translate-y-0.5 transition">
+        <h3 class="text-xl font-serif font-semibold text-brand-900 mb-1.5">Traditional Keratin Smoothing</h3>
+        <p class="font-serif text-[15px] font-semibold text-brand-600 mb-2.5">2–3 day no-wash period</p>
+        <p class="text-[15px] text-stone-600">
+          The longest-lasting option, with the most dramatic frizz reduction. Best for very thick, coarse, or
+          unruly hair that wants maximum results.
+        </p>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-6 hover:shadow-soft hover:-translate-y-0.5 transition">
+        <h3 class="text-xl font-serif font-semibold text-brand-900 mb-1.5">Express Keratin</h3>
+        <p class="font-serif text-[15px] font-semibold text-brand-600 mb-2.5">Faster appointment</p>
+        <p class="text-[15px] text-stone-600">
+          A shorter, lower-cost treatment for milder frizz, or as a "maintenance" service between full treatments.
+          Results last a few weeks.
+        </p>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-6 hover:shadow-soft hover:-translate-y-0.5 transition">
+        <h3 class="text-xl font-serif font-semibold text-brand-900 mb-1.5">Formaldehyde-Free &amp; Cysteine</h3>
+        <p class="font-serif text-[15px] font-semibold text-brand-600 mb-2.5">Gentler chemistry</p>
+        <p class="text-[15px] text-stone-600 mb-2">
+          Plant- or amino-acid derived formulas. Results are a little more subtle and don't last quite as long, but
+          many clients prefer the peace of mind.
+        </p>
+        <a href="/cysteine-treatment/" class="text-brand-600 font-medium text-sm">More on cysteine →</a>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-6 hover:shadow-soft hover:-translate-y-0.5 transition sm:col-span-2">
+        <h3 class="text-xl font-serif font-semibold text-brand-900 mb-1.5">Nanoplasty</h3>
+        <p class="font-serif text-[15px] font-semibold text-brand-600 mb-2.5">Newer, formaldehyde-free</p>
+        <p class="text-[15px] text-stone-600 mb-2">
+          Uses low-molecular-weight ingredients to smooth and restore hair with a more "natural" formulation. Ask
+          whether it's available for your appointment.
+        </p>
+        <a href="/nanoplasty/" class="text-brand-600 font-medium text-sm">Read about nanoplasty →</a>
+      </div>
+    </div>
+  </div>
 
-    <h3>Traditional Keratin Smoothing</h3>
-    <p>
-      The longest-lasting option. It delivers the most dramatic frizz reduction and smoothing, but requires a
-      waiting period (typically 2–3 days) before washing while it fully sets. Best for those with very thick,
-      coarse, or unruly hair who want maximum results.
-    </p>
-
-    <h3>Express Keratin</h3>
-    <p>
-      A shorter, lower-cost treatment for milder frizz or as a "maintenance" service between full treatments.
-      Faster appointment, results that last a few weeks.
-    </p>
-
-    <h3>Formaldehyde-Free &amp; Cysteine Treatments</h3>
-    <p>
-      For anyone who wants to avoid formaldehyde, cysteine-based and other formaldehyde-free smoothing treatments
-      use gentler chemistry (often plant-derived or amino-acid based). Results are a little more subtle and don't
-      last quite as long, but many clients prefer them for the peace of mind. Ask about these when you book.
-      <a href="/cysteine-treatment/" class="text-brand-600 font-medium">More on cysteine treatments →</a>
-    </p>
-
-    <h3>Nanoplasty</h3>
-    <p>
-      A newer, formaldehyde-free smoothing treatment that's gaining popularity fast. It uses low-molecular-weight
-      ingredients to smooth and restore hair with a more "natural" formulation. If you want cutting-edge, ask
-      whether it's available.
-      <a href="/nanoplasty/" class="text-brand-600 font-medium">Read about nanoplasty →</a>
-    </p>
-
+  <div class="max-w-3xl mx-auto px-4 prose-section">
     <img
       src="/images/keratin-before-after-frizzy-to-smooth.svg"
       alt="Before and after keratin treatment: frizzy to smooth"
@@ -194,17 +255,33 @@ const faqSchema = {
       Pricing depends on your hair length and thickness and the type of treatment. As a general guide in the
       Elmwood Park area:
     </p>
-    <ul>
-      <li><strong>Express keratin:</strong> roughly <em>[$XX–$XX]</em></li>
-      <li><strong>Brazilian blowout:</strong> roughly <em>[$XXX–$XXX]</em></li>
-      <li><strong>Traditional / full keratin:</strong> roughly <em>[$XXX–$XXX]</em></li>
-      <li><strong>Nanoplasty / specialty formaldehyde-free:</strong> roughly <em>[$XXX–$XXX]</em></li>
-    </ul>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 not-prose mb-6">
+    <div class="overflow-x-auto rounded-[18px] border border-brand-200 bg-white">
+      <table class="w-full text-left border-collapse text-[15.5px]">
+        <thead>
+          <tr class="bg-brand-100">
+            <th class="px-5 py-4 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Treatment</th>
+            <th class="px-5 py-4 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Typical Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-brand-200"><td class="px-5 py-4">Express keratin</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XX–$XX]</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-4">Brazilian blowout</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XXX–$XXX]</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-4">Traditional / full keratin</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XXX–$XXX]</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-4">Nanoplasty / specialty formaldehyde-free</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XXX–$XXX]</td></tr>
+        </tbody>
+      </table>
+    </div>
     <!--
       BUILDER NOTE: replace the ranges above with the ACTUAL prices from your
       partner salon. Do not invent exact figures — mismatched pricing kills
       trust on the first call. Keep it as "starting at" ranges until confirmed.
     -->
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 prose-section">
     <p>
       Request a quote for an exact price based on your hair, or see the full
       <a href="/keratin-treatment-cost/" class="text-brand-600 font-medium">cost breakdown →</a>
@@ -266,7 +343,7 @@ const faqSchema = {
   <!-- Booking CTA -->
   <section class="bg-brand-800 text-white mt-16">
     <div class="max-w-4xl mx-auto px-4 py-14 text-center">
-      <h2 class="text-2xl md:text-3xl font-serif font-bold mb-3">Book Your Keratin Treatment in Elmwood Park</h2>
+      <h2 class="text-2xl md:text-3xl font-serif font-semibold mb-3">Book Your Keratin Treatment in Elmwood Park</h2>
       <p class="text-brand-100 mb-6 max-w-xl mx-auto">
         Ready for smooth, frizz-free hair that lasts? Request a free quote and we'll match you with an experienced
         Elmwood Park keratin specialist. Same-day responses.
@@ -274,13 +351,13 @@ const faqSchema = {
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a
           href={`tel:${SITE.phone}`}
-          class="inline-flex items-center justify-center gap-2 bg-white text-brand-800 font-semibold rounded-full px-6 py-3 hover:bg-brand-50 transition-colors"
+          class="inline-flex items-center justify-center gap-2 bg-white text-brand-800 font-semibold rounded-full px-6 py-3.5 hover:bg-brand-50 transition-colors"
         >
           Call {SITE.phoneDisplay}
         </a>
         <a
-          href="#quote-form"
-          class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold rounded-full px-6 py-3 hover:bg-white/10 transition-colors"
+          href="#quote"
+          class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors"
         >
           Fill Out the Quick Form
         </a>
@@ -298,32 +375,31 @@ const faqSchema = {
       can get the site penalized. This section intentionally ships without
       placeholder quotes — replace the callout below with real testimonials.
     -->
-    <div class="rounded-2xl border border-dashed border-brand-300 bg-brand-50 p-8 text-center">
-      <p class="text-slate-600">
-        Real client reviews are on the way. In the meantime, request a free quote and experience it for yourself —
-        or check our Google Business Profile for verified reviews once it's live.
-      </p>
+    <div class="rounded-[18px] border border-dashed border-brand-400 bg-brand-100 p-8 flex gap-4 items-start">
+      <span class="text-2xl leading-none">★</span>
+      <div>
+        <h3 class="font-serif text-lg font-semibold text-brand-900 mb-1">Reviews coming soon</h3>
+        <p class="text-stone-600 text-[15px]">
+          Real client reviews are on the way. In the meantime, request a free quote and experience it for yourself —
+          or check our Google Business Profile for verified reviews once it's live.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="max-w-3xl mx-auto px-4 pb-16" id="faq">
-    <h2 class="text-2xl md:text-3xl font-serif font-semibold text-brand-900 mb-6">Frequently Asked Questions</h2>
-    <div class="space-y-3">
+    <h2 class="text-2xl md:text-3xl font-serif font-semibold text-brand-900 mb-2">Frequently Asked Questions</h2>
+    <div>
       {faqs.map((f) => (
-        <details class="group border border-slate-200 rounded-xl px-5 py-4 open:bg-brand-50/50">
-          <summary class="cursor-pointer font-semibold text-slate-800 list-none flex items-center justify-between gap-4">
+        <details class="group border-b border-brand-200">
+          <summary class="cursor-pointer py-5 font-serif text-lg font-medium text-brand-900 flex items-center justify-between gap-4">
             {f.q}
-            <span class="text-brand-500 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+            <span class="text-brand-600 text-2xl leading-none group-open:rotate-45 transition-transform shrink-0">+</span>
           </summary>
-          <p class="text-slate-600 mt-3 leading-relaxed">{f.a}</p>
+          <p class="text-stone-600 text-[15.5px] leading-relaxed pb-6 max-w-[64ch]">{f.a}</p>
         </details>
       ))}
     </div>
-  </section>
-
-  <!-- Quote form anchor target for mobile CTA above -->
-  <section id="quote-form" class="max-w-md mx-auto px-4 pb-16 md:hidden">
-    <QuoteForm compact />
   </section>
 </Layout>

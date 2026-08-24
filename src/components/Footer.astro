@@ -5,7 +5,7 @@ import { SITE, NAV } from "../config";
 <footer class="bg-brand-900 text-brand-100 mt-20">
   <div class="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3">
     <div>
-      <h2 class="font-serif text-lg font-semibold text-white mb-3">{SITE.businessName}</h2>
+      <h2 class="font-serif text-xl font-semibold text-white mb-3">{SITE.businessName}</h2>
       <address
         itemscope
         itemtype="https://schema.org/HairSalon"
@@ -24,7 +24,7 @@ import { SITE, NAV } from "../config";
     </div>
 
     <div>
-      <h2 class="font-serif text-lg font-semibold text-white mb-3">Explore</h2>
+      <h2 class="font-sans text-[12.5px] font-semibold uppercase tracking-widest text-brand-400 mb-3.5">Explore</h2>
       <ul class="space-y-2 text-sm text-brand-200">
         {NAV.map((item) => (
           <li><a href={item.href} class="hover:text-white transition-colors">{item.label}</a></li>
@@ -35,7 +35,7 @@ import { SITE, NAV } from "../config";
     </div>
 
     <div>
-      <h2 class="font-serif text-lg font-semibold text-white mb-3">Serving the Area</h2>
+      <h2 class="font-sans text-[12.5px] font-semibold uppercase tracking-widest text-brand-400 mb-3.5">Serving the Area</h2>
       <p class="text-sm text-brand-200 leading-relaxed">
         Elmwood Park and nearby — River Grove, River Forest, Forest Park, Oak Park, Berwyn &amp; Melrose Park.
       </p>

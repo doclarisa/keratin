@@ -24,7 +24,7 @@ const mapEmbedSrc = `https://maps.google.com/maps?q=${mapQuery}&z=14&output=embe
         <address
           itemscope
           itemtype="https://schema.org/HairSalon"
-          class="not-italic text-slate-700 leading-relaxed mb-6"
+          class="not-italic text-stone-700 leading-relaxed mb-6"
         >
           <span itemprop="name" class="block font-serif text-xl font-semibold text-brand-900 mb-1">
             {SITE.businessName}
@@ -40,14 +40,14 @@ const mapEmbedSrc = `https://maps.google.com/maps?q=${mapQuery}&z=14&output=embe
         </address>
 
         <h2 class="font-serif text-lg font-semibold text-brand-900 mb-2">Hours</h2>
-        <ul class="text-slate-700 mb-6 space-y-1">
+        <ul class="text-stone-700 mb-6 space-y-1">
           {SITE.hours.map((h) => (
             <li>{h.days.join(", ")}: {h.opens} – {h.closes}</li>
           ))}
-          <li class="text-slate-400">Closed Sunday &amp; Monday</li>
+          <li class="text-stone-400">Closed Sunday &amp; Monday</li>
         </ul>
 
-        <div class="rounded-2xl overflow-hidden border border-slate-200 aspect-video">
+        <div class="rounded-2xl overflow-hidden border border-stone-200 aspect-video">
           <iframe
             src={mapEmbedSrc}
             width="100%"

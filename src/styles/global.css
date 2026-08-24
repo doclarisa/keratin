@@ -15,13 +15,30 @@ body {
 }
 
 .prose-section h3 {
-  @apply text-xl font-serif font-semibold text-brand-800 mt-6 mb-2;
+  @apply text-xl font-serif font-semibold text-brand-900 mt-6 mb-2;
 }
 
 .prose-section p {
-  @apply text-slate-700 leading-relaxed mb-4;
+  @apply text-stone-700 leading-relaxed mb-4;
 }
 
 .prose-section ul {
-  @apply list-disc pl-6 mb-4 text-slate-700 space-y-1;
+  @apply list-disc pl-6 mb-4 text-stone-700 space-y-1;
+}
+
+.eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-600;
+}
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1.5px;
+  background: currentColor;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }

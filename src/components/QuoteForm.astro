@@ -11,9 +11,9 @@ interface Props {
 const { compact = false } = Astro.props;
 ---
 
-<div class:list={["bg-white rounded-2xl shadow-xl border border-brand-100 p-6", compact ? "max-w-md" : "max-w-lg"]}>
-  <h2 class="text-xl font-serif font-semibold text-brand-900 mb-1">Request a Free Quote</h2>
-  <p class="text-sm text-slate-500 mb-4">Same-day response. No obligation.</p>
+<div class:list={["bg-white rounded-[22px] shadow-soft border border-brand-200 p-8", compact ? "max-w-md" : "max-w-lg"]}>
+  <h2 class="text-2xl font-serif font-semibold text-brand-900 mb-1">Request a Free Quote</h2>
+  <p class="text-sm text-stone-500 mb-5">Same-day response. No obligation.</p>
   <form
     name="quote-request"
     method="POST"
@@ -34,7 +34,7 @@ const { compact = false } = Astro.props;
         type="text"
         required
         placeholder="Your name"
-        class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-brand-500 focus:ring-brand-500"
+        class="w-full rounded-xl border-[1.5px] border-brand-200 px-4 py-3.5 text-brand-900 bg-brand-50 placeholder:text-stone-400 focus:outline-none focus:border-brand-600 focus:bg-white transition-colors"
       />
     </div>
     <div>
@@ -45,7 +45,7 @@ const { compact = false } = Astro.props;
         type="tel"
         required
         placeholder="Phone number"
-        class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-brand-500 focus:ring-brand-500"
+        class="w-full rounded-xl border-[1.5px] border-brand-200 px-4 py-3.5 text-brand-900 bg-brand-50 placeholder:text-stone-400 focus:outline-none focus:border-brand-600 focus:bg-white transition-colors"
       />
     </div>
     <div>
@@ -53,7 +53,7 @@ const { compact = false } = Astro.props;
       <select
         id="hair-type"
         name="treatment-interest"
-        class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-brand-500 focus:ring-brand-500"
+        class="w-full rounded-xl border-[1.5px] border-brand-200 px-4 py-3.5 text-brand-900 bg-brand-50 placeholder:text-stone-400 focus:outline-none focus:border-brand-600 focus:bg-white transition-colors"
       >
         <option value="">Not sure yet</option>
         <option value="brazilian-blowout">Brazilian Blowout</option>
@@ -65,11 +65,11 @@ const { compact = false } = Astro.props;
     </div>
     <button
       type="submit"
-      class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg px-4 py-3 transition-colors"
+      class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full px-4 py-3.5 mt-1 shadow-soft transition-colors"
     >
       Get My Free Quote
     </button>
-    <p class="text-xs text-slate-400 text-center">
+    <p class="text-xs text-stone-400 text-center">
       Or call now: <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">{SITE.phoneDisplay}</a>
     </p>
   </form>
