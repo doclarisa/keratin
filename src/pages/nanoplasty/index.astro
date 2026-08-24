@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Nanoplasty Elmwood Park, IL | Formaldehyde-Free Smoothing";
+const description =
+  "Nanoplasty in Elmwood Park, IL — a formaldehyde-free smoothing treatment using low-molecular-weight ingredients. Ask about availability and pricing.";
+---
+
+<Layout title={title} description={description} path="/nanoplasty/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Nanoplasty
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Nanoplasty in Elmwood Park, IL
+    </h1>
+    <p>
+      Nanoplasty is one of the newest smoothing treatments to reach the salon chair, and it's built around a simple
+      idea: use smaller, lower-molecular-weight ingredients so the formula can penetrate the hair shaft more
+      effectively without formaldehyde. The result is a smoothing and restoring treatment that many clients describe
+      as leaving hair feeling more like "itself," just calmer and glossier.
+    </p>
+    <h2>How Nanoplasty Differs from Traditional Keratin</h2>
+    <p>
+      Traditional keratin smoothing coats the hair shaft with keratin protein and seals it with heat. Nanoplasty
+      formulas are engineered at a smaller molecular size specifically to work without formaldehyde, which is why
+      it's grouped with other
+      <a href="/cysteine-treatment/" class="text-brand-600 font-medium">formaldehyde-free options</a>
+      like cysteine treatments. Expect results that are a little more subtle than a full traditional keratin
+      treatment, with a similar or slightly shorter lifespan.
+    </p>
+    <h2>Is Nanoplasty Right for You?</h2>
+    <p>
+      If avoiding formaldehyde is a priority but you still want meaningful frizz control and shine, nanoplasty is
+      worth asking about. Availability and technique vary by stylist since it's a newer service — request a quote
+      and we'll confirm whether it's offered for your appointment.
+    </p>
+    <p>
+      Not sure which treatment fits your hair? Start with our full
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a>
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

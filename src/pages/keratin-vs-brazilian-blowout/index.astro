@@ -1,0 +1,76 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin Treatment vs. Brazilian Blowout | Elmwood Park, IL";
+const description =
+  "Keratin treatment vs. Brazilian blowout: downtime, longevity, and results compared, so you can choose the right smoothing service in Elmwood Park.";
+---
+
+<Layout title={title} description={description} path="/keratin-vs-brazilian-blowout/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Keratin vs. Brazilian Blowout
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin Treatment vs. Brazilian Blowout
+    </h1>
+    <p>
+      Both are professional smoothing services, and both reduce frizz — but they're not interchangeable. Here's how
+      to tell which one you actually want.
+    </p>
+
+    <div class="not-prose overflow-x-auto my-6">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-50">
+            <th class="p-3 border border-slate-200 font-semibold text-brand-900">Factor</th>
+            <th class="p-3 border border-slate-200 font-semibold text-brand-900">Brazilian Blowout</th>
+            <th class="p-3 border border-slate-200 font-semibold text-brand-900">Traditional Keratin</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          <tr>
+            <td class="p-3 border border-slate-200 font-medium">Downtime before washing</td>
+            <td class="p-3 border border-slate-200">None — same day</td>
+            <td class="p-3 border border-slate-200">2–3 days</td>
+          </tr>
+          <tr>
+            <td class="p-3 border border-slate-200 font-medium">Frizz reduction</td>
+            <td class="p-3 border border-slate-200">Moderate</td>
+            <td class="p-3 border border-slate-200">Maximum</td>
+          </tr>
+          <tr>
+            <td class="p-3 border border-slate-200 font-medium">Natural volume retained</td>
+            <td class="p-3 border border-slate-200">More</td>
+            <td class="p-3 border border-slate-200">Less</td>
+          </tr>
+          <tr>
+            <td class="p-3 border border-slate-200 font-medium">Typical longevity</td>
+            <td class="p-3 border border-slate-200">2–3 months</td>
+            <td class="p-3 border border-slate-200">3–5 months</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Choose Brazilian Blowout If…</h2>
+    <p>
+      You want smoother, shinier hair without downtime, and you'd rather keep some of your natural wave and volume.
+      Read more about the
+      <a href="/brazilian-blowout/" class="text-brand-600 font-medium">Brazilian blowout →</a>
+    </p>
+
+    <h2>Choose Traditional Keratin If…</h2>
+    <p>
+      Your hair is thick, coarse, or very frizz-prone and you want the most dramatic, longest-lasting smoothing
+      result, and you can plan around a short no-wash window. See the full
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a>
+    </p>
+
+    <p>
+      Still not sure? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>
+      and a stylist will help you decide based on your hair type and goals.
+    </p>
+  </div>
+</Layout>

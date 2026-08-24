@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../config";
+
+const title = `About ${SITE.businessName} | Keratin Specialists in Elmwood Park, IL`;
+const description =
+  "Meet the Elmwood Park keratin specialists behind our smoothing treatments — experience, training, and what to expect when you book.";
+---
+
+<Layout title={title} description={description} path="/about/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / About
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      About {SITE.businessName}
+    </h1>
+
+    <!--
+      BUILDER NOTE (E-E-A-T): this page exists to demonstrate Experience,
+      Expertise, Authoritativeness, and Trust to both readers and Google.
+      Replace every bracketed placeholder with real, verifiable specifics —
+      stylist name(s), years in the field, certifications, and the specific
+      brands/lines used (e.g. specific keratin/Brazilian blowout product
+      lines). Vague marketing copy here undermines trust; specifics build it.
+    -->
+
+    <h2>Our Experience</h2>
+    <p>
+      [Stylist/salon name] has been providing professional smoothing treatments in the Elmwood Park area since
+      [year]. Our team is trained and certified in [specific product lines / certifications — e.g. Brazilian
+      Blowout®, specific keratin brand certifications], and we specialize in matching the right treatment —
+      traditional keratin, Brazilian blowout, cysteine, or nanoplasty — to each client's hair type and goals.
+    </p>
+
+    <h2>Our Approach</h2>
+    <p>
+      Every appointment starts with a consultation, not a one-size-fits-all treatment. We assess your hair's
+      thickness, porosity, and history (color, prior chemical treatments) before recommending a service, and we're
+      upfront about formaldehyde content so you can choose what you're comfortable with. See our full
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a> for details on each option.
+    </p>
+
+    <h2>Where We're Located</h2>
+    <p>
+      We serve Elmwood Park and the surrounding area, including River Grove, River Forest, Forest Park, Oak Park,
+      Berwyn, and Melrose Park. Full address and directions are on our
+      <a href="/contact/" class="text-brand-600 font-medium">contact page →</a>.
+    </p>
+
+    <p>
+      Questions before you book? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>.
+    </p>
+  </div>
+</Layout>

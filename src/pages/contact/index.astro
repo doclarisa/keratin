@@ -1,0 +1,68 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = `Contact ${SITE.businessName} | Elmwood Park, IL Keratin Salon`;
+const description =
+  "Contact our Elmwood Park, IL keratin treatment salon — phone, address, hours, and a free quote form. Book your appointment today.";
+
+// BUILDER NOTE: swap the embed src below for a real Google Maps embed once
+// the partner salon's address is confirmed (Google Maps > Share > Embed a
+// map). This placeholder uses a public search-by-address embed so the page
+// never 404s, but it should point at the exact, verified location.
+const mapQuery = encodeURIComponent(`${SITE.address}, ${SITE.city}, ${SITE.state} ${SITE.zip}`);
+const mapEmbedSrc = `https://maps.google.com/maps?q=${mapQuery}&z=14&output=embed`;
+---
+
+<Layout title={title} description={description} path="/contact/">
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-8">Contact Us</h1>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <address
+          itemscope
+          itemtype="https://schema.org/HairSalon"
+          class="not-italic text-slate-700 leading-relaxed mb-6"
+        >
+          <span itemprop="name" class="block font-serif text-xl font-semibold text-brand-900 mb-1">
+            {SITE.businessName}
+          </span>
+          <span itemprop="streetAddress">{SITE.address}</span><br />
+          <span itemprop="addressLocality">{SITE.city}</span>,{" "}
+          <span itemprop="addressRegion">{SITE.state}</span>{" "}
+          <span itemprop="postalCode">{SITE.zip}</span><br /><br />
+          Phone:{" "}
+          <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium hover:underline">
+            <span itemprop="telephone">{SITE.phoneDisplay}</span>
+          </a>
+        </address>
+
+        <h2 class="font-serif text-lg font-semibold text-brand-900 mb-2">Hours</h2>
+        <ul class="text-slate-700 mb-6 space-y-1">
+          {SITE.hours.map((h) => (
+            <li>{h.days.join(", ")}: {h.opens} – {h.closes}</li>
+          ))}
+          <li class="text-slate-400">Closed Sunday &amp; Monday</li>
+        </ul>
+
+        <div class="rounded-2xl overflow-hidden border border-slate-200 aspect-video">
+          <iframe
+            src={mapEmbedSrc}
+            width="100%"
+            height="100%"
+            style="border:0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`Map to ${SITE.businessName}`}
+          ></iframe>
+        </div>
+      </div>
+
+      <div>
+        <QuoteForm />
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="t">
+  <title id="t">Keratin treatment being applied at an Elmwood Park salon</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#833424"/>
+      <stop offset="1" stop-color="#c25a37"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g)"/>
+  <circle cx="880" cy="180" r="260" fill="#ffffff" opacity="0.06"/>
+  <circle cx="140" cy="760" r="220" fill="#ffffff" opacity="0.06"/>
+  <path d="M480 700c60-220 60-340 180-400 120 60 120 180 180 400-90-60-150-60-180-30-30-30-90-30-180 30Z" fill="#fbe9e2" opacity="0.9"/>
+  <text x="600" y="820" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#fbe9e2">
+    PLACEHOLDER — replace with real salon photo
+  </text>
+</svg>

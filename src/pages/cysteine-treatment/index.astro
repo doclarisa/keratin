@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Cysteine Treatment Elmwood Park, IL | Formaldehyde-Free Keratin";
+const description =
+  "Cysteine treatment in Elmwood Park, IL — a formaldehyde-free, amino-acid based smoothing alternative to traditional keratin. Free quote available.";
+---
+
+<Layout title={title} description={description} path="/cysteine-treatment/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Cysteine Treatment
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Cysteine Treatment in Elmwood Park, IL
+    </h1>
+    <p>
+      Cysteine is an amino acid — one of the building blocks of keratin itself — and cysteine-based smoothing
+      treatments use it instead of formaldehyde-releasing chemistry to smooth and strengthen hair. For clients who
+      want the frizz control of a keratin service without the formaldehyde question, it's usually the first
+      alternative a stylist will suggest.
+    </p>
+    <h2>What to Expect</h2>
+    <p>
+      Cysteine treatments smooth the cuticle and reduce frizz using gentler, often plant- or amino-acid derived
+      chemistry. Results are typically a little more subtle than a traditional keratin treatment and don't last
+      quite as long, but many clients find that trade-off well worth the peace of mind — especially anyone sensitive
+      to strong chemical odors or concerned about formaldehyde exposure.
+    </p>
+    <h2>Cysteine vs. Nanoplasty</h2>
+    <p>
+      Both are formaldehyde-free, but they use different chemistry.
+      <a href="/nanoplasty/" class="text-brand-600 font-medium">Nanoplasty</a> relies on smaller-molecule formulas
+      designed for deeper penetration; cysteine treatments lean on the amino acid itself. Your stylist can help you
+      choose based on your hair's condition and how long you want results to last.
+    </p>
+    <p>
+      Curious how this compares to traditional keratin? See the
+      <a href="/" class="text-brand-600 font-medium">full treatment overview →</a>
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

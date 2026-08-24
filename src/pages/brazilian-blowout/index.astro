@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Brazilian Blowout Elmwood Park, IL | No Downtime Smoothing";
+const description =
+  "Brazilian blowout in Elmwood Park, IL — smooth, glossy hair with zero downtime. Wash and style the same day. Free quote from a local specialist.";
+---
+
+<Layout title={title} description={description} path="/brazilian-blowout/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Brazilian Blowout
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Brazilian Blowout in Elmwood Park, IL
+    </h1>
+    <p>
+      A Brazilian blowout is the smoothing treatment for people who don't want to wait around. Unlike a traditional
+      keratin treatment, there's no multi-day no-wash period — you can shampoo, sweat, and style the same day you
+      leave the salon. It reduces frizz and adds noticeable shine while keeping more of your hair's natural volume
+      and movement than a full keratin smoothing service.
+    </p>
+    <h2>How It Works</h2>
+    <p>
+      A stylist applies a smoothing solution strand by strand, then seals it with a flat iron. The treatment coats
+      each strand rather than fully relaxing it, which is why some natural wave and body remains — it's smoothing,
+      not straightening.
+    </p>
+    <h2>Who It's For</h2>
+    <p>
+      Brazilian blowout suits clients who want smoother, more manageable hair without committing to a longer
+      appointment or a waiting period, and who'd rather keep some natural texture than go pin-straight. If your hair
+      is very thick or coarse and you want maximum frizz reduction, a
+      <a href="/" class="text-brand-600 font-medium">traditional keratin treatment</a> may get you closer to that goal.
+    </p>
+    <h2>Brazilian Blowout vs. Keratin</h2>
+    <p>
+      See the full side-by-side comparison — downtime, longevity, and results — in our
+      <a href="/keratin-vs-brazilian-blowout/" class="text-brand-600 font-medium">Keratin vs. Brazilian Blowout guide →</a>
+    </p>
+    <p>
+      Ready to book? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>
+      or request a free quote below.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

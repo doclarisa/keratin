@@ -1,0 +1,47 @@
+---
+import { SITE, NAV } from "../config";
+---
+
+<footer class="bg-brand-900 text-brand-100 mt-20">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3">
+    <div>
+      <h2 class="font-serif text-lg font-semibold text-white mb-3">{SITE.businessName}</h2>
+      <address
+        itemscope
+        itemtype="https://schema.org/HairSalon"
+        class="not-italic text-sm text-brand-200 leading-relaxed"
+      >
+        <span itemprop="name" class="sr-only">{SITE.businessName}</span>
+        <span itemprop="streetAddress">{SITE.address}</span>,<br />
+        <span itemprop="addressLocality">{SITE.city}</span>,{" "}
+        <span itemprop="addressRegion">{SITE.state}</span>{" "}
+        <span itemprop="postalCode">{SITE.zip}</span><br />
+        Phone:{" "}
+        <a href={`tel:${SITE.phone}`} class="text-white hover:underline">
+          <span itemprop="telephone">{SITE.phoneDisplay}</span>
+        </a>
+      </address>
+    </div>
+
+    <div>
+      <h2 class="font-serif text-lg font-semibold text-white mb-3">Explore</h2>
+      <ul class="space-y-2 text-sm text-brand-200">
+        {NAV.map((item) => (
+          <li><a href={item.href} class="hover:text-white transition-colors">{item.label}</a></li>
+        ))}
+        <li><a href="/keratin-vs-brazilian-blowout/" class="hover:text-white transition-colors">Keratin vs. Brazilian Blowout</a></li>
+        <li><a href="/hair-botox-vs-keratin/" class="hover:text-white transition-colors">Hair Botox vs. Keratin</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="font-serif text-lg font-semibold text-white mb-3">Serving the Area</h2>
+      <p class="text-sm text-brand-200 leading-relaxed">
+        Elmwood Park and nearby — River Grove, River Forest, Forest Park, Oak Park, Berwyn &amp; Melrose Park.
+      </p>
+    </div>
+  </div>
+  <div class="border-t border-brand-800 py-4 text-center text-xs text-brand-300">
+    &copy; {new Date().getFullYear()} {SITE.businessName}. All rights reserved.
+  </div>
+</footer>

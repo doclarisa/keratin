@@ -1,0 +1,7 @@
+# Netlify domain-level redirects for the two alias domains -> primary domain.
+# Add BOTH alias domains in Netlify's Domain settings first, then this rule
+# 301-redirects them here. (On Cloudflare Pages, do this instead via
+# Bulk Redirects or a custom domain + "Redirect Rules" in the dashboard —
+# this file has no effect there.)
+https://keratinhairelmwoodpark.com/*   https://keratintreatmentelmwoodpark.com/:splat   301!
+https://elmwoodparkkeratin.com/*        https://keratintreatmentelmwoodpark.com/:splat   301!

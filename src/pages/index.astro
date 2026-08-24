@@ -1,0 +1,329 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuoteForm from "../components/QuoteForm.astro";
+import { SITE } from "../config";
+
+const title = "Keratin Treatment Elmwood Park, IL | Smooth, Frizz-Free Hair";
+const description =
+  "Professional keratin treatments in Elmwood Park, IL — smooth away frizz for months. Brazilian blowout, formaldehyde-free & express options. Free quote.";
+
+const hairSalonSchema = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  name: SITE.businessName,
+  image: new URL("/images/keratin-treatment-elmwood-park.svg", SITE.siteUrl).toString(),
+  url: SITE.siteUrl,
+  telephone: SITE.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE.address,
+    addressLocality: SITE.city,
+    addressRegion: SITE.state,
+    postalCode: SITE.zip,
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: SITE.geo.lat,
+    longitude: SITE.geo.lng,
+  },
+  areaServed: SITE.areaServed,
+  priceRange: SITE.priceRange,
+  openingHoursSpecification: SITE.hours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  // BUILDER NOTE: omit aggregateRating entirely unless you have real,
+  // verifiable aggregated reviews. A fabricated rating is a penalty risk.
+};
+
+const faqs = [
+  {
+    q: "How long does a keratin treatment take?",
+    a: "Most treatments take 1.5 to 3 hours depending on your hair length, thickness, and the type of treatment. Express versions are quicker.",
+  },
+  {
+    q: "Can I wash my hair after a keratin treatment?",
+    a: "It depends on the type. After a Brazilian blowout you can wash the same day. After a traditional keratin treatment, you'll typically wait 2–3 days before washing to let it fully set.",
+  },
+  {
+    q: "Is there a formaldehyde-free keratin treatment?",
+    a: "Yes. Cysteine-based treatments and nanoplasty are formaldehyde-free smoothing options. Results are slightly more subtle and shorter-lasting, but many clients prefer them.",
+  },
+  {
+    q: "What's the difference between keratin and a Brazilian blowout?",
+    a: "A Brazilian blowout has no downtime and keeps more volume; a traditional keratin treatment lasts longer and smooths more intensely but needs a short no-wash period.",
+  },
+  {
+    q: "Hair botox vs keratin — what's the difference?",
+    a: "Hair botox is a deep conditioning and repair treatment for damaged hair; keratin is a smoothing treatment for frizz and manageability. They solve different problems.",
+  },
+  {
+    q: "Is keratin treatment good for hair loss?",
+    a: "Keratin doesn't treat hair loss, but by reducing breakage from heat styling and brushing, it can make thinning hair look fuller and healthier.",
+  },
+  {
+    q: "How much does a keratin treatment cost in Elmwood Park?",
+    a: "Prices vary by hair length and treatment type. Request a quote for an exact price.",
+  },
+  {
+    q: "How long will my keratin treatment last?",
+    a: "Typically 2–5 months. Using a sulfate-free shampoo significantly extends how long it lasts.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path="/" ogImage="/images/og-keratin.svg" schema={[hairSalonSchema, faqSchema]}>
+  <!-- Hero: above-the-fold H1 + intro + dual CTA (call / form) -->
+  <section class="bg-gradient-to-b from-brand-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <p class="text-brand-600 font-semibold text-sm uppercase tracking-wide mb-3">Elmwood Park, IL</p>
+        <h1 class="text-3xl md:text-5xl font-serif font-bold text-brand-900 leading-tight mb-5">
+          Keratin Treatment in Elmwood Park, IL
+        </h1>
+        <p class="text-lg text-slate-700 leading-relaxed mb-6">
+          Looking for a keratin treatment in Elmwood Park? You're in the right place. A professional keratin
+          smoothing treatment tames frizz, cuts your styling time dramatically, and leaves your hair glossy and
+          manageable for months — whether it's thick, curly, color-treated, or just worn down by Chicago humidity.
+          Below you'll find everything worth knowing before you book: the types of keratin treatments available,
+          what they cost, how long they last, and the formaldehyde-free options you should ask about. When you're
+          ready, request a quote and we'll get you booked with an experienced local keratin specialist.
+        </p>
+        <a
+          href={`tel:${SITE.phone}`}
+          class="hidden md:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full px-6 py-3 transition-colors"
+        >
+          Call {SITE.phoneDisplay}
+        </a>
+      </div>
+      <div class="md:pl-6">
+        <img
+          src="/images/keratin-treatment-elmwood-park.svg"
+          alt="Keratin treatment being applied at an Elmwood Park salon"
+          width="1200"
+          height="900"
+          class="w-full h-auto rounded-2xl shadow-lg mb-6"
+          fetchpriority="high"
+        />
+        <QuoteForm />
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 prose-section">
+    <h2>What Is a Keratin Treatment?</h2>
+    <p>
+      A keratin treatment is a professional smoothing service that infuses your hair with keratin — the same
+      protein hair is naturally made of. A stylist applies the solution, then seals it in with a flat iron. The
+      result: frizz is smoothed, curls are loosened and relaxed (not necessarily straightened), shine is restored,
+      and your hair becomes far easier to style. It's one of the most popular ways to make thick, coarse, curly, or
+      humidity-prone hair behave — without a daily fight.
+    </p>
+    <p>
+      Unlike a chemical relaxer, a keratin treatment doesn't permanently alter your hair's structure. It gradually
+      washes out over several weeks to a few months, so your natural texture always returns.
+    </p>
+
+    <h2>Types of Keratin Treatments Available in Elmwood Park</h2>
+    <p>
+      Different hair, different goals — there's more than one kind of treatment, and the right one depends on your
+      hair type and how much time you want to invest.
+    </p>
+
+    <h3>Brazilian Blowout</h3>
+    <p>
+      A smoothing treatment with virtually no downtime — you can wash and style your hair the same day. It reduces
+      frizz and adds shine while keeping some of your natural volume and movement. Great for people who want
+      smoother, more manageable hair without going fully straight.
+      <a href="/brazilian-blowout/" class="text-brand-600 font-medium">Learn more about Brazilian blowouts →</a>
+    </p>
+
+    <h3>Traditional Keratin Smoothing</h3>
+    <p>
+      The longest-lasting option. It delivers the most dramatic frizz reduction and smoothing, but requires a
+      waiting period (typically 2–3 days) before washing while it fully sets. Best for those with very thick,
+      coarse, or unruly hair who want maximum results.
+    </p>
+
+    <h3>Express Keratin</h3>
+    <p>
+      A shorter, lower-cost treatment for milder frizz or as a "maintenance" service between full treatments.
+      Faster appointment, results that last a few weeks.
+    </p>
+
+    <h3>Formaldehyde-Free &amp; Cysteine Treatments</h3>
+    <p>
+      For anyone who wants to avoid formaldehyde, cysteine-based and other formaldehyde-free smoothing treatments
+      use gentler chemistry (often plant-derived or amino-acid based). Results are a little more subtle and don't
+      last quite as long, but many clients prefer them for the peace of mind. Ask about these when you book.
+      <a href="/cysteine-treatment/" class="text-brand-600 font-medium">More on cysteine treatments →</a>
+    </p>
+
+    <h3>Nanoplasty</h3>
+    <p>
+      A newer, formaldehyde-free smoothing treatment that's gaining popularity fast. It uses low-molecular-weight
+      ingredients to smooth and restore hair with a more "natural" formulation. If you want cutting-edge, ask
+      whether it's available.
+      <a href="/nanoplasty/" class="text-brand-600 font-medium">Read about nanoplasty →</a>
+    </p>
+
+    <img
+      src="/images/keratin-before-after-frizzy-to-smooth.svg"
+      alt="Before and after keratin treatment: frizzy to smooth"
+      width="1200"
+      height="800"
+      loading="lazy"
+      class="w-full h-auto rounded-2xl shadow mt-2 mb-6"
+    />
+
+    <h2>How Much Does a Keratin Treatment Cost in Elmwood Park?</h2>
+    <p>
+      Pricing depends on your hair length and thickness and the type of treatment. As a general guide in the
+      Elmwood Park area:
+    </p>
+    <ul>
+      <li><strong>Express keratin:</strong> roughly <em>[$XX–$XX]</em></li>
+      <li><strong>Brazilian blowout:</strong> roughly <em>[$XXX–$XXX]</em></li>
+      <li><strong>Traditional / full keratin:</strong> roughly <em>[$XXX–$XXX]</em></li>
+      <li><strong>Nanoplasty / specialty formaldehyde-free:</strong> roughly <em>[$XXX–$XXX]</em></li>
+    </ul>
+    <!--
+      BUILDER NOTE: replace the ranges above with the ACTUAL prices from your
+      partner salon. Do not invent exact figures — mismatched pricing kills
+      trust on the first call. Keep it as "starting at" ranges until confirmed.
+    -->
+    <p>
+      Request a quote for an exact price based on your hair, or see the full
+      <a href="/keratin-treatment-cost/" class="text-brand-600 font-medium">cost breakdown →</a>
+    </p>
+
+    <h2>How Long Does a Keratin Treatment Last?</h2>
+    <p>
+      Most keratin treatments last <strong>2 to 5 months</strong>, depending on the type and how you care for your
+      hair afterward. Traditional keratin lasts longest; express and formaldehyde-free options are on the shorter
+      end. The single biggest factor in longevity is your aftercare — a <strong>sulfate-free shampoo</strong>
+      dramatically extends the life of any keratin treatment, while sulfates strip it out faster.
+    </p>
+
+    <h2>Is a Keratin Treatment Safe?</h2>
+    <p>
+      This is the most common question, and it's a fair one. The safety concern comes down to
+      <strong>formaldehyde</strong>: some traditional smoothing solutions release formaldehyde gas when heated with
+      a flat iron, which is why proper ventilation and a trained stylist matter. If formaldehyde is a concern for
+      you, ask specifically for a <strong>formaldehyde-free treatment</strong> — cysteine-based and nanoplasty
+      options are designed exactly for this. A licensed, experienced stylist will walk you through your options and
+      help you choose the right formulation for your hair and comfort level.
+    </p>
+
+    <img
+      src="/images/brazilian-blowout-elmwood-park.svg"
+      alt="Brazilian blowout result, smooth glossy hair"
+      width="1200"
+      height="800"
+      loading="lazy"
+      class="w-full h-auto rounded-2xl shadow mt-2 mb-6"
+    />
+
+    <h2>Keratin Treatment vs. Brazilian Blowout — What's the Difference?</h2>
+    <p>
+      They're often confused. The short version: a <strong>Brazilian blowout</strong> has no downtime (wash same
+      day) and keeps more natural volume, while a <strong>traditional keratin treatment</strong> lasts longer and
+      smooths more aggressively but needs a no-wash waiting period. If you want the full breakdown, see our guide:
+      <a href="/keratin-vs-brazilian-blowout/" class="text-brand-600 font-medium">Keratin vs Brazilian Blowout →</a>
+    </p>
+
+    <h2>Hair Botox vs. Keratin — Which Do You Need?</h2>
+    <p>
+      "Hair botox" contains no actual Botox — it's a deep conditioning treatment that fills and repairs damaged
+      strands, adding smoothness and softness. Keratin, by contrast, is primarily a <em>smoothing and frizz-control</em>
+      treatment. If your main issue is frizz and styling time, keratin is usually the answer; if it's damage and
+      dryness, hair botox may suit you better. Full comparison here:
+      <a href="/hair-botox-vs-keratin/" class="text-brand-600 font-medium">Hair Botox vs Keratin →</a>
+    </p>
+
+    <h2>Will Keratin Help Thinning or Damaged Hair?</h2>
+    <p>
+      Keratin treatments don't regrow hair or treat hair loss — but by smoothing the cuticle and reducing the daily
+      heat-styling and brushing that cause breakage, they can make thinning or fragile hair look noticeably
+      healthier, fuller, and shinier. If your hair is damaged, a stylist can advise whether a gentler
+      formaldehyde-free option or a repair-focused treatment is the better starting point.
+    </p>
+  </div>
+
+  <!-- Booking CTA -->
+  <section class="bg-brand-800 text-white mt-16">
+    <div class="max-w-4xl mx-auto px-4 py-14 text-center">
+      <h2 class="text-2xl md:text-3xl font-serif font-bold mb-3">Book Your Keratin Treatment in Elmwood Park</h2>
+      <p class="text-brand-100 mb-6 max-w-xl mx-auto">
+        Ready for smooth, frizz-free hair that lasts? Request a free quote and we'll match you with an experienced
+        Elmwood Park keratin specialist. Same-day responses.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href={`tel:${SITE.phone}`}
+          class="inline-flex items-center justify-center gap-2 bg-white text-brand-800 font-semibold rounded-full px-6 py-3 hover:bg-brand-50 transition-colors"
+        >
+          Call {SITE.phoneDisplay}
+        </a>
+        <a
+          href="#quote-form"
+          class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-semibold rounded-full px-6 py-3 hover:bg-white/10 transition-colors"
+        >
+          Fill Out the Quick Form
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="max-w-3xl mx-auto px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-serif font-semibold text-brand-900 mb-4">What Our Clients Say</h2>
+    <!--
+      BUILDER NOTE — IMPORTANT: do NOT fabricate reviews. Pull real reviews
+      (with permission) from the partner salon's actual Google/Yelp profile
+      once secured. Fake reviews violate FTC rules and Google's policies and
+      can get the site penalized. This section intentionally ships without
+      placeholder quotes — replace the callout below with real testimonials.
+    -->
+    <div class="rounded-2xl border border-dashed border-brand-300 bg-brand-50 p-8 text-center">
+      <p class="text-slate-600">
+        Real client reviews are on the way. In the meantime, request a free quote and experience it for yourself —
+        or check our Google Business Profile for verified reviews once it's live.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-3xl mx-auto px-4 pb-16" id="faq">
+    <h2 class="text-2xl md:text-3xl font-serif font-semibold text-brand-900 mb-6">Frequently Asked Questions</h2>
+    <div class="space-y-3">
+      {faqs.map((f) => (
+        <details class="group border border-slate-200 rounded-xl px-5 py-4 open:bg-brand-50/50">
+          <summary class="cursor-pointer font-semibold text-slate-800 list-none flex items-center justify-between gap-4">
+            {f.q}
+            <span class="text-brand-500 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+          </summary>
+          <p class="text-slate-600 mt-3 leading-relaxed">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- Quote form anchor target for mobile CTA above -->
+  <section id="quote-form" class="max-w-md mx-auto px-4 pb-16 md:hidden">
+    <QuoteForm compact />
+  </section>
+</Layout>

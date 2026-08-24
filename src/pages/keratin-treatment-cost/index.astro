@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin Treatment Cost in Elmwood Park, IL | Pricing Guide";
+const description =
+  "What does a keratin treatment cost in Elmwood Park, IL? Pricing by treatment type and hair length, plus what affects your final price.";
+
+const pricing = [
+  { name: "Express keratin", range: "[$XX–$XX]" },
+  { name: "Brazilian blowout", range: "[$XXX–$XXX]" },
+  { name: "Traditional / full keratin", range: "[$XXX–$XXX]" },
+  { name: "Nanoplasty / specialty formaldehyde-free", range: "[$XXX–$XXX]" },
+];
+---
+
+<Layout title={title} description={description} path="/keratin-treatment-cost/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Cost
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin Treatment Cost in Elmwood Park, IL
+    </h1>
+    <p>
+      Keratin treatment pricing depends mainly on three things: the type of treatment, your hair's length and
+      thickness, and how much product/time the service requires. Here's a general guide:
+    </p>
+
+    <div class="not-prose overflow-x-auto my-6">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-50">
+            <th class="p-3 border border-slate-200 font-semibold text-brand-900">Treatment</th>
+            <th class="p-3 border border-slate-200 font-semibold text-brand-900">Typical Price Range</th>
+          </tr>
+        </thead>
+        <tbody class="text-slate-700">
+          {pricing.map((p) => (
+            <tr>
+              <td class="p-3 border border-slate-200 font-medium">{p.name}</td>
+              <td class="p-3 border border-slate-200">{p.range}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <!--
+      BUILDER NOTE: replace all price ranges with real, confirmed pricing
+      from the partner salon before launch. Do not invent figures.
+    -->
+
+    <h2>What Affects the Price</h2>
+    <ul>
+      <li><strong>Hair length &amp; thickness</strong> — more hair means more product and more stylist time.</li>
+      <li><strong>Treatment type</strong> — express and cysteine options generally cost less than a full traditional keratin service; nanoplasty and specialty formulas often cost more.</li>
+      <li><strong>Add-ons</strong> — a cut, color, or deep-conditioning add-on will affect the total.</li>
+    </ul>
+
+    <h2>Get an Exact Price</h2>
+    <p>
+      General ranges are a starting point — the only way to get an accurate quote is to have a stylist assess your
+      hair. <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a> or
+      <a href="/#quote-form" class="text-brand-600 font-medium">request a free quote →</a>
+    </p>
+  </div>
+</Layout>

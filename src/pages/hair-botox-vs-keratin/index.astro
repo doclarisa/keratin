@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../config";
+
+const title = "Hair Botox vs. Keratin Treatment | Elmwood Park, IL";
+const description =
+  "Hair botox vs. keratin treatment: which one actually fixes your hair problem? A clear comparison for Elmwood Park clients choosing a smoothing service.";
+---
+
+<Layout title={title} description={description} path="/hair-botox-vs-keratin/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Hair Botox vs. Keratin
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Hair Botox vs. Keratin Treatment
+    </h1>
+    <p>
+      Despite the name, "hair botox" has nothing to do with actual Botox — no injections, no neurotoxin. It's a
+      deep conditioning treatment built around peptides, vitamins, and filling agents that repair and add density to
+      damaged strands. It's frequently confused with keratin treatments because both leave hair smoother and
+      shinier, but they solve different problems.
+    </p>
+
+    <h2>The Core Difference</h2>
+    <p>
+      <strong>Keratin treatments</strong> are primarily about smoothing and frizz control — they coat and seal the
+      hair shaft to reduce frizz and cut styling time. <strong>Hair botox</strong> is primarily about repair — it
+      fills in gaps in damaged, porous hair to restore softness, density, and shine, with a smoothing effect as a
+      side benefit rather than the main goal.
+    </p>
+
+    <h2>Which One Do You Need?</h2>
+    <p>
+      If your main complaint is frizz, humidity-frizz, and long styling time, a
+      <a href="/" class="text-brand-600 font-medium">keratin treatment</a> is usually the better match. If your hair
+      feels dry, brittle, or over-processed from coloring or heat damage, hair botox addresses that underlying
+      damage more directly. Some clients alternate between the two, or combine a lighter
+      <a href="/cysteine-treatment/" class="text-brand-600 font-medium">formaldehyde-free keratin</a> service with
+      periodic hair botox for maintenance.
+    </p>
+
+    <p>
+      Not sure which fits your hair? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>
+      and a stylist can assess your hair and recommend the right service.
+    </p>
+  </div>
+</Layout>

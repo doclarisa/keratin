@@ -1,0 +1,76 @@
+---
+// BUILDER NOTE: this form posts via Netlify Forms (zero-backend, free tier).
+// If hosting on Cloudflare Pages instead, swap the `data-netlify` / hidden
+// form-name field for a Cloudflare Pages Function, or point `action` at a
+// service like Formspree. Either way, keep the honeypot field for spam.
+import { SITE } from "../config";
+
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<div class:list={["bg-white rounded-2xl shadow-xl border border-brand-100 p-6", compact ? "max-w-md" : "max-w-lg"]}>
+  <h2 class="text-xl font-serif font-semibold text-brand-900 mb-1">Request a Free Quote</h2>
+  <p class="text-sm text-slate-500 mb-4">Same-day response. No obligation.</p>
+  <form
+    name="quote-request"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="company"
+    class="space-y-3"
+  >
+    <input type="hidden" name="form-name" value="quote-request" />
+    <div class="hidden">
+      <label>Don't fill this out: <input name="company" /></label>
+    </div>
+
+    <div>
+      <label for="name" class="sr-only">Name</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        required
+        placeholder="Your name"
+        class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-brand-500 focus:ring-brand-500"
+      />
+    </div>
+    <div>
+      <label for="phone" class="sr-only">Phone</label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        required
+        placeholder="Phone number"
+        class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-brand-500 focus:ring-brand-500"
+      />
+    </div>
+    <div>
+      <label for="hair-type" class="sr-only">Hair type / treatment interest</label>
+      <select
+        id="hair-type"
+        name="treatment-interest"
+        class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 focus:border-brand-500 focus:ring-brand-500"
+      >
+        <option value="">Not sure yet</option>
+        <option value="brazilian-blowout">Brazilian Blowout</option>
+        <option value="traditional-keratin">Traditional Keratin Smoothing</option>
+        <option value="express-keratin">Express Keratin</option>
+        <option value="formaldehyde-free">Formaldehyde-Free / Cysteine</option>
+        <option value="nanoplasty">Nanoplasty</option>
+      </select>
+    </div>
+    <button
+      type="submit"
+      class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg px-4 py-3 transition-colors"
+    >
+      Get My Free Quote
+    </button>
+    <p class="text-xs text-slate-400 text-center">
+      Or call now: <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">{SITE.phoneDisplay}</a>
+    </p>
+  </form>
+</div>
