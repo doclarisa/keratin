@@ -9,37 +9,60 @@ const title = "Keratin Treatment Elmwood Park, IL | Smooth, Frizz-Free Hair";
 const description =
   "Professional keratin treatments in Elmwood Park, IL — smooth away frizz for months. Brazilian blowout, formaldehyde-free & express options. Free quote.";
 
-const hairSalonSchema = {
-  "@context": "https://schema.org",
-  "@type": "HairSalon",
-  name: SITE.businessName,
-  image: new URL("/images/keratin-treatment-elmwood-park.svg", SITE.siteUrl).toString(),
-  url: SITE.siteUrl,
-  telephone: SITE.phone,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: SITE.address,
-    addressLocality: SITE.city,
-    addressRegion: SITE.state,
-    postalCode: SITE.zip,
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: SITE.geo.lat,
-    longitude: SITE.geo.lng,
-  },
-  areaServed: SITE.areaServed,
-  priceRange: SITE.priceRange,
-  openingHoursSpecification: SITE.hours.map((h) => ({
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: h.days,
-    opens: h.opens,
-    closes: h.closes,
-  })),
-  // BUILDER NOTE: omit aggregateRating entirely unless you have real,
-  // verifiable aggregated reviews. A fabricated rating is a penalty risk.
-};
+// BUILDER NOTE: while SITE.hasPhysicalLocation is false (organic-only /
+// lead-referral mode, no real partner salon yet), we must not emit
+// LocalBusiness/HairSalon/PostalAddress schema — there is no verifiable
+// location. A Service schema describes the referral offering honestly
+// instead. Once a real salon is attached, flip the flag and fill in
+// SITE.address; this switches back to HairSalon/PostalAddress with no code
+// changes needed here.
+const businessSchema = SITE.hasPhysicalLocation
+  ? {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      name: SITE.businessName,
+      image: new URL("/images/keratin-treatment-elmwood-park.svg", SITE.siteUrl).toString(),
+      url: SITE.siteUrl,
+      telephone: SITE.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: SITE.address,
+        addressLocality: SITE.city,
+        addressRegion: SITE.state,
+        postalCode: SITE.zip,
+        addressCountry: "US",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: SITE.geo.lat,
+        longitude: SITE.geo.lng,
+      },
+      areaServed: SITE.areaServed,
+      priceRange: SITE.priceRange,
+      openingHoursSpecification: SITE.hours.map((h) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: h.days,
+        opens: h.opens,
+        closes: h.closes,
+      })),
+      // BUILDER NOTE: omit aggregateRating entirely unless you have real,
+      // verifiable aggregated reviews. A fabricated rating is a penalty risk.
+    }
+  : {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: SITE.service,
+      name: `${SITE.service} Referral Service`,
+      description:
+        "Connects clients in the Elmwood Park, IL area with local keratin treatment specialists.",
+      provider: {
+        "@type": "Organization",
+        name: SITE.businessName,
+        url: SITE.siteUrl,
+        telephone: SITE.phone,
+      },
+      areaServed: SITE.areaServed,
+    };
 
 const faqs = [
   {
@@ -87,7 +110,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={title} description={description} path="/" ogImage="/images/og-keratin.svg" schema={[hairSalonSchema, faqSchema]}>
+<Layout title={title} description={description} path="/" ogImage="/images/og-keratin.svg" schema={[businessSchema, faqSchema]}>
   <!-- Hero: above-the-fold H1 + intro + dual CTA (call / form) -->
   <header class="pt-10 md:pt-16 pb-6">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-[1.05fr_.95fr] gap-9 md:gap-14 items-center">
@@ -132,9 +155,6 @@ const faqSchema = {
           fetchpriority="high"
         />
         <div class="absolute inset-0 [background:linear-gradient(0deg,rgba(36,26,21,.35)_0%,transparent_40%)]"></div>
-        <p class="absolute left-4 bottom-4 text-[11px] tracking-wide text-white/85 bg-black/30 px-2.5 py-1.5 rounded-md backdrop-blur-sm">
-          Stock photo — swap for a real salon photo when available
-        </p>
       </div>
     </div>
   </header>
@@ -240,16 +260,40 @@ const faqSchema = {
     </div>
   </div>
 
-  <div class="max-w-3xl mx-auto px-4 prose-section">
-    <img
-      src="/images/keratin-before-after-frizzy-to-smooth.svg"
-      alt="Before and after keratin treatment: frizzy to smooth"
-      width="1200"
-      height="800"
-      loading="lazy"
-      class="w-full h-auto rounded-2xl shadow mt-2 mb-6"
-    />
+  <div class="max-w-3xl mx-auto px-4 not-prose mb-6">
+    <!--
+      These are stock/illustrative photos, not a documented single client's
+      before-and-after — captions below are worded accordingly. If you swap
+      in a real client transformation photo, get their written permission
+      first and update the captions to reflect that it's a real result.
+    -->
+    <div class="grid grid-cols-2 gap-3">
+      <div>
+        <img
+          src="/images/keratin-before.jpg"
+          alt="Stylist blow-drying and prepping hair with a round brush"
+          width="900"
+          height="1200"
+          loading="lazy"
+          class="w-full h-auto rounded-2xl shadow bg-brand-100 object-cover aspect-[3/4]"
+        />
+        <p class="text-center text-xs text-stone-500 mt-1.5">Prep &amp; styling</p>
+      </div>
+      <div>
+        <img
+          src="/images/keratin-after.jpg"
+          alt="Smooth, glossy finished hair after a salon blowout"
+          width="900"
+          height="1200"
+          loading="lazy"
+          class="w-full h-auto rounded-2xl shadow bg-brand-100 object-cover aspect-[3/4]"
+        />
+        <p class="text-center text-xs text-stone-500 mt-1.5">Smooth, glossy finish</p>
+      </div>
+    </div>
+  </div>
 
+  <div class="max-w-3xl mx-auto px-4 prose-section">
     <h2>How Much Does a Keratin Treatment Cost in Elmwood Park?</h2>
     <p>
       Pricing depends on your hair length and thickness and the type of treatment. As a general guide in the
@@ -267,10 +311,12 @@ const faqSchema = {
           </tr>
         </thead>
         <tbody>
-          <tr class="border-t border-brand-200"><td class="px-5 py-4">Express keratin</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XX–$XX]</td></tr>
-          <tr class="border-t border-brand-200"><td class="px-5 py-4">Brazilian blowout</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XXX–$XXX]</td></tr>
-          <tr class="border-t border-brand-200"><td class="px-5 py-4">Traditional / full keratin</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XXX–$XXX]</td></tr>
-          <tr class="border-t border-brand-200"><td class="px-5 py-4">Nanoplasty / specialty formaldehyde-free</td><td class="px-5 py-4 font-serif font-semibold text-brand-900">[$XXX–$XXX]</td></tr>
+          {SITE.prices.map((p) => (
+            <tr class="border-t border-brand-200">
+              <td class="px-5 py-4">{p.name}</td>
+              <td class="px-5 py-4 font-serif font-semibold text-brand-900">{p.range}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -292,7 +338,9 @@ const faqSchema = {
       Most keratin treatments last <strong>2 to 5 months</strong>, depending on the type and how you care for your
       hair afterward. Traditional keratin lasts longest; express and formaldehyde-free options are on the shorter
       end. The single biggest factor in longevity is your aftercare — a <strong>sulfate-free shampoo</strong>
-      dramatically extends the life of any keratin treatment, while sulfates strip it out faster.
+      dramatically extends the life of any keratin treatment, while sulfates strip it out faster. For the full
+      month-by-month breakdown, see
+      <a href="/how-long-does-keratin-last/" class="text-brand-600 font-medium">How Long Does Keratin Last? →</a>
     </p>
 
     <h2>Is a Keratin Treatment Safe?</h2>
@@ -302,16 +350,25 @@ const faqSchema = {
       a flat iron, which is why proper ventilation and a trained stylist matter. If formaldehyde is a concern for
       you, ask specifically for a <strong>formaldehyde-free treatment</strong> — cysteine-based and nanoplasty
       options are designed exactly for this. A licensed, experienced stylist will walk you through your options and
-      help you choose the right formulation for your hair and comfort level.
+      help you choose the right formulation for your hair and comfort level. Full safety details:
+      <a href="/is-keratin-safe/" class="text-brand-600 font-medium">Is Keratin Safe? →</a>
     </p>
 
+    <!--
+      public/images/brazilian-blowout-photo.jpg — this is a general hair
+      lifestyle photo, not a documented treatment result, so the alt text
+      below describes it honestly rather than implying it's a before/after.
+      Swap for a properly-licensed Brazilian blowout result photo
+      (Unsplash/Pexels, or a real client photo with permission) if you want
+      this slot to show an actual treatment outcome.
+    -->
     <img
-      src="/images/brazilian-blowout-elmwood-park.svg"
-      alt="Brazilian blowout result, smooth glossy hair"
+      src="/images/brazilian-blowout-photo.jpg"
+      alt="Hair in motion, showing natural volume and texture"
       width="1200"
       height="800"
       loading="lazy"
-      class="w-full h-auto rounded-2xl shadow mt-2 mb-6"
+      class="w-full h-auto rounded-2xl shadow mt-2 mb-6 bg-brand-100 object-cover"
     />
 
     <h2>Keratin Treatment vs. Brazilian Blowout — What's the Difference?</h2>
@@ -380,8 +437,7 @@ const faqSchema = {
       <div>
         <h3 class="font-serif text-lg font-semibold text-brand-900 mb-1">Reviews coming soon</h3>
         <p class="text-stone-600 text-[15px]">
-          Real client reviews are on the way. In the meantime, request a free quote and experience it for yourself —
-          or check our Google Business Profile for verified reviews once it's live.
+          Real client reviews are on the way. In the meantime, request a free quote and experience it for yourself.
         </p>
       </div>
     </div>

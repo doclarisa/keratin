@@ -14,11 +14,26 @@ export const SITE = {
   // before launch. NAP must be identical here, on the Google Business Profile,
   // and on every directory listing (Yelp, etc). A mismatch or a fabricated
   // address/rating is a suspension and de-index risk.
-  businessName: "[SITE/BUSINESS NAME]",
-  phone: "[CALLRAIL NUMBER]", // e.g. "+1-708-555-0100" — CallRail tracking number
-  phoneDisplay: "[CALLRAIL NUMBER — DISPLAY FORMAT]", // e.g. "(708) 555-0100"
-  address: "[REAL STREET ADDRESS]", // must match the partner salon's real, servicing location
-  email: "[CONTACT EMAIL]",
+  businessName: "Keratin Treatment Elmwood Park",
+  phone: "+1-773-946-5858", // CallRail tracking number
+  phoneDisplay: "(773) 946-5858",
+  address: "", // must stay empty until a real partner salon is attached — see hasPhysicalLocation below
+  email: "info@keratintreatmentelmwoodpark.com",
+
+  // Organic-only / lead-referral mode: there is no physical salon behind this
+  // site yet. It ranks in normal search and routes callers to the operator.
+  // Flip this to true (and fill in `address` above) once a real partner
+  // salon is attached — LocalBusiness/HairSalon schema switches on from this
+  // flag with no code changes required elsewhere.
+  hasPhysicalLocation: false,
+
+  // Typical Elmwood Park guide ranges — update once real partner pricing is confirmed.
+  prices: [
+    { name: "Express keratin", range: "$150–$250" },
+    { name: "Brazilian blowout", range: "$250–$400" },
+    { name: "Traditional / full keratin", range: "$300–$450" },
+    { name: "Nanoplasty / specialty", range: "$350–$550" },
+  ],
 
   priceRange: "$$",
   areaServed: [

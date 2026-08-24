@@ -1,0 +1,110 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin Treatment vs. Nanoplasty | Elmwood Park, IL";
+const description =
+  "Keratin treatment vs. nanoplasty: chemistry, downtime, longevity, and results compared, so you can choose the right formaldehyde-free-friendly option.";
+---
+
+<Layout title={title} description={description} path="/keratin-vs-nanoplasty/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Keratin vs. Nanoplasty
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin Treatment vs. Nanoplasty
+    </h1>
+    <p>
+      Both smooth frizz and add shine, and both can be part of a formaldehyde-free routine — but they get there
+      differently, and the results aren't identical. Here's how traditional keratin and nanoplasty actually compare.
+    </p>
+
+    <div class="not-prose overflow-x-auto my-6">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-50">
+            <th class="p-3 border border-stone-200 font-semibold text-brand-900">Factor</th>
+            <th class="p-3 border border-stone-200 font-semibold text-brand-900">Traditional Keratin</th>
+            <th class="p-3 border border-stone-200 font-semibold text-brand-900">Nanoplasty</th>
+          </tr>
+        </thead>
+        <tbody class="text-stone-700">
+          <tr>
+            <td class="p-3 border border-stone-200 font-medium">Formaldehyde</td>
+            <td class="p-3 border border-stone-200">Often present in classic formulas</td>
+            <td class="p-3 border border-stone-200">Formaldehyde-free by design</td>
+          </tr>
+          <tr>
+            <td class="p-3 border border-stone-200 font-medium">Frizz reduction</td>
+            <td class="p-3 border border-stone-200">Maximum, most dramatic</td>
+            <td class="p-3 border border-stone-200">Strong, slightly more subtle</td>
+          </tr>
+          <tr>
+            <td class="p-3 border border-stone-200 font-medium">Curl retention</td>
+            <td class="p-3 border border-stone-200">Less — more relaxing effect</td>
+            <td class="p-3 border border-stone-200">More natural texture retained</td>
+          </tr>
+          <tr>
+            <td class="p-3 border border-stone-200 font-medium">Downtime before washing</td>
+            <td class="p-3 border border-stone-200">2–3 days</td>
+            <td class="p-3 border border-stone-200">Varies by formula, often shorter</td>
+          </tr>
+          <tr>
+            <td class="p-3 border border-stone-200 font-medium">Typical longevity</td>
+            <td class="p-3 border border-stone-200">3–5 months</td>
+            <td class="p-3 border border-stone-200">2–4 months</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How They Work, Chemically</h2>
+    <p>
+      Traditional keratin smoothing coats the hair shaft with keratin protein and seals it in with a flat iron;
+      classic versions of this process often use formaldehyde or a formaldehyde-releasing ingredient to make that
+      bond stronger and longer-lasting. Nanoplasty takes a different approach, using ingredients engineered at a
+      much smaller molecular size so they can penetrate the hair shaft and smooth it from within, without needing
+      formaldehyde chemistry to do it. For more on formaldehyde-free chemistry generally, see our
+      <a href="/formaldehyde-free-keratin/" class="text-brand-600 font-medium">formaldehyde-free keratin guide →</a>.
+    </p>
+
+    <h2>Results: Smoothing Intensity and Texture</h2>
+    <p>
+      Traditional keratin tends to deliver the most dramatic, straightest result, and it relaxes curl pattern more
+      than nanoplasty does. Nanoplasty is designed to smooth and reduce frizz while leaving more of your hair's
+      natural movement and body intact — many clients describe it as leaving hair feeling more "like itself," just
+      calmer. If you have looser waves or curls and want to keep some texture, nanoplasty is usually the closer fit.
+      If your hair is very thick, coarse, or extremely frizzy and you want maximum control, traditional keratin
+      often gets you further.
+    </p>
+
+    <h2>Longevity and Upkeep</h2>
+    <p>
+      Traditional keratin generally lasts a bit longer than nanoplasty, largely because of the stronger bond
+      formaldehyde-based chemistry creates. Both fade faster with sulfate shampoos and heavy washing, and both
+      benefit from the same core aftercare — see our
+      <a href="/keratin-aftercare/" class="text-brand-600 font-medium">keratin aftercare guide →</a> for specifics
+      that apply to either treatment.
+    </p>
+
+    <h2>Which One Should You Choose?</h2>
+    <p>
+      Choose <strong>traditional keratin</strong> if frizz control and longevity are your top priorities and you're
+      comfortable with (or specifically want) a formula that includes formaldehyde. Choose <strong>nanoplasty</strong>
+      if avoiding formaldehyde is a priority, or if you want to keep more natural texture and volume while still
+      cutting down on frizz. Availability varies by stylist since nanoplasty is a newer service — request a quote and
+      we'll confirm what's offered for your appointment.
+    </p>
+    <p>
+      Still deciding? See the full
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a> or compare against a Brazilian
+      blowout in our <a href="/keratin-vs-brazilian-blowout/" class="text-brand-600 font-medium">keratin vs. Brazilian blowout guide →</a>.
+    </p>
+
+    <p>
+      Questions about which fits your hair? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>
+      and a stylist will help you decide.
+    </p>
+  </div>
+</Layout>

@@ -1,0 +1,90 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin Treatment for Frizz & Humidity | Elmwood Park, IL";
+const description =
+  "Why humidity causes frizz, how keratin treatments fight it, and which treatment type holds up best through Chicago-area humid summers.";
+---
+
+<Layout title={title} description={description} path="/keratin-for-frizz-humidity/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Keratin for Frizz &amp; Humidity
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin Treatment for Frizz &amp; Humidity
+    </h1>
+    <p>
+      Chicago-area summers bring exactly the kind of humidity that turns a good hair day into a frizzy one by
+      lunchtime, and Elmwood Park is no exception. If humidity is your main hair complaint — more than curl pattern
+      or thickness on its own — it's worth understanding what's actually happening and which treatment addresses it
+      most directly.
+    </p>
+
+    <h2>Why Humidity Causes Frizz</h2>
+    <p>
+      Hair frizzes in humidity because the outer layer of each strand — the cuticle — is made of overlapping
+      scale-like cells. When those cells lift or separate, usually from damage, dryness, or naturally curly/coarse
+      texture, they let excess moisture from humid air into the hair shaft. That absorbed moisture makes the strand
+      swell and disrupts its shape, which shows up as frizz, flyaways, and lost style hold. The drier or more porous
+      your hair, the more moisture it tends to pull in, and the worse the frizz.
+    </p>
+
+    <h2>How Keratin Actually Fights It</h2>
+    <p>
+      A keratin treatment works on frizz by smoothing and partially sealing the cuticle, so those raised, separated
+      cells lie flatter against the hair shaft. A smoother, flatter cuticle absorbs less moisture from the air,
+      which is the core reason keratin-treated hair holds up so much better on a humid day than untreated hair. It's
+      not that the hair becomes waterproof — it's that it resists environmental moisture enough to stay smooth
+      instead of swelling and frizzing.
+    </p>
+
+    <h2>Matching Treatment Intensity to Frizz Severity</h2>
+    <p>
+      Not every frizz problem needs the strongest treatment available. If your hair frizzes occasionally on the most
+      humid days but is generally manageable, an express keratin treatment or a formaldehyde-free option like
+      <a href="/cysteine-treatment/" class="text-brand-600 font-medium">cysteine</a> or
+      <a href="/nanoplasty/" class="text-brand-600 font-medium">nanoplasty</a> may be enough. If frizz is a
+      near-daily fight regardless of the weather, a full traditional keratin treatment provides the strongest and
+      longest-lasting humidity resistance. See the full comparison of treatment types in our
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a>.
+    </p>
+
+    <h2>Which Treatment Holds Up Best in Humidity, Ranked</h2>
+    <p>
+      Generally speaking, <strong>traditional keratin</strong> provides the strongest, longest-lasting humidity
+      resistance because of how thoroughly it seals the cuticle. A <strong>Brazilian blowout</strong> offers solid
+      humidity resistance with more natural volume retained and no downtime, making it a popular middle-ground
+      choice. <strong>Formaldehyde-free options</strong> (cysteine, nanoplasty) provide real but somewhat shorter-lived
+      humidity resistance — a reasonable trade for clients prioritizing formaldehyde-free chemistry over maximum
+      hold. If you're specifically weighing keratin against a Brazilian blowout for humidity performance, see our
+      <a href="/keratin-vs-brazilian-blowout/" class="text-brand-600 font-medium">side-by-side comparison →</a>.
+    </p>
+
+    <h2>Maintaining Frizz Control Between Appointments</h2>
+    <p>
+      However strong your treatment, humidity resistance fades gradually as the treatment washes out — and fades
+      faster with sulfate shampoos, which is why aftercare matters even more if frizz is your main concern. A
+      sulfate-free shampoo, a lightweight anti-humidity leave-in on especially humid days, and spacing out how often
+      you wash all extend how long your hair resists frizz. Full details in our
+      <a href="/keratin-aftercare/" class="text-brand-600 font-medium">aftercare guide →</a>.
+    </p>
+
+    <h2>Setting Realistic Expectations</h2>
+    <p>
+      Keratin treatments significantly reduce frizz and humidity swelling, but on an extremely humid, high-dew-point
+      day, even well-treated hair may show a little more texture than it would on a dry day. The goal is a
+      dramatic, noticeable improvement over untreated hair — not total immunity to weather.
+    </p>
+
+    <p>
+      Struggling with frizz that gets worse every summer? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>
+      or request a free quote and we'll help match you with the right treatment intensity for your hair.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

@@ -1,0 +1,98 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin Treatment Aftercare | Elmwood Park, IL";
+const description =
+  "How to care for hair after a keratin treatment — wash timing, products to avoid, styling do's and don'ts, and the mistakes that shorten results fastest.";
+---
+
+<Layout title={title} description={description} path="/keratin-aftercare/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Aftercare
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin Treatment Aftercare: How to Make It Last
+    </h1>
+    <p>
+      A keratin treatment is only as good as its aftercare. Two clients can get the exact same service and end up
+      with very different results three months later — the difference is almost always what happened (or didn't
+      happen) in the days and weeks after the appointment. Here's what actually matters.
+    </p>
+
+    <h2>The First 3 Days: Don't Wash, Don't Clip, Don't Sweat It Out</h2>
+    <p>
+      For a traditional keratin treatment, most stylists ask you to avoid washing your hair, tucking it behind your
+      ears, using clips or headbands, or tying it up for 48–72 hours after the service. The keratin is still
+      bonding to the hair shaft during this window, and any crease, bend, or moisture can set a permanent kink or
+      wave line into otherwise smooth hair. A Brazilian blowout is different — it's formulated to be washed the same
+      day, so this waiting period mostly applies to full/traditional keratin and some nanoplasty formulas. Always
+      confirm the exact window with your stylist, since it varies by product line.
+    </p>
+    <p>
+      Sweating heavily during this period causes the same problem as washing too early, so it's worth rescheduling
+      an intense workout for a few days if you can.
+    </p>
+
+    <h2>Switch to a Sulfate-Free Shampoo — Permanently</h2>
+    <p>
+      This is the single biggest lever you control. Sulfates are the detergents in most regular shampoos, and
+      they're excellent at stripping oil, product buildup — and keratin. Every wash with a sulfate shampoo pulls a
+      little more of the treatment out of your hair, which is why some clients feel their "3-month" treatment fades
+      in six weeks. A sulfate-free shampoo and conditioner won't make the treatment last forever, but it meaningfully
+      extends it. Look for "sulfate-free" on the label specifically — "gentle" or "color-safe" isn't the same thing.
+    </p>
+
+    <h2>Space Out Your Washes</h2>
+    <p>
+      Beyond sulfates, the sheer frequency of washing matters. Washing every other day instead of daily, once you're
+      past the initial waiting period, keeps more of the treatment intact simply because it's exposed to water and
+      friction less often. Dry shampoo on off-days is a reasonable trade-off if you're used to washing daily.
+    </p>
+
+    <h2>Watch Chlorine and Salt Water</h2>
+    <p>
+      Pool chlorine and ocean salt water are both harder on a keratin treatment than plain tap water — chlorine in
+      particular can react with the treatment and affect both its finish and its longevity. If you're swimming
+      regularly, rinse hair with fresh water before and after, and consider a leave-in conditioner or swim cap as a
+      barrier.
+    </p>
+
+    <h2>Heat Styling: Less Is More, But Not Zero</h2>
+    <p>
+      Part of the appeal of keratin is cutting down on daily heat styling, and doing that is itself a form of
+      aftercare — less heat means less stress on the hair and the treatment. That said, an occasional low-heat
+      touch-up with a flat iron is generally fine and won't undo the treatment. What does add up over time is daily
+      high-heat styling with no heat protectant, which is hard on any hair, treated or not.
+    </p>
+
+    <h2>Common Mistakes That Shorten Results</h2>
+    <ul>
+      <li><strong>Washing too soon.</strong> The single most common way to undercut a fresh treatment.</li>
+      <li><strong>Regular (sulfated) shampoo out of habit.</strong> Easy to forget in the first week or two.</li>
+      <li><strong>Tight ponytails, buns, or headbands right after the appointment.</strong> Creates crease lines before the treatment has fully set.</li>
+      <li><strong>Skipping touch-ups.</strong> Waiting until the treatment has fully faded, rather than a maintenance visit, means starting closer to square one each time.</li>
+    </ul>
+
+    <p>
+      For a deeper look at exactly how long you can expect results to hold and what most affects that timeline, see
+      <a href="/how-long-does-keratin-last/" class="text-brand-600 font-medium">How Long Does Keratin Last? →</a>
+      Curious what a treatment and touch-up actually cost in Elmwood Park? Check the
+      <a href="/keratin-treatment-cost/" class="text-brand-600 font-medium">full pricing guide →</a>. And if
+      formaldehyde is a concern for your next appointment, formaldehyde-free formulas have slightly different
+      aftercare needs — see our
+      <a href="/formaldehyde-free-keratin/" class="text-brand-600 font-medium">formaldehyde-free keratin guide →</a>.
+    </p>
+
+    <p>
+      Have a specific aftercare question before booking?
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a> and we'll connect
+      you with a specialist who can walk through it for your hair type.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

@@ -1,0 +1,91 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Is Keratin Treatment Safe? | Elmwood Park, IL";
+const description =
+  "Is a keratin treatment safe? What formaldehyde exposure actually involves, formaldehyde-free alternatives, pregnancy considerations, and questions to ask before booking.";
+---
+
+<Layout title={title} description={description} path="/is-keratin-safe/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Is Keratin Safe?
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Is a Keratin Treatment Safe?
+    </h1>
+    <p>
+      It's a fair question, and the honest answer is: it depends mostly on the formula and the salon. Here's what
+      the safety concern actually is, what reduces it, and what to ask before you book.
+    </p>
+
+    <h2>The Formaldehyde Question, Explained</h2>
+    <p>
+      The safety concern with keratin treatments centers on formaldehyde, a chemical some traditional smoothing
+      solutions contain (or release from ingredients like methylene glycol) to bond keratin protein to hair when
+      heated with a flat iron. Heating the solution releases formaldehyde gas into the air, and exposure at high
+      enough levels can irritate the eyes, nose, and throat, and cause headaches in sensitive individuals. This is
+      why occupational safety guidelines exist around formaldehyde exposure limits in salon settings, and why proper
+      ventilation during the service matters.
+    </p>
+
+    <h2>What Reduces the Risk</h2>
+    <ul>
+      <li><strong>Good ventilation.</strong> A well-ventilated space — open windows, exhaust fans, or dedicated ventilation systems — significantly reduces gas concentration during the flat-ironing step.</li>
+      <li><strong>An experienced, licensed stylist.</strong> Proper technique (correct product amount, appropriate flat iron temperature, adequate rinse-out) reduces both exposure and skin/scalp irritation risk.</li>
+      <li><strong>Choosing a formaldehyde-free formula.</strong> Removes the specific formaldehyde exposure concern entirely. See our <a href="/formaldehyde-free-keratin/" class="text-brand-600 font-medium">formaldehyde-free keratin guide →</a> for what that actually means chemically and how to verify a formula really is free of it.</li>
+    </ul>
+
+    <h2>Formaldehyde-Free Doesn't Automatically Mean Risk-Free</h2>
+    <p>
+      Removing formaldehyde removes that specific concern, but any chemical hair service — formaldehyde-free
+      included — can cause irritation for people with sensitive skin or scalp conditions. If you have known
+      sensitivities or a history of reacting to hair products, mention it during your consultation, and consider
+      asking about a patch test before a full service, especially for a formula you haven't used before. Formulas
+      like cysteine treatments and <a href="/nanoplasty/" class="text-brand-600 font-medium">nanoplasty</a> are
+      considered gentler overall, but "gentler" isn't the same as "guaranteed no reaction" for every individual.
+    </p>
+
+    <h2>Pregnancy and Nursing</h2>
+    <p>
+      Many stylists and salons decline chemical smoothing services — keratin included, formaldehyde-free or not —
+      for clients who are pregnant or nursing, out of general caution around chemical exposure rather than specific
+      documented risk to keratin treatments. If you're pregnant or nursing, talk to your doctor before booking any
+      chemical hair service, and expect that some stylists will ask about this directly during consultation or
+      decline the service as a matter of policy.
+    </p>
+
+    <h2>Questions Worth Asking Before You Book</h2>
+    <ul>
+      <li>What specific product line are you using, and is it formaldehyde-free or formaldehyde-based?</li>
+      <li>What ventilation do you have in the space where the service is performed?</li>
+      <li>Have you worked with my hair type/history before (color, prior chemical treatments)?</li>
+      <li>Do you offer a patch test for first-time clients?</li>
+    </ul>
+    <p>
+      A stylist who answers these clearly and specifically — rather than vaguely — is generally a good sign you're
+      in experienced hands.
+    </p>
+
+    <h2>The Bottom Line</h2>
+    <p>
+      A keratin treatment performed by an experienced stylist, in a well-ventilated space, using a formula you
+      understand, is a routine and widely-performed service. The real risk factors are poor ventilation, an
+      inexperienced technician, or not knowing what's actually in the bottle — all of which are avoidable with the
+      right questions up front.
+    </p>
+
+    <p>
+      Weighing formaldehyde-free options against traditional keratin? See
+      <a href="/keratin-vs-nanoplasty/" class="text-brand-600 font-medium">Keratin vs. Nanoplasty →</a> or the
+      <a href="/" class="text-brand-600 font-medium">full treatment overview →</a>. Have a specific safety question?
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a> and we'll help
+      connect you with a specialist who can answer it directly.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

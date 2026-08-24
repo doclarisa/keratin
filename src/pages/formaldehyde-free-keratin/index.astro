@@ -1,0 +1,96 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Formaldehyde-Free Keratin Treatment | Elmwood Park, IL";
+const description =
+  "What 'formaldehyde-free' actually means chemically, how it compares to traditional keratin, and how to make sure the formula you're getting really is free of it.";
+---
+
+<Layout title={title} description={description} path="/formaldehyde-free-keratin/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Formaldehyde-Free Keratin
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Formaldehyde-Free Keratin Treatment: What It Actually Means
+    </h1>
+    <p>
+      "Formaldehyde-free" is one of the most-searched phrases around keratin treatments, and also one of the most
+      loosely used. Some products marketed as formaldehyde-free still release small amounts of formaldehyde gas when
+      heated; others use genuinely different chemistry from the start. Here's how to tell the difference and choose
+      with confidence.
+    </p>
+
+    <h2>Why Formaldehyde Was Used in the First Place</h2>
+    <p>
+      Traditional keratin smoothing solutions historically relied on formaldehyde (or ingredients that release it,
+      like methylene glycol) because it's very effective at bonding keratin protein to the hair shaft when heated
+      with a flat iron. That's what gives classic keratin treatments their dramatic, long-lasting smoothing power.
+      The trade-off is that formaldehyde is a known irritant, and heating it releases gas that both the client and
+      stylist can be exposed to during the service.
+    </p>
+
+    <h2>The Real Formaldehyde-Free Alternatives</h2>
+    <p>
+      Genuine formaldehyde-free smoothing chemistry generally falls into a few categories:
+    </p>
+    <ul>
+      <li>
+        <strong>Cysteine-based treatments.</strong> Use the amino acid cysteine — a natural building block of
+        keratin — instead of formaldehyde to bond and smooth. See our full
+        <a href="/cysteine-treatment/" class="text-brand-600 font-medium">cysteine treatment guide →</a>.
+      </li>
+      <li>
+        <strong>Glyoxylic acid formulas.</strong> A different bonding chemistry that avoids formaldehyde-releasing
+        ingredients entirely; results tend to sit between a Brazilian blowout and traditional keratin in intensity.
+      </li>
+      <li>
+        <strong>Nanoplasty.</strong> Uses low-molecular-weight ingredients to penetrate the hair shaft without
+        formaldehyde. Read more in our
+        <a href="/nanoplasty/" class="text-brand-600 font-medium">nanoplasty guide →</a>, or see the
+        <a href="/keratin-vs-nanoplasty/" class="text-brand-600 font-medium">keratin vs. nanoplasty comparison →</a>.
+      </li>
+    </ul>
+
+    <h2>The Trade-Off: Slightly Less Dramatic, Slightly Shorter</h2>
+    <p>
+      Formaldehyde-free treatments are, on average, a bit more subtle than a traditional formaldehyde-based keratin
+      treatment, and results tend to fade a few weeks sooner. For many clients that's an easy trade for skipping the
+      formaldehyde question entirely. If your hair is very thick, coarse, or extremely frizz-prone, it's worth
+      discussing with your stylist whether a formaldehyde-free formula will get you far enough, or whether a
+      traditional treatment is worth considering despite the trade-offs.
+    </p>
+
+    <h2>How to Actually Verify a Formula Is Formaldehyde-Free</h2>
+    <p>
+      Because "formaldehyde-free" isn't a strictly regulated label, marketing claims don't always match the
+      ingredient list. A few practical steps:
+    </p>
+    <ul>
+      <li>Ask your stylist to name the specific product line being used, not just the category.</li>
+      <li>Watch for "methylene glycol," "formalin," or "quaternium-15" on an ingredient list — these release formaldehyde even when the front label says free of it.</li>
+      <li>A salon that's transparent about ingredients and ventilation is generally a good sign; one that's vague about what's in the bottle is worth a follow-up question.</li>
+    </ul>
+
+    <h2>Is It Actually Safer?</h2>
+    <p>
+      Genuinely formaldehyde-free formulas remove the specific health concern tied to formaldehyde gas exposure, but
+      "safer" doesn't mean "risk-free" — any chemical service can cause irritation for sensitive individuals, and a
+      patch test is a reasonable precaution for a first-time client. For the fuller picture on safety considerations
+      across all keratin treatment types, see
+      <a href="/is-keratin-safe/" class="text-brand-600 font-medium">Is Keratin Safe? →</a>
+    </p>
+
+    <p>
+      Not sure whether a formaldehyde-free option fits your hair and goals? Start with the
+      <a href="/" class="text-brand-600 font-medium">full keratin treatment overview →</a> or
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">call {SITE.phoneDisplay}</a> and we'll help
+      match you with a specialist who works with the formula you're comfortable with.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

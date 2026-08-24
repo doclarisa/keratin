@@ -1,0 +1,89 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "How Long Does a Keratin Treatment Last? | Elmwood Park, IL";
+const description =
+  "How long keratin treatments actually last, month by month — and the factors (treatment type, hair, aftercare) that decide whether you're on the short or long end.";
+---
+
+<Layout title={title} description={description} path="/how-long-does-keratin-last/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / How Long Does Keratin Last?
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      How Long Does a Keratin Treatment Last?
+    </h1>
+    <p>
+      "2 to 5 months" is the answer you'll see everywhere, and it's accurate — but it's also a wide enough range
+      that it's worth understanding exactly what pushes a treatment toward the short end versus the long end.
+    </p>
+
+    <h2>Baseline by Treatment Type</h2>
+    <ul>
+      <li><strong>Express keratin:</strong> typically 4–8 weeks — a lighter, faster service, often used as a maintenance touch-up between full treatments.</li>
+      <li><strong>Brazilian blowout:</strong> typically 8–12 weeks, with the advantage of no downtime before washing.</li>
+      <li><strong>Traditional / full keratin:</strong> typically 3–5 months — the longest-lasting mainstream option.</li>
+      <li><strong>Nanoplasty / formaldehyde-free specialty:</strong> typically 2–4 months, varying by formula.</li>
+    </ul>
+    <p>
+      For current pricing across these same categories, see the
+      <a href="/keratin-treatment-cost/" class="text-brand-600 font-medium">full cost guide →</a>.
+    </p>
+
+    <h2>What Actually Moves You Within That Range</h2>
+    <h3 class="font-serif text-lg font-semibold text-brand-900 mt-6 mb-1.5">Hair Porosity and Texture</h3>
+    <p>
+      More porous hair — often color-treated, previously chemically processed, or naturally coarse hair — can both
+      absorb a treatment especially well and lose it a bit faster, since the same open cuticle structure that lets
+      keratin in also lets it wash out more easily. Fine, less porous hair sometimes holds a treatment for a shorter
+      window simply because there's less surface area and structure for the keratin to bond to.
+    </p>
+    <h3 class="font-serif text-lg font-semibold text-brand-900 mt-6 mb-1.5">Wash Frequency and Products</h3>
+    <p>
+      This is the single biggest controllable factor. Sulfate shampoos strip keratin out significantly faster than
+      sulfate-free formulas, and washing daily fades a treatment faster than washing every other day. Two clients
+      with the same treatment can see results last twice as long or half as long purely based on this. Full details
+      in our <a href="/keratin-aftercare/" class="text-brand-600 font-medium">aftercare guide →</a>.
+    </p>
+    <h3 class="font-serif text-lg font-semibold text-brand-900 mt-6 mb-1.5">Heat Styling and Environmental Exposure</h3>
+    <p>
+      Daily high-heat styling without protection, chlorine from pools, and salt water from swimming all accelerate
+      fade. Humid climates also mean the treatment is doing more "work" resisting frizz day to day, which can shorten
+      its effective lifespan slightly compared to a drier climate — see our
+      <a href="/keratin-for-frizz-humidity/" class="text-brand-600 font-medium">guide to keratin and humidity →</a>
+      for more on this specifically.
+    </p>
+
+    <h2>A Rough Month-by-Month Timeline (Traditional Keratin)</h2>
+    <ul>
+      <li><strong>Weeks 1–4:</strong> Peak results — smoothest, shiniest, least frizz.</li>
+      <li><strong>Weeks 5–10:</strong> Gradual softening; roots may start showing more natural texture as new growth comes in untreated.</li>
+      <li><strong>Weeks 11–16:</strong> Noticeably more natural texture and frizz returning, especially in humidity; many clients book a touch-up around here.</li>
+      <li><strong>Beyond 16 weeks:</strong> Treatment has mostly washed out for most clients; hair returns close to its natural state.</li>
+    </ul>
+    <p>
+      Express keratin and Brazilian blowout timelines compress this same pattern into a shorter window; nanoplasty
+      and other formaldehyde-free formulas land somewhere in between, depending on the specific product.
+    </p>
+
+    <h2>When to Book a Touch-Up</h2>
+    <p>
+      Most stylists recommend booking a touch-up when you notice results softening rather than waiting until the
+      treatment has fully faded — starting from a partially-treated base generally requires less product and time
+      than starting completely from scratch.
+    </p>
+
+    <p>
+      Want to know how a specific treatment type compares side by side? See
+      <a href="/keratin-vs-brazilian-blowout/" class="text-brand-600 font-medium">Keratin vs. Brazilian Blowout →</a>
+      or the <a href="/keratin-vs-nanoplasty/" class="text-brand-600 font-medium">Keratin vs. Nanoplasty →</a>
+      comparison. Ready to book? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

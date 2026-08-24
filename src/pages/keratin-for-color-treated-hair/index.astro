@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin Treatment for Color-Treated Hair | Elmwood Park, IL";
+const description =
+  "Keratin treatments on color-treated hair — timing coloring and keratin correctly, protecting your color, and what to ask your stylist first.";
+---
+
+<Layout title={title} description={description} path="/keratin-for-color-treated-hair/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Keratin for Color-Treated Hair
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin Treatment for Color-Treated Hair
+    </h1>
+    <p>
+      Keratin treatments and hair color aren't incompatible, but the order and timing matter more than most clients
+      expect. Get it wrong and you can end up with faded, uneven color or a keratin treatment that doesn't take
+      evenly. Here's how to sequence the two correctly.
+    </p>
+
+    <h2>Which Should Come First: Color or Keratin?</h2>
+    <p>
+      As a general rule, most stylists recommend <strong>coloring first, then keratin</strong> — with roughly a
+      one- to two-week gap in between. Coloring involves opening the hair cuticle to deposit or lift pigment, and a
+      keratin treatment then seals the cuticle back down, which can actually help lock color in and extend its
+      vibrancy. Doing it in the reverse order — keratin, then color shortly after — risks the coloring process
+      re-opening the cuticle and prematurely stripping out some of the keratin treatment you just paid for.
+    </p>
+    <p>
+      If you're coloring and getting keratin in the same visit or very close together, tell your stylist explicitly
+      so they can sequence the appointment (or space out two appointments) correctly. This is one of the most common
+      questions worth asking directly during a consultation, since the right order can depend on the specific
+      products being used.
+    </p>
+
+    <h2>Will Keratin Fade My Color?</h2>
+    <p>
+      Done in the right order, a keratin treatment is more likely to help color last longer than to fade it, because
+      it smooths and partially seals the cuticle, reducing how much color washes out with each shampoo. The bigger
+      threat to color longevity after either service is the same thing that shortens keratin results: sulfate
+      shampoos and frequent hot-water washing. A sulfate-free routine protects both your color and your keratin
+      treatment at once — see our <a href="/keratin-aftercare/" class="text-brand-600 font-medium">aftercare guide →</a>
+      for specifics.
+    </p>
+
+    <h2>Permanent, Semi-Permanent, and Demi-Permanent Color</h2>
+    <p>
+      The type of color you use affects how much you need to worry about interaction with keratin. Permanent color
+      that's already processed and settled is generally the most stable going into a keratin appointment.
+      Semi-permanent and demi-permanent color sit closer to the hair's surface and can be more sensitive to the heat
+      and chemistry of a keratin treatment, which is another reason a short gap between the two services helps —
+      it gives the color time to fully set before it's exposed to a flat iron at keratin-treatment temperatures.
+    </p>
+
+    <h2>If Your Color-Treated Hair Is Already Damaged</h2>
+    <p>
+      Repeated coloring, especially lightening or bleaching, can leave hair more porous and prone to over-processing
+      if it's then hit with a strong chemical smoothing treatment. If your color history includes bleach or frequent
+      lightening, a gentler, formaldehyde-free option is often the safer starting point rather than a full-strength
+      traditional keratin service. See our
+      <a href="/formaldehyde-free-keratin/" class="text-brand-600 font-medium">formaldehyde-free keratin guide →</a>
+      or ask specifically about <a href="/cysteine-treatment/" class="text-brand-600 font-medium">cysteine treatments →</a>,
+      which tend to be gentler on already-processed hair.
+    </p>
+
+    <h2>What to Tell Your Stylist</h2>
+    <p>
+      Before booking, be ready to share: how recently you colored, whether it was permanent or semi/demi-permanent,
+      whether any bleaching or lightening was involved, and how your hair has responded to chemical services in the
+      past. A stylist working from full information can sequence your appointments and pick the right formula instead
+      of guessing.
+    </p>
+
+    <p>
+      Want the full rundown on what to expect afterward regardless of your color history? See the
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a> or
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">call {SITE.phoneDisplay}</a> to talk through
+      your specific color and hair history before booking.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>

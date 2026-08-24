@@ -3,16 +3,25 @@ import Layout from "../../layouts/Layout.astro";
 import QuoteForm from "../../components/QuoteForm.astro";
 import { SITE } from "../../config";
 
-const title = `Contact ${SITE.businessName} | Elmwood Park, IL Keratin Salon`;
-const description =
-  "Contact our Elmwood Park, IL keratin treatment salon — phone, address, hours, and a free quote form. Book your appointment today.";
+const title = SITE.hasPhysicalLocation
+  ? `Contact ${SITE.businessName} | Elmwood Park, IL Keratin Salon`
+  : `Contact ${SITE.businessName} | Elmwood Park, IL Keratin Referrals`;
+const description = SITE.hasPhysicalLocation
+  ? "Contact our Elmwood Park, IL keratin treatment salon — phone, address, hours, and a free quote form. Book your appointment today."
+  : "Get in touch about a keratin treatment in Elmwood Park, IL — call or send your info and we'll connect you with a local specialist.";
 
-// BUILDER NOTE: swap the embed src below for a real Google Maps embed once
-// the partner salon's address is confirmed (Google Maps > Share > Embed a
-// map). This placeholder uses a public search-by-address embed so the page
-// never 404s, but it should point at the exact, verified location.
+// BUILDER NOTE: once a real partner salon is attached, set
+// SITE.hasPhysicalLocation to true and fill in SITE.address — this page will
+// automatically switch to showing the address, hours, and a map embed. Swap
+// the embed src below for a real Google Maps embed at that point (Google
+// Maps > Share > Embed a map) pointing at the exact, verified location.
 const mapQuery = encodeURIComponent(`${SITE.address}, ${SITE.city}, ${SITE.state} ${SITE.zip}`);
 const mapEmbedSrc = `https://maps.google.com/maps?q=${mapQuery}&z=14&output=embed`;
+
+// General-area map (city-level only) for organic-only mode — no street
+// address, so this must never zoom in tight enough to imply a storefront.
+const areaMapQuery = encodeURIComponent(`${SITE.city}, ${SITE.state}`);
+const areaMapEmbedSrc = `https://maps.google.com/maps?q=${areaMapQuery}&z=12&output=embed`;
 ---
 
 <Layout title={title} description={description} path="/contact/">
@@ -20,45 +29,81 @@ const mapEmbedSrc = `https://maps.google.com/maps?q=${mapQuery}&z=14&output=embe
     <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-8">Contact Us</h1>
 
     <div class="grid md:grid-cols-2 gap-10">
-      <div>
-        <address
-          itemscope
-          itemtype="https://schema.org/HairSalon"
-          class="not-italic text-stone-700 leading-relaxed mb-6"
-        >
-          <span itemprop="name" class="block font-serif text-xl font-semibold text-brand-900 mb-1">
-            {SITE.businessName}
-          </span>
-          <span itemprop="streetAddress">{SITE.address}</span><br />
-          <span itemprop="addressLocality">{SITE.city}</span>,{" "}
-          <span itemprop="addressRegion">{SITE.state}</span>{" "}
-          <span itemprop="postalCode">{SITE.zip}</span><br /><br />
-          Phone:{" "}
-          <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium hover:underline">
-            <span itemprop="telephone">{SITE.phoneDisplay}</span>
-          </a>
-        </address>
+      {SITE.hasPhysicalLocation ? (
+        <div>
+          <address
+            itemscope
+            itemtype="https://schema.org/HairSalon"
+            class="not-italic text-stone-700 leading-relaxed mb-6"
+          >
+            <span itemprop="name" class="block font-serif text-xl font-semibold text-brand-900 mb-1">
+              {SITE.businessName}
+            </span>
+            <span itemprop="streetAddress">{SITE.address}</span><br />
+            <span itemprop="addressLocality">{SITE.city}</span>,{" "}
+            <span itemprop="addressRegion">{SITE.state}</span>{" "}
+            <span itemprop="postalCode">{SITE.zip}</span><br /><br />
+            Phone:{" "}
+            <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium hover:underline">
+              <span itemprop="telephone">{SITE.phoneDisplay}</span>
+            </a>
+          </address>
 
-        <h2 class="font-serif text-lg font-semibold text-brand-900 mb-2">Hours</h2>
-        <ul class="text-stone-700 mb-6 space-y-1">
-          {SITE.hours.map((h) => (
-            <li>{h.days.join(", ")}: {h.opens} – {h.closes}</li>
-          ))}
-          <li class="text-stone-400">Closed Sunday &amp; Monday</li>
-        </ul>
+          <h2 class="font-serif text-lg font-semibold text-brand-900 mb-2">Hours</h2>
+          <ul class="text-stone-700 mb-6 space-y-1">
+            {SITE.hours.map((h) => (
+              <li>{h.days.join(", ")}: {h.opens} – {h.closes}</li>
+            ))}
+            <li class="text-stone-400">Closed Sunday &amp; Monday</li>
+          </ul>
 
-        <div class="rounded-2xl overflow-hidden border border-stone-200 aspect-video">
-          <iframe
-            src={mapEmbedSrc}
-            width="100%"
-            height="100%"
-            style="border:0"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title={`Map to ${SITE.businessName}`}
-          ></iframe>
+          <div class="rounded-2xl overflow-hidden border border-stone-200 aspect-video">
+            <iframe
+              src={mapEmbedSrc}
+              width="100%"
+              height="100%"
+              style="border:0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={`Map to ${SITE.businessName}`}
+            ></iframe>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div>
+          <p class="block font-serif text-xl font-semibold text-brand-900 mb-3">
+            {SITE.businessName}
+          </p>
+          <p class="text-stone-700 leading-relaxed mb-6">
+            We connect clients in Elmwood Park and the surrounding area with local keratin treatment
+            specialists — we're not a single storefront, so there's no one address to list yet. Call or send your
+            info below and we'll follow up with a same-day quote and help you find the right specialist for your
+            hair.
+          </p>
+          <p class="text-stone-700 mb-6">
+            Phone:{" "}
+            <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium hover:underline">{SITE.phoneDisplay}</a>
+          </p>
+          <p class="text-stone-700 mb-6">
+            Serving Elmwood Park and nearby: {SITE.areaServed.filter((a) => a !== "Elmwood Park").join(", ")}.
+          </p>
+
+          <div class="rounded-2xl overflow-hidden border border-stone-200 aspect-video">
+            <iframe
+              src={areaMapEmbedSrc}
+              width="100%"
+              height="100%"
+              style="border:0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title={`${SITE.city}, ${SITE.state} service area`}
+            ></iframe>
+          </div>
+          <p class="text-xs text-stone-400 mt-2">
+            Shows the Elmwood Park, IL area we serve — not a specific business address.
+          </p>
+        </div>
+      )}
 
       <div>
         <QuoteForm />

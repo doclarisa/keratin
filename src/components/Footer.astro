@@ -3,24 +3,32 @@ import { SITE, NAV } from "../config";
 ---
 
 <footer class="bg-brand-900 text-brand-100 mt-20">
-  <div class="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
     <div>
       <h2 class="font-serif text-xl font-semibold text-white mb-3">{SITE.businessName}</h2>
-      <address
-        itemscope
-        itemtype="https://schema.org/HairSalon"
-        class="not-italic text-sm text-brand-200 leading-relaxed"
-      >
-        <span itemprop="name" class="sr-only">{SITE.businessName}</span>
-        <span itemprop="streetAddress">{SITE.address}</span>,<br />
-        <span itemprop="addressLocality">{SITE.city}</span>,{" "}
-        <span itemprop="addressRegion">{SITE.state}</span>{" "}
-        <span itemprop="postalCode">{SITE.zip}</span><br />
-        Phone:{" "}
-        <a href={`tel:${SITE.phone}`} class="text-white hover:underline">
-          <span itemprop="telephone">{SITE.phoneDisplay}</span>
-        </a>
-      </address>
+      {SITE.hasPhysicalLocation ? (
+        <address
+          itemscope
+          itemtype="https://schema.org/HairSalon"
+          class="not-italic text-sm text-brand-200 leading-relaxed"
+        >
+          <span itemprop="name" class="sr-only">{SITE.businessName}</span>
+          <span itemprop="streetAddress">{SITE.address}</span>,<br />
+          <span itemprop="addressLocality">{SITE.city}</span>,{" "}
+          <span itemprop="addressRegion">{SITE.state}</span>{" "}
+          <span itemprop="postalCode">{SITE.zip}</span><br />
+          Phone:{" "}
+          <a href={`tel:${SITE.phone}`} class="text-white hover:underline">
+            <span itemprop="telephone">{SITE.phoneDisplay}</span>
+          </a>
+        </address>
+      ) : (
+        <p class="not-italic text-sm text-brand-200 leading-relaxed">
+          We connect you with local keratin specialists in the Elmwood Park area.<br />
+          Phone:{" "}
+          <a href={`tel:${SITE.phone}`} class="text-white hover:underline">{SITE.phoneDisplay}</a>
+        </p>
+      )}
     </div>
 
     <div>
@@ -30,7 +38,21 @@ import { SITE, NAV } from "../config";
           <li><a href={item.href} class="hover:text-white transition-colors">{item.label}</a></li>
         ))}
         <li><a href="/keratin-vs-brazilian-blowout/" class="hover:text-white transition-colors">Keratin vs. Brazilian Blowout</a></li>
+        <li><a href="/keratin-vs-nanoplasty/" class="hover:text-white transition-colors">Keratin vs. Nanoplasty</a></li>
         <li><a href="/hair-botox-vs-keratin/" class="hover:text-white transition-colors">Hair Botox vs. Keratin</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="font-sans text-[12.5px] font-semibold uppercase tracking-widest text-brand-400 mb-3.5">Guides</h2>
+      <ul class="space-y-2 text-sm text-brand-200">
+        <li><a href="/keratin-aftercare/" class="hover:text-white transition-colors">Keratin Aftercare</a></li>
+        <li><a href="/formaldehyde-free-keratin/" class="hover:text-white transition-colors">Formaldehyde-Free Keratin</a></li>
+        <li><a href="/keratin-for-curly-hair/" class="hover:text-white transition-colors">Keratin for Curly Hair</a></li>
+        <li><a href="/keratin-for-color-treated-hair/" class="hover:text-white transition-colors">Keratin for Color-Treated Hair</a></li>
+        <li><a href="/keratin-for-frizz-humidity/" class="hover:text-white transition-colors">Keratin for Frizz &amp; Humidity</a></li>
+        <li><a href="/how-long-does-keratin-last/" class="hover:text-white transition-colors">How Long Keratin Lasts</a></li>
+        <li><a href="/is-keratin-safe/" class="hover:text-white transition-colors">Is Keratin Safe?</a></li>
       </ul>
     </div>
 

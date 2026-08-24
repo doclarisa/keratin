@@ -6,12 +6,7 @@ const title = "Keratin Treatment Cost in Elmwood Park, IL | Pricing Guide";
 const description =
   "What does a keratin treatment cost in Elmwood Park, IL? Pricing by treatment type and hair length, plus what affects your final price.";
 
-const pricing = [
-  { name: "Express keratin", range: "[$XX–$XX]" },
-  { name: "Brazilian blowout", range: "[$XXX–$XXX]" },
-  { name: "Traditional / full keratin", range: "[$XXX–$XXX]" },
-  { name: "Nanoplasty / specialty formaldehyde-free", range: "[$XXX–$XXX]" },
-];
+const pricing = SITE.prices;
 ---
 
 <Layout title={title} description={description} path="/keratin-treatment-cost/">
@@ -45,10 +40,6 @@ const pricing = [
         </tbody>
       </table>
     </div>
-    <!--
-      BUILDER NOTE: replace all price ranges with real, confirmed pricing
-      from the partner salon before launch. Do not invent figures.
-    -->
 
     <h2>What Affects the Price</h2>
     <ul>

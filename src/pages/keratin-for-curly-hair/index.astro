@@ -1,0 +1,82 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin Treatment for Curly Hair | Elmwood Park, IL";
+const description =
+  "How keratin treatments work on curly hair — how much curl you keep, choosing the right intensity, and what to tell your stylist before you book.";
+---
+
+<Layout title={title} description={description} path="/keratin-for-curly-hair/">
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Keratin for Curly Hair
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin Treatment for Curly Hair
+    </h1>
+    <p>
+      The most common question curly-haired clients ask before booking a keratin treatment is some version of: "Will
+      I lose my curls?" The honest answer is that it depends heavily on the treatment strength and how it's applied
+      — and that's exactly the conversation worth having with your stylist before you sit down.
+    </p>
+
+    <h2>Keratin Smooths Frizz — It Doesn't Have to Erase Curl</h2>
+    <p>
+      A full-strength traditional keratin treatment, applied and sealed with a flat iron the standard way, will
+      significantly loosen and relax curl pattern — for some clients that's the goal (a straighter, sleeker result),
+      but for curly-haired clients who just want frizz control while keeping their curl, it can be more change than
+      intended. The good news is that keratin treatments aren't all-or-nothing. Many stylists offer a lighter
+      application or shorter processing time specifically for curly hair, which reduces frizz and cuts styling time
+      without fully relaxing the curl pattern.
+    </p>
+
+    <h2>Talk Curl Retention Through Before You Book</h2>
+    <p>
+      Because the same product can be applied in different ways with very different results, the single most
+      important step for curly hair is a real consultation — not just booking "a keratin treatment" generically.
+      Bring reference photos of results you like, be specific about how much curl you want to keep, and ask your
+      stylist directly how their technique affects curl pattern. A stylist experienced with curly and textured hair
+      will be able to explain what to expect for your specific curl type before any product touches your hair.
+    </p>
+
+    <h2>Which Treatment Type Tends to Work Best</h2>
+    <p>
+      For coarser, tighter curl patterns that mainly struggle with frizz and volume rather than wanting a
+      straighter result, a formaldehyde-free option like
+      <a href="/nanoplasty/" class="text-brand-600 font-medium">nanoplasty</a> or a
+      <a href="/cysteine-treatment/" class="text-brand-600 font-medium">cysteine treatment</a> often strikes a better
+      balance — both are designed to smooth and reduce frizz while leaving more natural movement intact than a
+      traditional full-strength keratin service. If your priority is maximum frizz control and you're comfortable
+      with looser, relaxed waves rather than defined curls, traditional keratin will get you there more completely.
+      See the full breakdown of formulas in our
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a>.
+    </p>
+
+    <h2>Humidity Is Usually the Real Enemy</h2>
+    <p>
+      For a lot of curly-haired clients, the actual complaint isn't the curl itself — it's how much the curl frizzes
+      and expands in humidity. Keratin treatments help here regardless of how much curl pattern is retained, because
+      they smooth and partially seal the hair cuticle, which reduces how much moisture the hair absorbs from the air.
+      For more on how this works and which treatment holds up best in Chicago-area humidity, see
+      <a href="/keratin-for-frizz-humidity/" class="text-brand-600 font-medium">Keratin for Frizz &amp; Humidity →</a>.
+    </p>
+
+    <h2>Aftercare Matters Even More for Curly Hair</h2>
+    <p>
+      Curly hair is often more porous than straight hair, which means it can both absorb the treatment well and lose
+      it faster without the right aftercare. A sulfate-free shampoo and spacing out washes matter just as much — if
+      not more — for curly-haired clients trying to preserve both their curl pattern and their frizz control. See our
+      <a href="/keratin-aftercare/" class="text-brand-600 font-medium">full aftercare guide →</a> for the specifics.
+    </p>
+
+    <p>
+      Ready to find the right approach for your curl type? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>
+      or request a free quote and we'll connect you with a specialist experienced in curly and textured hair.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>
