@@ -3,43 +3,295 @@ import Layout from "../../layouts/Layout.astro";
 import QuoteForm from "../../components/QuoteForm.astro";
 import { SITE } from "../../config";
 
-const title = "Brazilian Blowout Elmwood Park, IL | No Downtime Smoothing";
+const title = "What Is a Brazilian Blowout? Benefits, Cost & Results | Elmwood Park, IL";
 const description =
-  "Brazilian blowout in Elmwood Park, IL — smooth, glossy hair with zero downtime. Wash and style the same day. Free quote from a local specialist.";
+  "A Brazilian Blowout is a semi-permanent smoothing treatment that cuts frizz and styling time with no downtime. How it works, cost, safety, and how long it lasts.";
+
+const faqs = [
+  {
+    q: "Is a Brazilian Blowout the same as a keratin treatment?",
+    a: "They overlap and the terms are often used interchangeably, but a Brazilian Blowout keeps more volume, usually has no downtime, and lasts a shorter time; classic keratin straightens more and lasts longer.",
+  },
+  {
+    q: "Does a Brazilian Blowout straighten your hair?",
+    a: "It smooths and softens frizz while keeping body — it's not a full straightener. Expect \"smooth with movement,\" not \"poker straight.\"",
+  },
+  {
+    q: "Is a Brazilian Blowout safe?",
+    a: "The name has a formaldehyde history, so it depends on the specific formula. Formaldehyde-free options exist — always check the ingredient list and pick a well-ventilated salon.",
+  },
+  {
+    q: "How long does a Brazilian Blowout last?",
+    a: "Around 10–12 weeks with good, sulfate-free aftercare.",
+  },
+  {
+    q: "Can I wash my hair after a Brazilian Blowout?",
+    a: "Usually yes, the same day — a key advantage over classic keratin — but confirm with your stylist for the exact formula used.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
-<Layout title={title} description={description} path="/brazilian-blowout/">
+<Layout title={title} description={description} path="/brazilian-blowout/" schema={[faqSchema]}>
   <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
     <p class="text-sm text-brand-600 font-medium mb-2">
       <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Brazilian Blowout
     </p>
-    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
-      Brazilian Blowout in Elmwood Park, IL
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-3">
+      What Is a Brazilian Blowout?
     </h1>
-    <p>
-      A Brazilian blowout is the smoothing treatment for people who don't want to wait around. Unlike a traditional
-      keratin treatment, there's no multi-day no-wash period — you can shampoo, sweat, and style the same day you
-      leave the salon. It reduces frizz and adds noticeable shine while keeping more of your hair's natural volume
-      and movement than a full keratin smoothing service.
+    <p class="text-lg text-stone-600 -mt-1 mb-6">
+      The No-Downtime Smoothing Treatment Explained
     </p>
-    <h2>How It Works</h2>
+
     <p>
-      A stylist applies a smoothing solution strand by strand, then seals it with a flat iron. The treatment coats
-      each strand rather than fully relaxing it, which is why some natural wave and body remains — it's smoothing,
-      not straightening.
+      A <strong>Brazilian Blowout</strong> is a semi-permanent hair-smoothing treatment that reduces frizz, adds
+      shine, and cuts styling time — while keeping more of your hair's natural body and movement than a full
+      straightening. Its signature selling point is convenience: unlike some smoothing services, there's typically
+      no downtime, so you can wash and style your hair the same day. This guide explains exactly what a Brazilian
+      Blowout is, how it works, what it costs, whether it's safe, and how it compares to keratin and other
+      treatments.
     </p>
-    <h2>Who It's For</h2>
+
+    <div class="rounded-[18px] border border-brand-200 bg-brand-100/60 p-6 my-6">
+      <p class="mb-0">
+        <strong>Quick answer:</strong> A Brazilian Blowout is a professional smoothing treatment that coats the
+        hair in a protein-based solution sealed in with a flat iron, cutting frizz and styling time with no
+        downtime and results that last about 10–12 weeks. It keeps more volume than a straightening keratin
+        treatment, but its name has a formaldehyde history worth understanding.
+      </p>
+    </div>
+
+    <h2>What Is a Brazilian Blowout?</h2>
     <p>
-      Brazilian blowout suits clients who want smoother, more manageable hair without committing to a longer
-      appointment or a waiting period, and who'd rather keep some natural texture than go pin-straight. If your hair
-      is very thick or coarse and you want maximum frizz reduction, a
-      <a href="/" class="text-brand-600 font-medium">traditional keratin treatment</a> may get you closer to that goal.
+      A Brazilian Blowout is a salon smoothing service designed to tame frizz, boost shine, and make hair faster
+      and easier to style, while preserving movement rather than making it stick-straight. It works on all hair
+      types and is popular precisely because it <em>softens</em> texture instead of erasing it — you keep body and
+      bounce, just without the frizz.
     </p>
-    <h2>Brazilian Blowout vs. Keratin</h2>
     <p>
-      See the full side-by-side comparison — downtime, longevity, and results — in our
-      <a href="/keratin-vs-brazilian-blowout/" class="text-brand-600 font-medium">Keratin vs. Brazilian Blowout guide →</a>
+      The two things that define it: it's <strong>semi-permanent</strong> (it fades gradually over a few months as
+      you shampoo) and it's <strong>low-commitment</strong> on the day — most versions require little to no waiting
+      period before you can wash, tie up, or style your hair.
     </p>
+
+    <h3>Is "Brazilian Blowout" a Brand or a Treatment?</h3>
+    <p>
+      Both, and this trips people up. Brazilian Blowout is technically a specific brand name (like Kleenex or
+      Xerox) that became a genericized term for smoothing treatments generally. So when people say "Brazilian
+      Blowout," they sometimes mean the actual branded service and sometimes mean any similar keratin-style
+      smoothing. In this guide, "Brazilian Blowout" refers to the smoothing-treatment category the name now stands
+      for.
+    </p>
+
+    <h2>How Does a Brazilian Blowout Work?</h2>
+    <p>
+      The mechanism combines a smoothing solution with heat. The stylist coats the hair in a protein-based (often
+      keratin) solution, then blow-dries and seals it in section by section with a hot flat iron. The heat bonds
+      the solution to the surface of each strand, forming a smooth, frizz-resistant layer around the hair. Because
+      it's a surface-sealing smoothing rather than an internal bond-breaking straightening, it relaxes frizz and
+      softens texture while leaving volume intact — and it washes out gradually rather than growing out in a hard
+      line.
+    </p>
+
+    <h2>Brazilian Blowout vs. Other Hair Treatments</h2>
+    <p>The most common question is how a Brazilian Blowout compares to a keratin treatment and the newer options. Here's the side-by-side:</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 not-prose mb-6">
+    <div class="overflow-x-auto rounded-[18px] border border-brand-200 bg-white">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-100">
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Treatment</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">What It Does</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Downtime</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Lasts</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Result Look</th>
+          </tr>
+        </thead>
+        <tbody class="text-stone-700">
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Brazilian Blowout</td><td class="px-5 py-3">Smooths frizz, keeps volume</td><td class="px-5 py-3">None (wash same day)</td><td class="px-5 py-3">~10–12 weeks</td><td class="px-5 py-3">Smooth but with body</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Keratin treatment</td><td class="px-5 py-3">Smooths + straightens</td><td class="px-5 py-3">Often 48–72 hrs (classic)</td><td class="px-5 py-3">3–5 months</td><td class="px-5 py-3">Sleeker, flatter</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Cysteine treatment</td><td class="px-5 py-3">Gentle smoothing</td><td class="px-5 py-3">Little/none</td><td class="px-5 py-3">6 wks–3 months</td><td class="px-5 py-3">Natural, soft</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Nanoplasty</td><td class="px-5 py-3">Deep smoothing + straightening</td><td class="px-5 py-3">Little/none</td><td class="px-5 py-3">3–6 months</td><td class="px-5 py-3">Very smooth/straight</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Relaxer</td><td class="px-5 py-3">Permanent straightening</td><td class="px-5 py-3">None</td><td class="px-5 py-3">Permanent (regrowth reverts)</td><td class="px-5 py-3">Straight</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 prose-section">
+    <h3>Brazilian Blowout vs. Keratin Treatment</h3>
+    <p>
+      This is the big one. A Brazilian Blowout and a
+      <a href="/what-is-a-keratin-treatment/" class="text-brand-600 font-medium">keratin treatment</a> overlap
+      heavily, but there are real differences. A Brazilian Blowout keeps more of your natural volume and movement,
+      usually has <strong>no downtime</strong>, and tends to last a shorter time (around 10–12 weeks). A
+      traditional keratin treatment smooths and <em>straightens</em> more dramatically, lasts longer (3–5 months),
+      but classic versions require a waiting period before your first wash. In short: Brazilian Blowout for "smooth
+      with body and convenience," keratin for "sleeker and longer-lasting." Full side-by-side in our
+      <a href="/keratin-vs-brazilian-blowout/" class="text-brand-600 font-medium">keratin vs. Brazilian Blowout comparison →</a>.
+    </p>
+
+    <h3>Brazilian Blowout vs. Cysteine and Nanoplasty</h3>
+    <p>
+      A <a href="/cysteine-treatment/" class="text-brand-600 font-medium">cysteine treatment</a> is the gentlest,
+      most natural-looking, formaldehyde-free option, best for mild frizz.
+      <a href="/nanoplasty-hair-treatment/" class="text-brand-600 font-medium">Nanoplasty</a> is the newer,
+      deeper-penetrating treatment that smooths and straightens more strongly and lasts longer. A Brazilian Blowout
+      sits in between on strength but wins on same-day convenience and volume retention. If you're comparing the
+      gentler chemistries specifically, our
+      <a href="/keratin-vs-cysteine-treatment/" class="text-brand-600 font-medium">keratin vs. cysteine breakdown →</a>
+      is a useful companion.
+    </p>
+
+    <h2>What Does a Brazilian Blowout Appointment Look Like?</h2>
+    <p>The process is quick by smoothing-treatment standards:</p>
+    <ol class="list-decimal pl-6 mb-4 text-stone-700 space-y-2">
+      <li><strong>Clarifying wash.</strong> Hair is shampooed, often twice, to strip oils and buildup so the solution can bond evenly. No conditioner.</li>
+      <li><strong>Blow-dry.</strong> Hair is dried.</li>
+      <li><strong>Application.</strong> The stylist applies the smoothing solution section by section and combs it through.</li>
+      <li><strong>Blow-dry again.</strong> The solution is dried into the hair.</li>
+      <li><strong>Flat-ironing.</strong> Thin sections are pressed with a hot flat iron to seal in the smoothing.</li>
+      <li><strong>Rinse and finish</strong> (system-dependent), then a finishing serum or mask.</li>
+    </ol>
+    <p>
+      A Brazilian Blowout is typically one of the <strong>faster</strong> smoothing services — often around 90
+      minutes — and, in most cases, you walk out able to wash and style immediately.
+    </p>
+
+    <h2>Benefits of a Brazilian Blowout</h2>
+    <ul>
+      <li><strong>No downtime.</strong> Wash, tie up, and style the same day — the standout advantage over classic keratin.</li>
+      <li><strong>Keeps volume and movement.</strong> Smooths frizz without flattening your hair.</li>
+      <li><strong>Cuts styling time</strong> and makes hair easier to manage day to day.</li>
+      <li><strong>Adds shine and softness.</strong></li>
+      <li><strong>Works on most hair types,</strong> from wavy to curly.</li>
+      <li><strong>Fades gracefully</strong> with no harsh regrowth line.</li>
+    </ul>
+
+    <h2>Brazilian Blowout Side Effects and Limitations</h2>
+    <ul>
+      <li><strong>Formaldehyde history.</strong> The name carries a real controversy (see safety section) — choose the formula carefully.</li>
+      <li><strong>Semi-permanent and recurring,</strong> so it's an ongoing cost.</li>
+      <li><strong>Less dramatic straightening</strong> than a keratin treatment or nanoplasty — it smooths more than it straightens.</li>
+      <li><strong>Shorter lifespan</strong> than most keratin, cysteine (on the longer end), or nanoplasty treatments.</li>
+      <li><strong>Results vary</strong> by hair type, formula, and stylist skill.</li>
+    </ul>
+
+    <h2>How Long Does a Brazilian Blowout Last?</h2>
+    <p>
+      A Brazilian Blowout typically lasts about <strong>10 to 12 weeks</strong> — roughly three months — which is
+      generally shorter than a classic keratin treatment or nanoplasty. Longevity depends on your hair type and,
+      crucially, your aftercare. The right shampoo makes the difference between getting the full lifespan and
+      watching it fade in a matter of weeks. See our
+      <a href="/how-long-does-keratin-last/" class="text-brand-600 font-medium">full longevity guide →</a> for more
+      on what affects fade time across treatment types.
+    </p>
+
+    <h2>How Much Does a Brazilian Blowout Cost?</h2>
+    <p>
+      Pricing varies by region, salon, and hair length, but a Brazilian Blowout commonly runs
+      <strong>around $150 to $300 or more</strong>, with high-end salons in major cities charging above that. Since
+      it's semi-permanent, the realistic way to budget is annually: a few sessions a year plus the specialized
+      shampoo. For local Elmwood Park pricing across treatment types, see our
+      <a href="/keratin-treatment-cost/" class="text-brand-600 font-medium">cost guide →</a>. Verify current local
+      pricing before relying on exact figures — these numbers move.
+    </p>
+
+    <h2>Brazilian Blowout Aftercare</h2>
+    <p>Aftercare is what protects your investment, and it's nearly identical across smoothing treatments:</p>
+    <ul>
+      <li><strong>Use a sulfate-free, sodium-chloride (salt)-free shampoo.</strong> This is the single most important habit for making a Brazilian Blowout last.</li>
+      <li><strong>Wash less frequently;</strong> every wash fades it a little.</li>
+      <li><strong>Protect your hair around chlorine and salt water.</strong></li>
+      <li><strong>Use hydrating conditioners and occasional masks</strong> to maintain shine and smoothness.</li>
+    </ul>
+    <p>
+      One of the perks of a Brazilian Blowout is that, unlike classic keratin, you usually don't have to wait days
+      before that first wash — but confirm the specifics with your stylist based on the exact formula used. Full
+      details that apply across treatment types in our
+      <a href="/keratin-aftercare/" class="text-brand-600 font-medium">complete aftercare guide →</a>.
+    </p>
+
+    <h2>Is a Brazilian Blowout Safe?</h2>
+    <p>
+      This is the part to understand before you book. The Brazilian Blowout name is tied to a well-known
+      formaldehyde controversy: around 2010–2011, independent testing by occupational-safety authorities (including
+      Oregon OSHA) and Health Canada found that a product marketed as "formaldehyde-free" actually released
+      formaldehyde when heated. That led to regulatory warnings, lawsuits, and a legal settlement in California,
+      and it's a big reason
+      <a href="https://www.osha.gov/hair-smoothing" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">OSHA issued hazard alerts on hair-smoothing products</a>.
+      (Treat the specific dates and legal details as history worth verifying against a current source.)
+    </p>
+    <p>
+      Formaldehyde is a known human carcinogen and respiratory irritant, and the exposure risk falls hardest on
+      <strong>salon workers</strong> who breathe it repeatedly. In response, formaldehyde-free formulas — including
+      a "Brazilian Blowout Zero"–style option — were introduced, and the
+      <a href="https://www.fda.gov" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">U.S. FDA</a>
+      has been moving to restrict formaldehyde and formaldehyde-releasing chemicals in these products.
+    </p>
+    <p>
+      The practical takeaways: ask specifically whether the formula is formaldehyde-free, ask to see the ingredient
+      list rather than trusting a front-label claim, choose a reputable, well-ventilated salon, and verify any
+      current safety or regulatory detail against an authoritative source before relying on it. If you have health
+      concerns, including during pregnancy, raise them with your doctor first. See our full
+      <a href="/is-keratin-safe/" class="text-brand-600 font-medium">safety guide →</a> for more on formaldehyde
+      exposure and what to ask your stylist.
+    </p>
+
+    <h2>Who Should Get a Brazilian Blowout?</h2>
+    <p>
+      <strong>A Brazilian Blowout is a good fit for:</strong> people who want frizz control and easier styling
+      <em>without</em> losing volume or going stick-straight; anyone who wants a same-day, no-downtime treatment;
+      and those with wavy to curly hair who want manageability with movement. See our
+      <a href="/keratin-for-curly-hair/" class="text-brand-600 font-medium">keratin for curly hair guide →</a> for
+      more on balancing smoothing against curl retention.
+    </p>
+    <p>
+      <strong>You might want something else if:</strong> you want dramatic, long-lasting straightening (a keratin
+      treatment or nanoplasty may suit better); you want the gentlest, most natural formaldehyde-free option (a
+      cysteine treatment); you want maximum longevity per session; or you're specifically avoiding any formaldehyde
+      uncertainty and would rather choose a treatment built formaldehyde-free from the ground up — see our
+      <a href="/formaldehyde-free-keratin/" class="text-brand-600 font-medium">formaldehyde-free keratin guide →</a>.
+    </p>
+
+    <h2>Brazilian Blowout FAQs</h2>
+    {faqs.map((f) => (
+      <p><strong>{f.q}</strong> {f.a}</p>
+    ))}
+
+    <h2>The Bottom Line</h2>
+    <p>
+      A Brazilian Blowout is a semi-permanent smoothing treatment that cuts frizz, adds shine, and speeds up
+      styling while keeping your hair's natural body — with the standout perk of little to no downtime. It's a
+      great pick if you want manageable, smooth-but-not-flat hair and same-day convenience, and it fades gracefully
+      rather than growing out in a line.
+    </p>
+    <p>
+      Just go in informed. A Brazilian Blowout smooths more than it straightens and lasts a shorter time than
+      keratin or nanoplasty, and its name carries a genuine formaldehyde history — so confirm the formula is
+      formaldehyde-free on the actual label, choose a reputable well-ventilated salon, commit to sulfate- and
+      salt-free aftercare, and verify any specific safety, pricing, or regulatory claim against a current source
+      before you rely on it.
+    </p>
+    <p class="text-sm text-stone-500 italic">
+      This article is for general educational purposes and isn't medical or safety advice. Hair-smoothing
+      ingredients and their regulation are actively changing and vary by country; check current, authoritative
+      sources and consult a professional before booking or if you have health concerns, including during
+      pregnancy.
+    </p>
+
     <p>
       Ready to book? <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a>
       or request a free quote below.
