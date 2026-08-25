@@ -1,0 +1,210 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../config";
+
+const title = "Keratin vs. Cysteine Treatment: Which Is Right for You? | Elmwood Park, IL";
+const description =
+  "Keratin vs. cysteine treatment compared: frizz control, safety, cost, and how long each lasts. See which hair smoothing treatment fits your hair type.";
+
+const faqs = [
+  {
+    q: "What is the main difference between a keratin and cysteine treatment?",
+    a: "A keratin treatment is a stronger, longer-lasting smoothing service that historically used formaldehyde to lock hair straight, while a cysteine treatment uses the amino acid cysteine for gentler, formaldehyde-free smoothing that fades faster and leaves more natural movement.",
+  },
+  {
+    q: "Which lasts longer, keratin or cysteine?",
+    a: "Keratin lasts longer. A classic keratin treatment typically holds for three to five months, while a cysteine treatment usually lasts around six weeks to two or three months.",
+  },
+  {
+    q: "Is a cysteine treatment safer than a keratin treatment?",
+    a: "Cysteine treatments are formaldehyde-free, which removes the biggest chemical-exposure concern, especially for salon workers. That makes them generally gentler and safer to breathe, though quality varies, so it is still wise to check the ingredient list.",
+  },
+  {
+    q: "Which is better for curly or coarse hair?",
+    a: "For very coarse or tightly coiled hair that needs dramatic straightening, keratin usually works better. Cysteine is best for fine-to-medium hair with mild to moderate frizz that wants a softer, natural result.",
+  },
+  {
+    q: "Which is cheaper, keratin or cysteine?",
+    a: "Prices overlap heavily and depend on salon, region, and hair length. Both commonly fall in a similar range, though cysteine is sometimes slightly less expensive per visit while needing more frequent visits because it fades faster.",
+  },
+  {
+    q: "Can I switch from keratin to cysteine?",
+    a: "Yes. Many people move to cysteine for a gentler, more natural result. Let your stylist assess your hair's current condition and any color first.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path="/keratin-vs-cysteine-treatment/" schema={[faqSchema]}>
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Keratin vs. Cysteine Treatment
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
+      Keratin vs. Cysteine Treatment: Which Hair Smoothing Is Right for You?
+    </h1>
+
+    <p>
+      Choosing between a <strong>keratin vs. cysteine treatment</strong> comes down to how much smoothing you want,
+      how long you want it to last, and how you feel about the chemistry. Both are semi-permanent salon services
+      that fight frizz, add shine, and cut styling time — but they work differently and suit different hair.
+    </p>
+
+    <div class="rounded-[18px] border border-brand-200 bg-brand-100/60 p-6 my-6">
+      <p class="mb-0">
+        <strong>The short answer:</strong> A keratin treatment smooths more dramatically and lasts three to five
+        months, but classic versions have a formaldehyde history. A cysteine treatment is gentler, formaldehyde-free,
+        and more natural-looking, but it's milder and fades faster (six weeks to a couple of months).
+      </p>
+    </div>
+
+    <h2>Keratin vs. Cysteine Treatment at a Glance</h2>
+    <p>Here's the side-by-side comparison before we get into the details:</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 not-prose mb-6">
+    <div class="overflow-x-auto rounded-[18px] border border-brand-200 bg-white">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-100">
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Feature</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Keratin Treatment</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Cysteine Treatment</th>
+          </tr>
+        </thead>
+        <tbody class="text-stone-700">
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Key ingredient</td><td class="px-5 py-3">Keratin protein + a bonding agent (historically formaldehyde or a releaser)</td><td class="px-5 py-3">Cysteine (a natural amino acid), formaldehyde-free</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Smoothing strength</td><td class="px-5 py-3">Strong — can noticeably straighten</td><td class="px-5 py-3">Milder — softens and relaxes texture</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">How long it lasts</td><td class="px-5 py-3">3–5 months (classic)</td><td class="px-5 py-3">~6 weeks to 2–3 months</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Safety profile</td><td class="px-5 py-3">Formaldehyde concern in classic formulas</td><td class="px-5 py-3">Formaldehyde-free, gentler on the lungs</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Result look</td><td class="px-5 py-3">Sleeker, flatter</td><td class="px-5 py-3">Natural, with some movement</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Best for</td><td class="px-5 py-3">Coarse, thick, curly hair; maximum frizz control</td><td class="px-5 py-3">Fine-to-medium hair; mild-to-moderate frizz</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Typical cost</td><td class="px-5 py-3">~$150–$400+</td><td class="px-5 py-3">~$150–$350</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 prose-section">
+    <h2>What Is a Keratin Treatment?</h2>
+    <p>
+      A keratin treatment coats the hair in a keratin-based solution and seals it in with a very hot flat iron. The
+      heat drives the solution into the hair's cuticle and activates a bonding agent that sets the strands into a
+      smoother, straighter shape. Classic formulas relied on formaldehyde or formaldehyde-releasing chemicals to
+      forge those bonds, which is where the health debate comes from — the exposure risk falls hardest on salon
+      workers breathing the fumes.
+    </p>
+    <p>
+      The payoff is powerful frizz control and long wear. For the full breakdown, see our guide on
+      <a href="/what-is-a-keratin-treatment/" class="text-brand-600 font-medium">what a keratin treatment is and how it works →</a>.
+    </p>
+
+    <h2>What Is a Cysteine Treatment?</h2>
+    <p>
+      A cysteine treatment uses cysteine — an amino acid that's a natural building block of your hair — to gently
+      loosen the hair's internal disulfide bonds so a flat iron can coax it smoother. Because cysteine is part of
+      hair to begin with, the process is designed to be milder, and crucially it contains no formaldehyde. The
+      result is softer, more natural smoothing rather than dead-straight hair. Read the deeper explanation in our
+      guide on <a href="/cysteine-treatment/" class="text-brand-600 font-medium">what a cysteine treatment is →</a>.
+    </p>
+
+    <h2>How Keratin and Cysteine Treatments Differ</h2>
+
+    <h3>The Chemistry</h3>
+    <p>
+      Keratin treatments seal and cross-link the hair's outer cuticle, historically using formaldehyde. Cysteine
+      treatments work on the hair's internal disulfide bonds using an amino acid, with no formaldehyde. This single
+      difference drives almost everything else — strength, longevity, and safety.
+    </p>
+
+    <h3>The Results</h3>
+    <p>
+      A keratin treatment gives a sleeker, flatter, more transformed look and holds up better against humidity. A
+      cysteine treatment produces a softer result that keeps more of your hair's natural body and movement — great
+      if you don't want poker-straight hair.
+    </p>
+
+    <h3>Safety and Formaldehyde</h3>
+    <p>
+      This is the biggest reason people choose cysteine. Formaldehyde is a known carcinogen and respiratory
+      irritant, and it prompted years of
+      <a href="https://www.osha.gov/hair-smoothing" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">OSHA hazard alerts on hair-smoothing products</a>.
+      Regulators including the
+      <a href="https://www.fda.gov" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">U.S. FDA</a>
+      have been moving to restrict formaldehyde in these products. Cysteine formulas sidestep that chemistry —
+      though "formaldehyde-free" is worth confirming on the actual label, since not every product lives up to the
+      claim. See our full <a href="/is-keratin-safe/" class="text-brand-600 font-medium">safety guide →</a> for more.
+    </p>
+
+    <h3>Cost and Upkeep</h3>
+    <p>
+      Prices overlap heavily. Because cysteine fades faster, you may re-book more often, which can even out the
+      per-year cost. Both require sulfate-free, salt-free shampoo afterward to protect your investment — see our
+      <a href="/keratin-aftercare/" class="text-brand-600 font-medium">aftercare guide →</a>.
+    </p>
+
+    <h2>Which Lasts Longer, Keratin or Cysteine?</h2>
+    <p>
+      Keratin lasts longer. A classic keratin treatment commonly holds for three to five months, while a cysteine
+      treatment typically fades in six weeks to two or three months. If maximum longevity is your priority, keratin
+      wins; if you like the idea of a gentler treatment you can refresh more casually, cysteine fits. See our
+      <a href="/how-long-does-keratin-last/" class="text-brand-600 font-medium">full longevity guide →</a>.
+    </p>
+
+    <h2>Which Is Safer, Keratin or Cysteine?</h2>
+    <p>
+      Cysteine treatments are the safer-feeling option because they're formaldehyde-free, which removes the main
+      exposure concern for both clients and salon staff. That said, "gentler" isn't "risk-free" — both use strong
+      heat and act on the hair's structure, and product quality varies. Choose a reputable, well-ventilated salon
+      and ask to see the ingredient list either way.
+    </p>
+
+    <h2>Which Is Better for Curly or Coarse Hair?</h2>
+    <p>
+      For very coarse, thick, or tightly coiled hair that wants dramatic straightening, a keratin treatment (or
+      even a relaxer) usually delivers more. Cysteine's gentler action shines on fine-to-medium hair with
+      mild-to-moderate frizz, where its natural-looking finish is an advantage rather than a limitation. More in
+      our <a href="/keratin-for-curly-hair/" class="text-brand-600 font-medium">keratin for curly hair guide →</a>.
+    </p>
+
+    <h2>How to Choose: A Simple Decision Guide</h2>
+    <p>
+      <strong>Choose a keratin treatment if</strong> you have coarse or curly hair, want the strongest and
+      longest-lasting frizz control, and you're comfortable choosing a
+      <a href="/formaldehyde-free-keratin/" class="text-brand-600 font-medium">formaldehyde-free keratin formula →</a>
+      from a reputable salon.
+    </p>
+    <p>
+      <strong>Choose a cysteine treatment if</strong> you have fine-to-medium hair, want a softer and more natural
+      result, are specifically avoiding formaldehyde, or want the gentlest option — including situations like
+      pregnancy, which you should always clear with your doctor first.
+    </p>
+
+    <h2>Frequently Asked Questions</h2>
+    {faqs.map((f) => (
+      <p><strong>{f.q}</strong> {f.a}</p>
+    ))}
+
+    <p class="text-sm text-stone-500 italic">
+      This article is for general educational purposes and isn't medical or safety advice. Regulations on
+      hair-smoothing chemicals are actively changing and vary by country; verify current, authoritative sources and
+      consult a professional before booking or if you have health concerns, including during pregnancy.
+    </p>
+
+    <p>
+      Still deciding? See the full
+      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a> or
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">call {SITE.phoneDisplay}</a> and a stylist
+      will help you decide based on your hair type and goals.
+    </p>
+  </div>
+</Layout>

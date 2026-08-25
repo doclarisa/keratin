@@ -3,42 +3,329 @@ import Layout from "../../layouts/Layout.astro";
 import QuoteForm from "../../components/QuoteForm.astro";
 import { SITE } from "../../config";
 
-const title = "Cysteine Treatment Elmwood Park, IL | Formaldehyde-Free Keratin";
+const title = "What Is a Cysteine Treatment? Benefits, Cost & Results | Elmwood Park, IL";
 const description =
-  "Cysteine treatment in Elmwood Park, IL — a formaldehyde-free, amino-acid based smoothing alternative to traditional keratin. Free quote available.";
+  "A cysteine treatment is a gentle, formaldehyde-free hair smoothing that cuts frizz and adds shine. How it works, how long it lasts, cost, and aftercare.";
+
+const faqs = [
+  {
+    q: "Is a cysteine treatment really safer than keratin?",
+    a: "Its main advantage is being formaldehyde-free, which removes the biggest exposure concern — especially for salon workers. That's a genuine benefit, but it still involves heat and active chemistry, so \"gentler,\" not \"risk-free,\" is the accurate framing.",
+  },
+  {
+    q: "Will a cysteine treatment make my hair straight?",
+    a: "It smooths and relaxes far more than it straightens. Expect \"much more manageable, with some natural movement,\" not \"permanently flat-ironed.\"",
+  },
+  {
+    q: "Why does a cysteine treatment smell?",
+    a: "Cysteine contains sulfur, so some formulas have a faint eggy odor during processing. It's normal and temporary.",
+  },
+  {
+    q: "Can I color my hair too?",
+    a: "Yes, with coordination — talk timing through with your stylist, as with any smoothing service.",
+  },
+  {
+    q: "Can I do a cysteine treatment at home?",
+    a: "At-home kits exist, but the salon result depends on proper sectioning, controlled heat, and getting the process right. Home versions are milder and easier to botch; for most people the salon is worth it.",
+  },
+  {
+    q: "How is a cysteine treatment different from a keratin treatment?",
+    a: "Same goal, different chemistry. Cysteine is gentler, formaldehyde-free, more natural-looking, and shorter-lived; keratin (especially classic formulas) is stronger and longer-lasting.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
-<Layout title={title} description={description} path="/cysteine-treatment/">
+<Layout title={title} description={description} path="/cysteine-treatment/" schema={[faqSchema]}>
   <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
     <p class="text-sm text-brand-600 font-medium mb-2">
       <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Cysteine Treatment
     </p>
-    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
-      Cysteine Treatment in Elmwood Park, IL
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-3">
+      What Is a Cysteine Treatment?
     </h1>
-    <p>
-      Cysteine is an amino acid — one of the building blocks of keratin itself — and cysteine-based smoothing
-      treatments use it instead of formaldehyde-releasing chemistry to smooth and strengthen hair. For clients who
-      want the frizz control of a keratin service without the formaldehyde question, it's usually the first
-      alternative a stylist will suggest.
+    <p class="text-lg text-stone-600 -mt-1 mb-6">
+      The Gentle, Formaldehyde-Free Hair Smoothing Alternative
     </p>
-    <h2>What to Expect</h2>
+
     <p>
-      Cysteine treatments smooth the cuticle and reduce frizz using gentler, often plant- or amino-acid derived
-      chemistry. Results are typically a little more subtle than a traditional keratin treatment and don't last
-      quite as long, but many clients find that trade-off well worth the peace of mind — especially anyone sensitive
-      to strong chemical odors or concerned about formaldehyde exposure.
+      A <strong>cysteine treatment</strong> is a semi-permanent, formaldehyde-free hair smoothing service that uses
+      the amino acid cysteine to relax texture, cut frizz, and add shine. If you've researched keratin smoothing
+      and come away uneasy about the formaldehyde warnings, the fumes, and the "is this actually safe?" question, a
+      cysteine treatment is the calmer, cleaner alternative people keep pointing you toward — and that's a fair
+      description.
     </p>
-    <h2>Cysteine vs. Nanoplasty</h2>
     <p>
-      Both are formaldehyde-free, but they use different chemistry.
-      <a href="/nanoplasty/" class="text-brand-600 font-medium">Nanoplasty</a> relies on smaller-molecule formulas
-      designed for deeper penetration; cysteine treatments lean on the amino acid itself. Your stylist can help you
-      choose based on your hair's condition and how long you want results to last.
+      The tradeoff is real, and it runs both ways: gentler usually also means subtler and shorter-lived. Below is a
+      full, honest walkthrough of what a cysteine treatment is, how it works, what it can and can't do, how much it
+      costs, and how it stacks up against the keratin treatments it competes with.
     </p>
+
+    <div class="rounded-[18px] border border-brand-200 bg-brand-100/60 p-6 my-6">
+      <p class="mb-0">
+        <strong>Quick answer:</strong> A cysteine treatment is a formaldehyde-free hair smoothing that uses cysteine
+        — a natural amino acid in your hair — plus heat to soften frizz and relax texture. It's gentler and more
+        natural-looking than a keratin treatment, but milder and shorter-lasting, typically lasting six weeks to a
+        few months.
+      </p>
+    </div>
+
+    <h2>What Is a Cysteine Treatment?</h2>
+    <p>
+      A cysteine treatment is a salon smoothing service that uses cysteine (usually the main active ingredient,
+      sometimes paired with other amino acids and conditioning agents) to relax the hair's texture, reduce frizz,
+      and boost shine — <strong>without formaldehyde or formaldehyde-releasing chemicals</strong>. That
+      formaldehyde-free angle is its entire reason for existing. It was developed and marketed as a safer-feeling
+      response to classic keratin smoothing treatments, which historically relied on formaldehyde to lock hair into
+      a smoother shape.
+    </p>
+    <p>
+      Two things to hold onto from the start: a cysteine treatment is <strong>not permanent</strong> (it fades over
+      weeks as you wash) and it's <strong>not a stick-straight straightener</strong> (it softens and smooths
+      texture more than it eliminates curl).
+    </p>
+
+    <h3>What Is Cysteine?</h3>
+    <p>
+      Cysteine is an amino acid — one of the roughly twenty building blocks your body strings together to make
+      proteins — and it's a particularly important one for hair. Cysteine contains sulfur, and that sulfur is the
+      key to hair structure.
+    </p>
+    <p>
+      Your hair is about 90% keratin, and keratin is rich in cysteine. When two cysteine units sit near each other
+      inside the strand, their sulfur atoms link up to form a strong connection called a
+      <strong>disulfide bond</strong> (the linked pair is technically called cystine). These disulfide bonds are the
+      scaffolding that gives hair its shape and strength — they are, quite literally, why your curl is curly and
+      your wave is wavy. Any time you permanently change hair's shape chemically (a perm, a relaxer, thermal
+      straightening) you're breaking and re-forming disulfide bonds. A cysteine treatment plays in this same arena,
+      but with a much lighter touch.
+    </p>
+
+    <h2>How Does a Cysteine Treatment Work?</h2>
+    <p>
+      Here's the mechanism in plain terms. The cysteine solution is applied to the hair and gently interacts with
+      some of those disulfide bonds, loosening the structure just enough that when the stylist follows with a flat
+      iron, the hair can be coaxed into a smoother configuration. As the hair cools and the treatment sets, the
+      structure settles into that calmer shape. Because cysteine is a natural component of hair to begin with, the
+      process is designed to be gentler and less damaging than harsh chemical straightening — and it doesn't
+      release toxic fumes when heated.
+    </p>
+    <p>
+      That single difference in chemistry — acting on the hair's internal bonds with an amino acid rather than
+      sealing it with formaldehyde — drives nearly everything else about a cysteine treatment: its gentleness, its
+      natural-looking result, and its shorter lifespan.
+    </p>
+
+    <h2>Cysteine Treatment vs. Keratin Treatment</h2>
+    <p>
+      It's easy to lump all smoothing together, but a cysteine treatment and a keratin treatment are meaningfully
+      different. Here's the side-by-side:
+    </p>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 not-prose mb-6">
+    <div class="overflow-x-auto rounded-[18px] border border-brand-200 bg-white">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-100">
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Feature</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Cysteine Treatment</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Keratin Treatment (Classic)</th>
+          </tr>
+        </thead>
+        <tbody class="text-stone-700">
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Key ingredient</td><td class="px-5 py-3">Cysteine (amino acid), formaldehyde-free</td><td class="px-5 py-3">Keratin + bonding agent (historically formaldehyde)</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Smoothing strength</td><td class="px-5 py-3">Milder — softens texture</td><td class="px-5 py-3">Stronger — can noticeably straighten</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">How long it lasts</td><td class="px-5 py-3">~6 weeks to 2–3 months</td><td class="px-5 py-3">3–5 months</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Safety profile</td><td class="px-5 py-3">Formaldehyde-free, gentler on the lungs</td><td class="px-5 py-3">Formaldehyde concern in classic formulas</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Result look</td><td class="px-5 py-3">Natural, with some movement</td><td class="px-5 py-3">Sleeker, flatter</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Best for</td><td class="px-5 py-3">Fine-to-medium hair, mild–moderate frizz</td><td class="px-5 py-3">Coarse, thick, curly hair</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 prose-section">
+    <p>
+      For the fuller picture, see our deep dive on
+      <a href="/what-is-a-keratin-treatment/" class="text-brand-600 font-medium">what a keratin treatment is →</a>
+      and our head-to-head
+      <a href="/keratin-vs-cysteine-treatment/" class="text-brand-600 font-medium">keratin vs. cysteine treatment comparison →</a>.
+    </p>
+    <p>
+      The short version: a cysteine treatment is the softest, safest-feeling, most reversible end of the smoothing
+      spectrum. If you want manageable, natural-looking, formaldehyde-free results and you're fine with a subtler,
+      shorter-lived effect, it's an excellent choice. If you need dramatic, long-lasting, poker-straight hair —
+      especially on very coarse or tightly coiled hair — you'll likely be steered toward a stronger keratin formula
+      or a relaxer, with the added considerations those bring.
+    </p>
+
+    <h2>What Does a Cysteine Treatment Appointment Look Like?</h2>
+    <p>The process closely mirrors a keratin treatment, which is part of why the two get confused:</p>
+    <ol class="list-decimal pl-6 mb-4 text-stone-700 space-y-2">
+      <li><strong>Clarifying wash.</strong> Hair is shampooed — often twice — with a clarifying shampoo to strip oils and buildup so the solution can penetrate evenly. No conditioner.</li>
+      <li><strong>Blow-dry.</strong> Hair is dried, usually most of the way.</li>
+      <li><strong>Application.</strong> The stylist sections the hair and applies the cysteine solution from roots to ends, then combs it through so it's evenly distributed. It processes for a set time.</li>
+      <li><strong>Rinse and/or dry.</strong> Depending on the system, the solution may be rinsed, then the hair blow-dried.</li>
+      <li><strong>Flat-ironing.</strong> The stylist works through very thin sections with a hot flat iron, pressing repeatedly to set the smoothed shape. The iron often runs at a somewhat lower temperature than a formaldehyde-based keratin service, part of the gentler profile.</li>
+      <li><strong>Neutralizing / finishing.</strong> Some cysteine systems include a neutralizing step to help the reformed bonds settle, followed by a finishing product.</li>
+    </ol>
+    <p>
+      Expect a couple of hours in the chair, longer for thick or long hair. One quirk to know: because cysteine is
+      a sulfur-containing compound, some formulas carry a faint <strong>eggy, sulfur-ish smell</strong> during
+      processing. It's normal, temporary, and managed by good salons, but it can catch first-timers off guard.
+    </p>
+
+    <h2>Benefits of a Cysteine Treatment</h2>
+    <ul>
+      <li><strong>Reduces frizz and calms flyaways,</strong> including in humidity — the core reason to get one.</li>
+      <li><strong>Adds softness and shine</strong> by smoothing the hair's surface.</li>
+      <li><strong>Loosens and relaxes texture,</strong> turning tight frizz into looser, more manageable waves — or waves nearly straight — depending on your starting point.</li>
+      <li><strong>Cuts styling time.</strong> Blow-drying and ironing get faster and easier.</li>
+      <li><strong>Skips the harshest chemistry.</strong> No formaldehyde fumes, generally lower heat, and a gentler impact than relaxers or formaldehyde keratin.</li>
+      <li><strong>Leaves a natural result.</strong> Many people prefer that a cysteine treatment keeps some movement and body rather than flattening the hair.</li>
+    </ul>
+
+    <h2>Cysteine Treatment Side Effects and Limitations</h2>
+    <p>The same gentleness that makes a cysteine treatment appealing is also where its ceiling is:</p>
+    <ul>
+      <li><strong>Milder smoothing.</strong> On very coarse, thick, or tightly coiled hair, it often can't deliver the dramatic straightening a strong keratin or a relaxer would — it softens texture rather than erasing it.</li>
+      <li><strong>Shorter lifespan.</strong> It fades faster than a classic keratin treatment.</li>
+      <li><strong>Results vary</strong> a lot by hair type and by product, since "cysteine treatment" covers a wide range of formulas.</li>
+      <li><strong>The smell,</strong> as noted — minor, but worth knowing.</li>
+      <li><strong>Can feel drying</strong> to some people if overdone or paired with the wrong aftercare, since it still manipulates the hair's bonds.</li>
+      <li><strong>Not a repair.</strong> It smooths and camouflages damage temporarily; it doesn't rebuild severely compromised hair.</li>
+    </ul>
+
+    <h2>How Long Does a Cysteine Treatment Last?</h2>
+    <p>
+      Longevity depends on the formula, your hair type, and your aftercare, but as a rough guide a cysteine
+      treatment lasts around <strong>six weeks to about two or three months</strong> — shorter than a full
+      formaldehyde-based keratin treatment and longer than a light "express" smoothing. Diligent aftercare,
+      especially the right shampoo, is what determines whether you get the full lifespan or feel it slipping in a
+      few weeks. See our
+      <a href="/how-long-does-keratin-last/" class="text-brand-600 font-medium">full longevity guide →</a> for more
+      on what affects fade time across treatment types.
+    </p>
+
+    <h2>How Much Does a Cysteine Treatment Cost?</h2>
+    <p>
+      Pricing varies widely by region, salon, and hair length, but a cysteine treatment typically lands in a
+      similar range to keratin treatments — roughly $150 to $350, sometimes a little less. Because the effect
+      fades, the realistic way to budget is annually: a few treatments a year plus the specialized shampoo. See our
+      <a href="/keratin-treatment-cost/" class="text-brand-600 font-medium">local Elmwood Park pricing guide →</a>
+      for current ranges by treatment type.
+    </p>
+
+    <h2>Cysteine Treatment Aftercare</h2>
+    <p>
+      The maintenance routine is nearly identical to keratin aftercare, and it's just as important — skipping it is
+      the number-one reason a treatment seems not to "last."
+    </p>
+    <ul>
+      <li><strong>Follow your stylist's first-wash timing.</strong> Many modern cysteine systems let you wash sooner than old-school keratin, but confirm.</li>
+      <li><strong>Switch to a sulfate-free, sodium-chloride (salt)-free shampoo.</strong> Sulfates and salt are the main culprits that break the treatment down. This is the single most important habit.</li>
+      <li><strong>Wash less frequently.</strong> Every wash fades it a little.</li>
+      <li><strong>Be careful with chlorine and salt water,</strong> or protect and rinse your hair around swimming.</li>
+      <li><strong>Use hydrating conditioners and occasional masks</strong> to keep the smoothness and counteract any dryness.</li>
+    </ul>
+    <p>
+      Full details that apply across treatment types in our
+      <a href="/keratin-aftercare/" class="text-brand-600 font-medium">complete aftercare guide →</a>.
+    </p>
+
+    <h2>Is a Cysteine Treatment Safe?</h2>
+    <p>
+      Safety is the main reason people choose a cysteine treatment over keratin, so it's worth being precise.
+      Traditional keratin smoothing got its dramatic, long-lasting results from formaldehyde or
+      formaldehyde-releasing compounds (methylene glycol, formalin, certain glyoxylic acid derivatives). When the
+      hot iron hit the coated hair, those chemicals released formaldehyde gas. Formaldehyde works — but it's a
+      known human carcinogen and respiratory irritant, and the exposure burden falls especially hard on
+      <strong>salon workers</strong> breathing it day after day. This drove years of
+      <a href="https://www.osha.gov/hair-smoothing" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">OSHA hazard alerts on hair-smoothing products</a>
+      and, more recently, regulatory action.
+    </p>
+    <p>
+      A cysteine treatment sidesteps that chemistry entirely: no formaldehyde and, when the formula is genuinely
+      what it claims to be, none released during flat-ironing. That makes the salon air safer to breathe and
+      removes the single biggest health concern people have about smoothing.
+    </p>
+    <p>
+      <strong>A caveat worth keeping:</strong> "gentler" and "formaldehyde-free" are not the same as "zero risk." A
+      cysteine treatment still involves strong heat and chemistry acting on your hair's bonds, and quality varies
+      enormously between products. "Formaldehyde-free" claims in this industry haven't always held up under
+      testing — some products marketed that way were later found to release formaldehyde when heated. So the smart
+      move is to see the actual ingredient list, not just the marketing word on the front of the bottle.
+    </p>
+    <p>
+      <strong>Regulatory note to verify:</strong> rules on hair-smoothing chemicals are actively changing, and the
+      <a href="https://www.fda.gov" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">U.S. FDA</a>
+      has been working on restrictions targeting formaldehyde and formaldehyde-releasing agents. Cysteine
+      treatments are generally positioned on the right side of that shift, but the specifics of what's currently
+      legal and how products are labeled keep evolving and differ by country. Confirm any hard regulatory claim
+      against a current source. See our full
+      <a href="/is-keratin-safe/" class="text-brand-600 font-medium">safety guide →</a> for more on formaldehyde
+      exposure and what to ask your stylist.
+    </p>
+
+    <h2>Who Should Get a Cysteine Treatment?</h2>
+    <p>
+      <strong>A cysteine treatment is a good fit for:</strong> people with fine-to-medium hair and
+      mild-to-moderate frizz or waviness; anyone who wants smoothing but is specifically avoiding formaldehyde;
+      people who prefer a natural result with some movement rather than dead-straight hair; and those with
+      sensitivities to harsher chemicals or fumes. It's also frequently chosen during pregnancy because it avoids
+      formaldehyde — but that's exactly the kind of decision to run past your own doctor rather than take from an
+      article.
+    </p>
+    <p>
+      <strong>You might want something else if:</strong> you have very coarse, thick, or tightly coiled hair and
+      want dramatic, lasting straightening (a cysteine treatment may feel too mild — see our
+      <a href="/formaldehyde-free-keratin/" class="text-brand-600 font-medium">formaldehyde-free keratin guide →</a>
+      for stronger formaldehyde-free options, or
+      <a href="/nanoplasty/" class="text-brand-600 font-medium">nanoplasty →</a>); you want maximum longevity and
+      don't mind stronger chemistry; or your hair is severely damaged and needs repair first, regardless of which
+      treatment you eventually choose.
+    </p>
+
+    <h2>Cysteine Treatment FAQs</h2>
+    {faqs.map((f) => (
+      <p><strong>{f.q}</strong> {f.a}</p>
+    ))}
+
+    <h2>The Bottom Line</h2>
+    <p>
+      A cysteine treatment is a semi-permanent, formaldehyde-free smoothing service that uses cysteine — a natural
+      amino acid in your hair — plus heat to relax texture, reduce frizz, and boost shine. It's the gentlest, most
+      natural-feeling option in the smoothing category, which makes it a great pick if the chemistry of
+      traditional keratin makes you nervous or if you simply want manageable hair without a dead-straight look.
+    </p>
+    <p>
+      Just go in with clear expectations. A cysteine treatment is subtler and fades faster than a strong keratin
+      treatment, it may not tame very coarse or tightly coiled hair the way a relaxer would, and "formaldehyde-free"
+      is worth confirming on the ingredient list rather than trusting the front label. Choose a reputable salon,
+      commit to sulfate- and salt-free aftercare, and treat any specific safety, pricing, or regulatory claim as
+      something to verify against a current source before you rely on it.
+    </p>
+    <p class="text-sm text-stone-500 italic">
+      This article is for general educational purposes and isn't medical or safety advice. Regulations on
+      hair-smoothing chemicals are actively changing and vary by country; check current, authoritative sources and
+      consult a professional before booking or if you have health concerns, including during pregnancy.
+    </p>
+
     <p>
       Curious how this compares to traditional keratin? See the
-      <a href="/" class="text-brand-600 font-medium">full treatment overview →</a>
+      <a href="/" class="text-brand-600 font-medium">full treatment overview →</a> or
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">call {SITE.phoneDisplay}</a> and we'll help
+      match you with a specialist who works with the formula you're comfortable with.
     </p>
   </div>
   <section class="max-w-md mx-auto px-4 pb-16">
