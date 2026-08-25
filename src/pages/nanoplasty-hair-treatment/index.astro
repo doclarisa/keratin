@@ -1,0 +1,318 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import { SITE } from "../../config";
+
+const title = "What Is Nanoplasty? Benefits, Cost & How It Compares | Elmwood Park, IL";
+const description =
+  "Nanoplasty is a formaldehyde-free hair treatment that smooths and straightens with nano-sized molecules. How it works, cost, safety, and how it compares.";
+
+const faqs = [
+  {
+    q: "Is nanoplasty better than keratin?",
+    a: "Not universally — it often smooths more deeply, lasts a bit longer, and uses lower heat, but it's usually pricier and, like keratin, its \"formaldehyde-free\" status depends on the specific product.",
+  },
+  {
+    q: "Does nanoplasty straighten curly hair?",
+    a: "It smooths and significantly relaxes texture, and can straighten wavy to moderately curly hair well. Very tightly coiled hair may not go fully straight from nanoplasty alone.",
+  },
+  {
+    q: "Is nanoplasty formaldehyde-free?",
+    a: "It's marketed that way, but claims vary by brand and haven't always held up under testing — verify the ingredient list.",
+  },
+  {
+    q: "How is nanoplasty different from hair botox?",
+    a: "Hair botox is a conditioning repair treatment that smooths but doesn't straighten; nanoplasty smooths and straightens and lasts longer.",
+  },
+  {
+    q: "Can I do nanoplasty at home?",
+    a: "Kits exist, but results depend on sectioning, controlled heat, and correct application. For most people the salon is worth it.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path="/nanoplasty-hair-treatment/" schema={[faqSchema]}>
+  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / What Is Nanoplasty?
+    </p>
+    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-3">
+      What Is Nanoplasty?
+    </h1>
+    <p class="text-lg text-stone-600 -mt-1 mb-6">
+      The Deep-Smoothing Hair Treatment Explained
+    </p>
+
+    <p>
+      A <strong>nanoplasty hair treatment</strong> is a semi-permanent smoothing and straightening service that
+      uses nano-sized molecules to penetrate deep into the hair, cutting frizz and relaxing texture — and it's
+      usually marketed as a formaldehyde-free evolution of older Brazilian smoothing treatments. If you've worked
+      through keratin, cysteine, and "hair botox" and keep seeing nanoplasty (also spelled nanoplastia) pitched as
+      the newest, most advanced option, this guide explains exactly what it is, how it works, what it costs,
+      whether it's safe, and how it compares to everything else on the salon menu.
+    </p>
+
+    <div class="rounded-[18px] border border-brand-200 bg-brand-100/60 p-6 my-6">
+      <p class="mb-0">
+        <strong>Quick answer:</strong> Nanoplasty is a formaldehyde-free hair treatment that uses tiny ("nano")
+        molecules of amino acids and proteins to smooth and straighten the hair from the inside out. It tends to
+        smooth more deeply and last longer than a basic keratin treatment, using lower heat — but
+        "formaldehyde-free" claims and ingredient safety still need checking.
+      </p>
+    </div>
+
+    <h2>What Is Nanoplasty?</h2>
+    <p>
+      Nanoplasty is a salon smoothing and straightening treatment that originated in Brazil, where it's called
+      <em>nanoplastia</em>. It's built around "nano" technology: the active ingredients — typically amino acids,
+      hydrolyzed proteins, and organic acids — are formulated as very small molecules that are meant to penetrate
+      deeper into the hair shaft than the larger molecules in traditional treatments. The pitch is a more thorough,
+      longer-lasting smoothing that also conditions and strengthens as it straightens.
+    </p>
+    <p>
+      Two things to hold onto: nanoplasty is <strong>semi-permanent</strong> (it fades gradually over months as you
+      wash) and, depending on the formula and your hair, it can range from a gentle smoothing to a fairly strong
+      straightening — more transformative than "hair botox," often on par with or beyond a keratin treatment.
+    </p>
+
+    <h3>Where Nanoplasty Fits in the Smoothing Family</h3>
+    <p>
+      Nanoplasty is best understood as the newest branch of Brazilian hair-smoothing, positioned above the older
+      <em>escova progressiva</em> (progressive brushing) that historically relied on formaldehyde. Brands market
+      nanoplasty as the "clean," advanced successor — deeper penetration, lower heat, and a formaldehyde-free
+      label. As with every treatment in this category, the marketing runs ahead of the regulation, so the label
+      deserves scrutiny (more on that under safety).
+    </p>
+
+    <h2>How Does Nanoplasty Work?</h2>
+    <p>
+      The mechanism combines chemistry and heat. The nanoplasty solution is applied to clean hair, where the small
+      molecules penetrate the cuticle and cortex, binding to the hair's structure. The stylist then seals
+      everything in with a flat iron. The heat helps the active ingredients cross-link and set the hair into a
+      smoother, straighter shape, while the proteins and amino acids fill and reinforce damaged areas along the
+      strand.
+    </p>
+    <p>
+      A defining feature of nanoplasty is that it typically uses a <strong>lower flat-iron temperature</strong>
+      than older progressive treatments, which is part of why it's marketed as gentler on the hair. The result is
+      smoother, straighter, shinier hair that resists humidity — with the effect wearing off gradually rather than
+      growing out in a hard line.
+    </p>
+
+    <h2>Nanoplasty vs. Other Hair Treatments</h2>
+    <p>The single most-searched question about nanoplasty is how it stacks up against the alternatives. Here's the side-by-side:</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 not-prose mb-6">
+    <div class="overflow-x-auto rounded-[18px] border border-brand-200 bg-white">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-100">
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Treatment</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">What It Does</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Formaldehyde?</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Lasts</th>
+            <th class="px-5 py-3 text-[12.5px] font-semibold uppercase tracking-wide text-stone-600">Best For</th>
+          </tr>
+        </thead>
+        <tbody class="text-stone-700">
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Nanoplasty</td><td class="px-5 py-3">Deep smoothing + straightening</td><td class="px-5 py-3">Marketed free (verify)</td><td class="px-5 py-3">~3–6 months</td><td class="px-5 py-3">Frizz + strong smoothing, longer wear</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Keratin treatment</td><td class="px-5 py-3">Smooths, seals cuticle</td><td class="px-5 py-3">Classic uses it; free versions exist</td><td class="px-5 py-3">3–5 months</td><td class="px-5 py-3">Frizz control, coarse/curly hair</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Cysteine treatment</td><td class="px-5 py-3">Gentle smoothing</td><td class="px-5 py-3">Free</td><td class="px-5 py-3">6 wks–3 months</td><td class="px-5 py-3">Mild frizz, natural result</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Hair botox</td><td class="px-5 py-3">Deep conditioning/repair</td><td class="px-5 py-3">Free</td><td class="px-5 py-3">2–4 months</td><td class="px-5 py-3">Damage, softness (not straightening)</td></tr>
+          <tr class="border-t border-brand-200"><td class="px-5 py-3 font-medium">Relaxer</td><td class="px-5 py-3">Permanent straightening</td><td class="px-5 py-3">No (alkaline chemistry)</td><td class="px-5 py-3">Permanent (regrowth reverts)</td><td class="px-5 py-3">Very coarse/coily hair</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 prose-section">
+    <h3>Nanoplasty vs. Keratin Treatment</h3>
+    <p>
+      Both smooth and both use a flat iron, but nanoplasty's small molecules are designed to penetrate more deeply,
+      so it often smooths more thoroughly and can last a little longer, at a lower heat. A classic
+      <a href="/what-is-a-keratin-treatment/" class="text-brand-600 font-medium">keratin treatment</a> seals the
+      cuticle and, in traditional formulas, used formaldehyde. Nanoplasty is generally the pricier, "premium"
+      option; keratin is more widely available and well understood. For the full breakdown, see our
+      <a href="/keratin-vs-nanoplasty/" class="text-brand-600 font-medium">keratin vs. nanoplasty comparison →</a>.
+    </p>
+
+    <h3>Nanoplasty vs. Hair Botox</h3>
+    <p>
+      "Hair botox" (botox capilar) contains no actual botulinum toxin — it's a deep-conditioning mask of proteins,
+      amino acids, and vitamins that fills and smooths damaged hair. It does <strong>not</strong> chemically
+      straighten. Nanoplasty smooths <em>and</em> straightens and lasts longer, whereas hair botox is really about
+      repair, softness, and shine on damaged hair. See our
+      <a href="/hair-botox-vs-keratin/" class="text-brand-600 font-medium">hair botox vs. keratin comparison →</a>
+      for more on how botox-style treatments fit into the picture.
+    </p>
+
+    <h3>Nanoplasty vs. Cysteine Treatment</h3>
+    <p>
+      A <a href="/cysteine-treatment/" class="text-brand-600 font-medium">cysteine treatment</a> is the gentlest,
+      most natural-looking, formaldehyde-free option, best for mild-to-moderate frizz. Nanoplasty is stronger and
+      longer-lasting, aimed at people who want more dramatic straightening. If you're weighing the two gentler
+      options against classic keratin, our
+      <a href="/keratin-vs-cysteine-treatment/" class="text-brand-600 font-medium">keratin vs. cysteine comparison →</a>
+      covers that trade-off in detail.
+    </p>
+
+    <h2>What Does a Nanoplasty Appointment Look Like?</h2>
+    <p>The process mirrors other Brazilian smoothing treatments:</p>
+    <ol class="list-decimal pl-6 mb-4 text-stone-700 space-y-2">
+      <li><strong>Clarifying wash.</strong> Hair is shampooed, often twice, to strip oils and buildup so the solution can penetrate. No conditioner.</li>
+      <li><strong>Blow-dry.</strong> Hair is dried most or all of the way.</li>
+      <li><strong>Application.</strong> The stylist sections the hair and applies the nanoplasty solution root to tip, combing it through evenly. It processes for a set time.</li>
+      <li><strong>Rinse and/or dry.</strong> Depending on the system, the product may be rinsed and the hair blow-dried.</li>
+      <li><strong>Flat-ironing.</strong> Thin sections are pressed repeatedly to seal in the smoothed shape — usually at a lower temperature than older progressive treatments.</li>
+      <li><strong>Finishing.</strong> A finishing or sealing product is applied.</li>
+    </ol>
+    <p>Expect two to four hours depending on length and thickness. It's one of the longer, more expensive services on the menu.</p>
+
+    <h2>Benefits of Nanoplasty</h2>
+    <ul>
+      <li><strong>Deep, lasting frizz control,</strong> including in humidity.</li>
+      <li><strong>Stronger straightening</strong> than gentler options like cysteine or hair botox.</li>
+      <li><strong>High shine and smoothness,</strong> since the treatment also conditions.</li>
+      <li><strong>Lower heat</strong> than older progressive brushing, which is easier on the hair.</li>
+      <li><strong>Marketed formaldehyde-free,</strong> removing the biggest exposure concern of classic Brazilian smoothing — if the specific formula lives up to the claim.</li>
+      <li><strong>Faster daily styling</strong> and a soft grow-out with no harsh regrowth line.</li>
+    </ul>
+
+    <h2>Nanoplasty Side Effects and Limitations</h2>
+    <ul>
+      <li><strong>"Formaldehyde-free" isn't guaranteed.</strong> Some products in this category have been found to contain undisclosed formaldehyde or formaldehyde releasers, so the label needs verifying.</li>
+      <li><strong>Ingredient safety questions.</strong> Many formaldehyde-free smoothing products (nanoplasty included) rely on glyoxylic acid, which carries its own emerging safety discussion (see below).</li>
+      <li><strong>Cost.</strong> It's typically one of the more expensive smoothing services.</li>
+      <li><strong>Time.</strong> A multi-hour appointment.</li>
+      <li><strong>Not a repair miracle.</strong> It smooths and reinforces, but won't rebuild severely over-processed hair.</li>
+      <li><strong>Results vary</strong> by formula, brand, stylist skill, and hair type.</li>
+    </ul>
+
+    <h2>How Long Does Nanoplasty Last?</h2>
+    <p>
+      Longevity depends on the formula, your hair, and your aftercare, but nanoplasty commonly lasts around
+      <strong>three to six months</strong> — generally toward the longer end of the smoothing spectrum, often
+      edging out a basic keratin treatment. As with every treatment here, the right aftercare is what decides
+      whether you get the full lifespan. See our
+      <a href="/how-long-does-keratin-last/" class="text-brand-600 font-medium">full longevity guide →</a> for more
+      on what affects fade time across treatment types.
+    </p>
+
+    <h2>How Much Does Nanoplasty Cost?</h2>
+    <p>
+      Pricing varies widely by region, salon, brand, and hair length, but nanoplasty usually sits at the
+      <strong>higher end of smoothing services — often several hundred dollars per session</strong>, sometimes more
+      than keratin. Because it's semi-permanent, budget for it as a few sessions a year plus specialized shampoo.
+      For local Elmwood Park pricing across treatment types, see our
+      <a href="/keratin-treatment-cost/" class="text-brand-600 font-medium">cost guide →</a>. Verify current local
+      pricing before relying on exact figures — these numbers move.
+    </p>
+
+    <h2>Nanoplasty Aftercare</h2>
+    <p>
+      Aftercare is nearly identical across all these smoothing treatments, and skipping it is the main reason
+      results seem to fade early:
+    </p>
+    <ul>
+      <li><strong>Follow your stylist's first-wash timing.</strong></li>
+      <li><strong>Use a sulfate-free, sodium-chloride (salt)-free shampoo.</strong> This is the single most important habit for making nanoplasty last.</li>
+      <li><strong>Wash less frequently;</strong> every wash fades it a little.</li>
+      <li><strong>Protect hair around chlorine and salt water.</strong></li>
+      <li><strong>Use hydrating conditioners and masks</strong> to maintain shine and softness.</li>
+    </ul>
+    <p>
+      Full details that apply across treatment types in our
+      <a href="/keratin-aftercare/" class="text-brand-600 font-medium">complete aftercare guide →</a>.
+    </p>
+
+    <h2>Is Nanoplasty Safe?</h2>
+    <p>
+      Nanoplasty is marketed as a safer, formaldehyde-free alternative to older Brazilian smoothing — and avoiding
+      formaldehyde is a genuine benefit, since formaldehyde is a known carcinogen and respiratory irritant whose
+      exposure burden falls hardest on salon workers. That concern drove years of
+      <a href="https://www.osha.gov/hair-smoothing" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">OSHA hazard alerts on hair-smoothing products</a>
+      and ongoing regulatory attention from the
+      <a href="https://www.fda.gov" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-medium">U.S. FDA</a>.
+    </p>
+    <p>But two caveats matter:</p>
+    <p>
+      <strong>"Formaldehyde-free" claims aren't always accurate.</strong> Products marketed that way in this
+      industry have repeatedly been found to release formaldehyde when heated. Always ask to see the actual
+      ingredient list rather than trusting the front-label claim.
+    </p>
+    <p>
+      <strong>Glyoxylic acid deserves a closer look.</strong> Many formaldehyde-free smoothing products, nanoplasty
+      among them, use glyoxylic acid as the active. There is emerging medical discussion about glyoxylic acid in
+      hair-straightening products and possible kidney effects reported in some cases. This is recent, evolving
+      research rather than settled fact — treat it as a reason to be cautious and to verify against current
+      authoritative sources, not as a definitive verdict. Regulation of these chemicals is actively changing and
+      differs by country, so confirm any hard safety or legal claim before relying on it, and raise health concerns
+      with a professional. See our full <a href="/is-keratin-safe/" class="text-brand-600 font-medium">safety guide →</a>
+      for more on formaldehyde exposure and what to ask your stylist.
+    </p>
+
+    <h2>Who Should Get Nanoplasty?</h2>
+    <p>
+      <strong>Nanoplasty is a good fit for:</strong> people who want deeper, longer-lasting smoothing or
+      straightening than gentler treatments offer; those with frizzy, wavy, or moderately curly hair who want a
+      strong, humidity-proof result; and anyone specifically seeking a formaldehyde-free alternative to progressive
+      brushing — while doing the ingredient-list homework. See our
+      <a href="/keratin-for-frizz-humidity/" class="text-brand-600 font-medium">guide to keratin and humidity →</a>
+      for more on how these treatments hold up in Chicago-area humidity.
+    </p>
+    <p>
+      <strong>You might want something else if:</strong> your main goal is repairing damage rather than
+      straightening (hair botox may suit better); you want the gentlest, most natural result (a cysteine
+      treatment); you're pregnant or have health sensitivities and want to avoid the ingredient uncertainties
+      (clear it with your doctor first); or you have very tightly coiled hair wanting permanent results (a relaxer
+      may be more appropriate, with its own considerations).
+    </p>
+
+    <h2>Nanoplasty FAQs</h2>
+    {faqs.map((f) => (
+      <p><strong>{f.q}</strong> {f.a}</p>
+    ))}
+
+    <h2>The Bottom Line</h2>
+    <p>
+      A nanoplasty hair treatment is a semi-permanent, deeply smoothing straightening service that uses nano-sized
+      amino acids and proteins to transform frizzy or curly hair into something sleeker, shinier, and easier to
+      manage — usually with lower heat and longer wear than a basic keratin treatment, and marketed as
+      formaldehyde-free.
+    </p>
+    <p>
+      Go in with clear expectations and a little skepticism. Nanoplasty tends to be stronger and longer-lasting
+      than cysteine or hair botox and pricier than most keratin services, and its main open questions are
+      ingredient-related: confirm "formaldehyde-free" on the actual label, be aware of the evolving conversation
+      around glyoxylic acid, choose a reputable well-ventilated salon, commit to sulfate- and salt-free aftercare,
+      and verify any specific safety, pricing, or regulatory claim against a current source before you rely on it.
+    </p>
+    <p class="text-sm text-stone-500 italic">
+      This article is for general educational purposes and isn't medical or safety advice. Hair-smoothing
+      ingredients and their regulation are actively changing and vary by country; check current, authoritative
+      sources and consult a professional before booking or if you have health concerns, including during
+      pregnancy.
+    </p>
+
+    <p>
+      Ready to see if nanoplasty is available for your appointment? See our
+      <a href="/nanoplasty/" class="text-brand-600 font-medium">Nanoplasty in Elmwood Park page →</a> or
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">call {SITE.phoneDisplay}</a> and we'll help
+      connect you with a specialist.
+    </p>
+  </div>
+  <section class="max-w-md mx-auto px-4 pb-16">
+    <QuoteForm compact />
+  </section>
+</Layout>
