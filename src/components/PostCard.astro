@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogCover from "./BlogCover.astro";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+const { post } = Astro.props;
+const { title, description, pubDate, category, coverLabel, image, imageAlt } = post.data;
+const dateLabel = pubDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+---
+
+<article class="group bg-white border border-brand-200 rounded-[18px] overflow-hidden hover:shadow-soft hover:-translate-y-0.5 transition flex flex-col">
+  <a href={`/blog/${post.slug}/`} class="flex flex-col h-full">
+    <BlogCover title={title} label={coverLabel} category={category} image={image} imageAlt={imageAlt} />
+    <div class="p-6 flex flex-col flex-1">
+      <p class="text-[12px] font-semibold uppercase tracking-widest text-brand-600 mb-2">{category}</p>
+      <h2 class="text-xl font-serif font-semibold text-brand-900 leading-snug mb-2 group-hover:text-brand-600 transition-colors">
+        {title}
+      </h2>
+      <p class="text-[15px] text-stone-600 mb-4 flex-1">{description}</p>
+      <p class="text-[13px] text-stone-500">Published <time datetime={pubDate.toISOString()}>{dateLabel}</time></p>
+    </div>
+  </a>
+</article>

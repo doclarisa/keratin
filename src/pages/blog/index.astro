@@ -1,0 +1,66 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostCard from "../../components/PostCard.astro";
+import BlogCover from "../../components/BlogCover.astro";
+import { SITE } from "../../config";
+
+const title = "Nanoplasty & Hair Smoothing Blog | Chicago & Elmwood Park";
+const description =
+  "Straight answers on nanoplasty, keratin, and smoothing treatments for Chicago hair: cost, results, aftercare, and what to ask before you book.";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.data.title.localeCompare(b.data.title),
+);
+const [featured, ...rest] = posts;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE.siteUrl },
+    { "@type": "ListItem", position: 2, name: "Blog", item: new URL("/blog/", SITE.siteUrl).toString() },
+  ],
+};
+---
+
+<Layout title={title} description={description} path="/blog/" schema={[breadcrumbSchema]}>
+  <div class="max-w-6xl mx-auto px-4 pt-10 md:pt-14">
+    <p class="text-sm text-brand-600 font-medium mb-2">
+      <a href="/" class="hover:underline">Home</a> / Blog
+    </p>
+    <h1 class="text-[34px] md:text-[48px] font-serif font-semibold text-brand-900 leading-[1.1] tracking-tight mb-3">
+      Blog
+    </h1>
+    <p class="text-lg text-stone-700 max-w-2xl mb-10">
+      Straight answers about nanoplasty, keratin, and other smoothing treatments for Chicago hair: what they do,
+      what they cost, and how to get the most out of them.
+    </p>
+
+    {featured && (
+      <a href={`/blog/${featured.slug}/`} class="group grid md:grid-cols-[1.2fr_1fr] gap-6 md:gap-10 items-center mb-12">
+        <BlogCover
+          title={featured.data.title}
+          label={featured.data.coverLabel}
+          category={featured.data.category}
+          image={featured.data.image}
+          imageAlt={featured.data.imageAlt}
+          large
+          eager
+        />
+        <div>
+          <p class="text-[12px] font-semibold uppercase tracking-widest text-brand-600 mb-2">{featured.data.category}</p>
+          <h2 class="text-2xl md:text-3xl font-serif font-semibold text-brand-900 leading-snug mb-3 group-hover:text-brand-600 transition-colors">
+            {featured.data.title}
+          </h2>
+          <p class="text-stone-600 mb-4">{featured.data.description}</p>
+          <span class="text-brand-600 font-medium text-sm">Read article →</span>
+        </div>
+      </a>
+    )}
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {rest.map((post) => <PostCard post={post} />)}
+    </div>
+  </div>
+</Layout>

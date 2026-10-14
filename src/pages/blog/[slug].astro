@@ -1,0 +1,117 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import QuoteForm from "../../components/QuoteForm.astro";
+import BlogCover from "../../components/BlogCover.astro";
+import PostCard from "../../components/PostCard.astro";
+import { SITE } from "../../config";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, category, coverLabel, image, imageAlt } = post.data;
+const { Content } = await post.render();
+
+const path = `/blog/${post.slug}/`;
+const pageUrl = new URL(path, SITE.siteUrl).toString();
+const fmt = (d: Date) => d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const readMinutes = Math.max(1, Math.round(post.body.split(/\s+/).length / 230));
+
+// Related: same category first, then newest, excluding this post.
+const related = (await getCollection("blog"))
+  .filter((p) => p.slug !== post.slug)
+  .sort(
+    (a, b) =>
+      Number(b.data.category === category) - Number(a.data.category === category) ||
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  )
+  .slice(0, 3);
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  mainEntityOfPage: pageUrl,
+  ...(image ? { image: new URL(image, SITE.siteUrl).toString() } : {}),
+  author: { "@type": "Organization", name: SITE.businessName, url: SITE.siteUrl },
+  publisher: {
+    "@type": "Organization",
+    name: SITE.businessName,
+    logo: { "@type": "ImageObject", url: new URL("/images/logo.svg", SITE.siteUrl).toString() },
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE.siteUrl },
+    { "@type": "ListItem", position: 2, name: "Blog", item: new URL("/blog/", SITE.siteUrl).toString() },
+    { "@type": "ListItem", position: 3, name: title, item: pageUrl },
+  ],
+};
+---
+
+<Layout title={title} description={description} path={path} ogImage={image} schema={[articleSchema, breadcrumbSchema]}>
+  <article>
+    <header class="max-w-3xl mx-auto px-4 pt-10 md:pt-14">
+      <p class="text-sm text-brand-600 font-medium mb-2">
+        <a href="/" class="hover:underline">Home</a> / <a href="/blog/" class="hover:underline">Blog</a>
+      </p>
+      <p class="text-[12px] font-semibold uppercase tracking-widest text-brand-600 mb-3">{category}</p>
+      <h1 class="text-[32px] md:text-[44px] font-serif font-semibold text-brand-900 leading-[1.12] tracking-tight mb-4">
+        {title}
+      </h1>
+      <p class="text-[14px] text-stone-500 mb-8">
+        Published <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+        {updatedDate && <> · Updated <time datetime={updatedDate.toISOString()}>{fmt(updatedDate)}</time></>}
+        {" "}· {readMinutes} min read
+      </p>
+      <BlogCover title={title} label={coverLabel} category={category} image={image} imageAlt={imageAlt} large eager />
+    </header>
+
+    <div class="max-w-3xl mx-auto px-4 pt-4 prose-section blog-body">
+      <Content />
+    </div>
+  </article>
+
+  <section class="max-w-3xl mx-auto px-4 mt-10">
+    <div class="bg-brand-100/60 border border-brand-200 rounded-[22px] p-6 md:p-8 grid md:grid-cols-[1fr_auto] gap-6 items-center">
+      <div>
+        <h2 class="text-xl md:text-2xl font-serif font-semibold text-brand-900 mb-1.5">Thinking about nanoplasty?</h2>
+        <p class="text-stone-600 text-[15px]">
+          We match clients with nanoplasty and smoothing specialists in Chicago and Elmwood Park. Call for availability
+          and a price based on your hair.
+        </p>
+      </div>
+      <a
+        href={`tel:${SITE.phone}`}
+        class="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-full px-6 py-4 shadow-soft transition-colors whitespace-nowrap"
+      >
+        📞 Call {SITE.phoneDisplay}
+      </a>
+    </div>
+  </section>
+
+  <section class="max-w-md mx-auto px-4 mt-10">
+    <QuoteForm compact />
+  </section>
+
+  {related.length > 0 && (
+    <section class="max-w-6xl mx-auto px-4 mt-16">
+      <h2 class="text-2xl md:text-3xl font-serif font-semibold text-brand-900 mb-6">Keep reading</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {related.map((p) => <PostCard post={p} />)}
+      </div>
+    </section>
+  )}
+</Layout>

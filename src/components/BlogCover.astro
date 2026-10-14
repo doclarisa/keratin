@@ -1,0 +1,46 @@
+---
+// Cover for a blog card / post header. Uses the post's real photo when one is
+// set in frontmatter; otherwise renders a typographic cover in the brand palette.
+interface Props {
+  title: string;
+  label: string;
+  category: string;
+  image?: string;
+  imageAlt?: string;
+  large?: boolean;
+  eager?: boolean;
+}
+const { title, label, category, image, imageAlt, large = false, eager = false } = Astro.props;
+
+// Rotate between a few palette backgrounds so a grid of covers doesn't look identical.
+const tones = [
+  "bg-[linear-gradient(135deg,#6E2C20_0%,#B5533A_100%)]",
+  "bg-[linear-gradient(135deg,#241A15_0%,#6E2C20_100%)]",
+  "bg-[linear-gradient(135deg,#9A4430_0%,#C89B5A_100%)]",
+];
+const tone = tones[[...title].reduce((sum, ch) => sum + ch.charCodeAt(0), 0) % tones.length];
+---
+
+<div class:list={["relative w-full overflow-hidden", large ? "aspect-[16/7] rounded-[22px]" : "aspect-[16/10]"]}>
+  {image ? (
+    <img
+      src={image}
+      alt={imageAlt ?? ""}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+    />
+  ) : (
+    <div class:list={["absolute inset-0 flex flex-col justify-end p-6 md:p-8", tone]} aria-hidden="true">
+      <span class="text-[11px] font-semibold uppercase tracking-widest text-brand-300 mb-2">{category}</span>
+      <span class:list={["font-serif font-semibold text-white leading-[1.1]", large ? "text-3xl md:text-5xl" : "text-2xl md:text-[28px]"]}>
+        {label}
+      </span>
+      <svg class="absolute -top-10 -right-10 w-48 h-48 text-white/10" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 160 C 60 40, 100 40, 120 100 S 170 170, 190 40" />
+        <path d="M10 140 C 50 20, 90 20, 110 80 S 160 150, 180 20" />
+        <path d="M30 180 C 70 60, 110 60, 130 120 S 180 190, 200 60" />
+      </svg>
+    </div>
+  )}
+</div>

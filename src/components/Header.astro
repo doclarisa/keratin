@@ -1,23 +1,75 @@
 ---
 import { SITE, NAV } from "../config";
+
+const current = Astro.url.pathname;
+// "/" only matches the home page; every other item also matches its sub-pages
+// (so /blog/some-post/ highlights "Blog").
+const isActive = (href: string) => (href === "/" ? current === "/" : current.startsWith(href));
 ---
 
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-stone-200">
-  <div class="max-w-6xl mx-auto px-4 flex items-center gap-7 h-[74px]">
-    <a href="/" class="font-serif font-semibold text-lg leading-tight text-brand-900">
+  <div class="max-w-6xl mx-auto px-4 flex items-center gap-3 sm:gap-5 lg:gap-7 h-[74px]">
+    <a href="/" class="font-serif font-semibold text-base sm:text-lg leading-tight text-brand-900 min-w-0">
       {SITE.businessName}
       <span class="block font-sans font-medium text-[10.5px] tracking-widest uppercase text-brand-600 mt-0.5">
         {SITE.city} &amp; Chicago · Keratin &amp; Nanoplasty
       </span>
     </a>
-    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-600 ml-auto">
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-600 ml-auto" aria-label="Main">
       {NAV.map((item) => (
-        <a href={item.href} class="hover:text-brand-600 transition-colors">{item.label}</a>
+        <a
+          href={item.href}
+          class:list={["hover:text-brand-600 transition-colors", isActive(item.href) && "text-brand-600"]}
+          aria-current={isActive(item.href) ? "page" : undefined}
+        >
+          {item.label}
+        </a>
       ))}
     </nav>
+
+    <!-- Below lg the full nav doesn't fit: keep Blog one tap away, everything else in the menu. -->
+    <a
+      href="/blog/"
+      class:list={[
+        "lg:hidden ml-auto text-sm font-semibold hover:text-brand-600 transition-colors",
+        isActive("/blog/") ? "text-brand-600" : "text-stone-700",
+      ]}
+    >
+      Blog
+    </a>
+    <details class="lg:hidden relative group">
+      <summary
+        class="flex items-center justify-center w-10 h-10 rounded-full border border-brand-200 text-brand-900 cursor-pointer hover:border-brand-600"
+        aria-label="Open menu"
+      >
+        <svg class="w-5 h-5 group-open:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+        <svg class="w-5 h-5 hidden group-open:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </summary>
+      <nav
+        class="absolute right-0 mt-3 w-60 bg-white border border-brand-200 rounded-[18px] shadow-soft py-2"
+        aria-label="Main"
+      >
+        {NAV.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "block px-5 py-2.5 text-[15px] font-medium hover:bg-brand-50 hover:text-brand-600",
+              isActive(item.href) ? "text-brand-600" : "text-stone-700",
+            ]}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </details>
     <a
       href={`tel:${SITE.phone}`}
-      class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-full px-4 py-2.5 transition-colors shadow-soft ml-auto lg:ml-0"
+      class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-full px-4 py-2.5 transition-colors shadow-soft shrink-0"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true">
         <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.01l-2.2 2.21Z"></path>

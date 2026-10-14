@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import QuoteForm from "../../components/QuoteForm.astro";
+import { getCollection } from "astro:content";
+import PostCard from "../../components/PostCard.astro";
 import { SITE } from "../../config";
 
 // This is the money page: "nanoplasty chicago" / "nanoplasty near me" are the
@@ -10,6 +12,8 @@ import { SITE } from "../../config";
 const title = "Nanoplasty Chicago | Formaldehyde-Free Hair Smoothing Near You";
 const description =
   "Looking for nanoplasty in Chicago? Get matched with a nanoplasty specialist on the Northwest Side, Elmwood Park & Oak Park. Typical cost $350–$550. Free quote.";
+
+const posts = (await getCollection("blog")).sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const nanoPrice = SITE.prices.find((p) => p.name.startsWith("Nanoplasty"))?.range ?? "$350–$550";
 
@@ -37,26 +41,32 @@ const suburbs = [
 const faqs = [
   {
     q: "How much does nanoplasty cost in Chicago?",
+    link: "/blog/nanoplasty-cost-chicago/",
     a: `Most Chicago-area salons price nanoplasty around ${nanoPrice}, depending on hair length, thickness, and the product line used. Very long or very thick hair can run higher. Call for a quote based on your hair.`,
   },
   {
     q: "How long does nanoplasty last?",
+    link: "/blog/how-long-does-nanoplasty-last/",
     a: "Typically 3–6 months. Sulfate- and salt-free shampoo and fewer chlorine swims help it last toward the longer end.",
   },
   {
     q: "Is nanoplasty formaldehyde-free?",
+    link: "/blog/is-nanoplasty-formaldehyde-free/",
     a: "It's marketed that way, but formulas vary by brand. Ask to see the product and its ingredient list before your appointment.",
   },
   {
     q: "How long does a nanoplasty appointment take?",
+    link: "/blog/nanoplasty-appointment-what-to-expect/",
     a: "Usually 2.5–4 hours, depending on hair length and density. Plan for a wash, application, processing time, blow-dry, and flat-ironing.",
   },
   {
     q: "Can I wash my hair right after nanoplasty?",
+    link: "/blog/how-long-does-nanoplasty-last/",
     a: "Many nanoplasty systems allow washing the same day or the next day, unlike traditional keratin's 2–3 day wait. Your stylist will confirm for the product used.",
   },
   {
     q: "Does nanoplasty work on curly hair?",
+    link: "/blog/nanoplasty-for-curly-hair/",
     a: "Yes — it smooths and relaxes wavy to moderately curly hair well. Very tight coils usually soften rather than go fully straight.",
   },
 ];
@@ -148,6 +158,8 @@ const serviceSchema = {
       <a href="/nanoplasty-hair-treatment/" class="text-brand-600 font-medium">complete nanoplasty guide →</a>
     </p>
 
+    <p><a href="/blog/what-does-nanoplasty-do/" class="text-brand-600 font-medium">Read more: what nanoplasty does to your hair (and what it won't) →</a></p>
+
     <h2>Why Chicago Hair Needs It</h2>
     <p>
       Chicago summers are humid, and that's when frizz is at its worst. Winters bring dry indoor heat, and our hard
@@ -156,6 +168,8 @@ const serviceSchema = {
       treatments handle
       <a href="/keratin-for-frizz-humidity/" class="text-brand-600 font-medium">frizz and humidity →</a>
     </p>
+
+    <p><a href="/blog/nanoplasty-for-chicago-hair/" class="text-brand-600 font-medium">Read more: humidity, hard water, and winter dryness →</a></p>
 
     <h2>Nanoplasty vs. Keratin: Which Should You Book?</h2>
     <ul>
@@ -168,6 +182,8 @@ const serviceSchema = {
       <a href="/keratin-vs-nanoplasty/" class="text-brand-600 font-medium">keratin vs. nanoplasty →</a>
     </p>
 
+    <p><a href="/blog/nanoplasty-keratin-or-cysteine/" class="text-brand-600 font-medium">Read more: nanoplasty, keratin, or cysteine? How to choose →</a></p>
+
     <h2>What to Expect at Your Appointment</h2>
     <ol>
       <li><strong>Consultation:</strong> the stylist checks your hair type, color history, and goals, and confirms the product used.</li>
@@ -177,6 +193,8 @@ const serviceSchema = {
       <li><strong>Aftercare:</strong> you'll leave with instructions. Sulfate- and salt-free shampoo is the big one. See <a href="/keratin-aftercare/" class="text-brand-600 font-medium">aftercare tips →</a></li>
     </ol>
 
+    <p><a href="/blog/nanoplasty-appointment-what-to-expect/" class="text-brand-600 font-medium">Read more: your nanoplasty appointment, step by step →</a></p>
+
     <h2>Questions to Ask Any Nanoplasty Salon</h2>
     <ul>
       <li>Which brand and product do you use, and can I see the ingredient list?</li>
@@ -185,6 +203,8 @@ const serviceSchema = {
       <li>When can I wash my hair, and can I color it before or after?</li>
     </ul>
 
+    <p><a href="/blog/questions-to-ask-before-nanoplasty/" class="text-brand-600 font-medium">Read more: 9 questions to ask before booking →</a></p>
+
     <h2>Areas We Serve</h2>
     <p>
       We connect clients with nanoplasty specialists across Chicago's Northwest and West Side neighborhoods,
@@ -192,9 +212,14 @@ const serviceSchema = {
       the Chicago area, call anyway and we'll tell you what's realistic.
     </p>
 
+    <p><a href="/blog/nanoplasty-northwest-side-chicago/" class="text-brand-600 font-medium">Read more: nanoplasty on the Northwest Side and west suburbs →</a></p>
+
     <h2>Nanoplasty FAQs</h2>
     {faqs.map((f) => (
-      <p><strong>{f.q}</strong> {f.a}</p>
+      <p>
+        <strong>{f.q}</strong> {f.a}{" "}
+        <a href={f.link} class="text-brand-600 font-medium">Read more →</a>
+      </p>
     ))}
 
     <p>
@@ -203,6 +228,16 @@ const serviceSchema = {
       request below.
     </p>
   </div>
+
+  <section class="max-w-6xl mx-auto px-4 mt-6 mb-14">
+    <div class="flex items-end justify-between gap-4 mb-6">
+      <h2 class="text-2xl md:text-3xl font-serif font-semibold text-brand-900">Nanoplasty articles</h2>
+      <a href="/blog/" class="text-brand-600 font-medium text-sm whitespace-nowrap">All articles →</a>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.slice(0, 6).map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
 
   <section id="quote" class="max-w-md mx-auto px-4 pb-16">
     <QuoteForm compact />
