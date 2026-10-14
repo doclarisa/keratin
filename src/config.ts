@@ -60,8 +60,8 @@ export const SITE = {
 
 export const NAV = [
   { label: "Keratin Treatments", href: "/" },
-  { label: "Brazilian Blowout", href: "/brazilian-blowout/" },
   { label: "Nanoplasty", href: "/nanoplasty/" },
+  { label: "Brazilian Blowout", href: "/brazilian-blowout/" },
   { label: "Cost", href: "/keratin-treatment-cost/" },
   { label: "About", href: "/about/" },
   { label: "Contact", href: "/contact/" },

@@ -26,6 +26,10 @@ body {
   @apply list-disc pl-6 mb-4 text-stone-700 space-y-1;
 }
 
+.prose-section ol {
+  @apply list-decimal pl-6 mb-4 text-stone-700 space-y-1;
+}
+
 .eyebrow {
   @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-600;
 }

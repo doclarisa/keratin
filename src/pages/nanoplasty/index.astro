@@ -3,48 +3,208 @@ import Layout from "../../layouts/Layout.astro";
 import QuoteForm from "../../components/QuoteForm.astro";
 import { SITE } from "../../config";
 
-const title = "Nanoplasty Elmwood Park, IL | Formaldehyde-Free Smoothing";
+// This is the money page: "nanoplasty chicago" / "nanoplasty near me" are the
+// queries that produced the site's first clicks and first call. Keep it
+// targeted at Chicago + the west/northwest suburbs; the long-form explainer
+// lives at /nanoplasty-hair-treatment/ so the two pages don't compete.
+const title = "Nanoplasty Chicago | Formaldehyde-Free Hair Smoothing Near You";
 const description =
-  "Nanoplasty in Elmwood Park, IL — a formaldehyde-free smoothing treatment using low-molecular-weight ingredients. Ask about availability and pricing.";
+  "Looking for nanoplasty in Chicago? Get matched with a nanoplasty specialist on the Northwest Side, Elmwood Park & Oak Park. Typical cost $350–$550. Free quote.";
+
+const nanoPrice = SITE.prices.find((p) => p.name.startsWith("Nanoplasty"))?.range ?? "$350–$550";
+
+const chicagoAreas = [
+  "Montclare",
+  "Galewood",
+  "Belmont Cragin",
+  "Dunning",
+  "Portage Park",
+  "Jefferson Park",
+  "Norwood Park",
+  "Austin",
+];
+const suburbs = [
+  "Elmwood Park",
+  "River Grove",
+  "Oak Park",
+  "River Forest",
+  "Norridge",
+  "Harwood Heights",
+  "Melrose Park",
+  "Franklin Park",
+];
+
+const faqs = [
+  {
+    q: "How much does nanoplasty cost in Chicago?",
+    a: `Most Chicago-area salons price nanoplasty around ${nanoPrice}, depending on hair length, thickness, and the product line used. Very long or very thick hair can run higher. Call for a quote based on your hair.`,
+  },
+  {
+    q: "How long does nanoplasty last?",
+    a: "Typically 3–6 months. Sulfate- and salt-free shampoo and fewer chlorine swims help it last toward the longer end.",
+  },
+  {
+    q: "Is nanoplasty formaldehyde-free?",
+    a: "It's marketed that way, but formulas vary by brand. Ask to see the product and its ingredient list before your appointment.",
+  },
+  {
+    q: "How long does a nanoplasty appointment take?",
+    a: "Usually 2.5–4 hours, depending on hair length and density. Plan for a wash, application, processing time, blow-dry, and flat-ironing.",
+  },
+  {
+    q: "Can I wash my hair right after nanoplasty?",
+    a: "Many nanoplasty systems allow washing the same day or the next day, unlike traditional keratin's 2–3 day wait. Your stylist will confirm for the product used.",
+  },
+  {
+    q: "Does nanoplasty work on curly hair?",
+    a: "Yes — it smooths and relaxes wavy to moderately curly hair well. Very tight coils usually soften rather than go fully straight.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+// Service (not HairSalon) schema while SITE.hasPhysicalLocation is false —
+// same rule as the home page: no LocalBusiness/address without a real salon.
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Nanoplasty hair treatment",
+  name: "Nanoplasty in Chicago",
+  provider: { "@type": "Organization", name: SITE.businessName, url: SITE.siteUrl, telephone: SITE.phone },
+  areaServed: ["Chicago", ...suburbs].map((name) => ({ "@type": "City", name })),
+  url: new URL("/nanoplasty/", SITE.siteUrl).toString(),
+};
 ---
 
-<Layout title={title} description={description} path="/nanoplasty/">
-  <div class="max-w-3xl mx-auto px-4 py-10 prose-section">
-    <p class="text-sm text-brand-600 font-medium mb-2">
-      <a href="/" class="hover:underline">Keratin Treatment Elmwood Park</a> / Nanoplasty
-    </p>
-    <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-5">
-      Nanoplasty in Elmwood Park, IL
-    </h1>
+<Layout title={title} description={description} path="/nanoplasty/" schema={[serviceSchema, faqSchema]}>
+  <header class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="text-sm text-brand-600 font-medium mb-2">
+        <a href="/" class="hover:underline">Home</a> / Nanoplasty Chicago
+      </p>
+      <span class="eyebrow">Chicago &amp; West Suburbs</span>
+      <h1 class="text-[34px] md:text-[48px] font-serif font-semibold text-brand-900 leading-[1.1] tracking-tight mt-3 mb-5">
+        Nanoplasty in Chicago
+      </h1>
+      <p class="text-lg text-stone-700 leading-relaxed">
+        Want smooth, frizz-free hair for months without traditional keratin's formaldehyde? Nanoplasty is a
+        deep-smoothing treatment that relaxes frizz and texture with nano-sized amino acids and proteins. We match
+        you with a nanoplasty specialist on Chicago's Northwest Side and in the nearby west suburbs. Call for
+        availability and a price based on your hair.
+      </p>
+      <div class="flex flex-wrap gap-3.5 mt-7">
+        <a
+          href={`tel:${SITE.phone}`}
+          class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base rounded-full px-6 py-4 shadow-soft transition-colors"
+        >
+          📞 Call {SITE.phoneDisplay}
+        </a>
+        <a
+          href="#quote"
+          class="inline-flex items-center gap-2 border-[1.5px] border-brand-200 text-brand-900 font-semibold text-base rounded-full px-6 py-4 hover:border-brand-600 hover:text-brand-600 transition-colors"
+        >
+          Get a free quote →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="max-w-3xl mx-auto px-4 py-8 not-prose">
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="bg-white border border-brand-200 rounded-[18px] p-5">
+        <p class="text-[12.5px] font-semibold uppercase tracking-wide text-stone-500 mb-1">Typical cost</p>
+        <p class="font-serif text-2xl font-semibold text-brand-900">{nanoPrice}</p>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-5">
+        <p class="text-[12.5px] font-semibold uppercase tracking-wide text-stone-500 mb-1">Results last</p>
+        <p class="font-serif text-2xl font-semibold text-brand-900">3–6 months</p>
+      </div>
+      <div class="bg-white border border-brand-200 rounded-[18px] p-5">
+        <p class="text-[12.5px] font-semibold uppercase tracking-wide text-stone-500 mb-1">Appointment</p>
+        <p class="font-serif text-2xl font-semibold text-brand-900">2.5–4 hours</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-4 prose-section">
+    <h2>What Nanoplasty Does</h2>
     <p>
-      Nanoplasty is one of the newest smoothing treatments to reach the salon chair, and it's built around a simple
-      idea: use smaller, lower-molecular-weight ingredients so the formula can penetrate the hair shaft more
-      effectively without formaldehyde. The result is a smoothing and restoring treatment that many clients describe
-      as leaving hair feeling more like "itself," just calmer and glossier. For the full deep-dive — how it works,
-      what it costs, and the safety questions worth asking — see our
-      <a href="/nanoplasty-hair-treatment/" class="text-brand-600 font-medium">complete guide to nanoplasty →</a>.
-    </p>
-    <h2>How Nanoplasty Differs from Traditional Keratin</h2>
-    <p>
-      Traditional keratin smoothing coats the hair shaft with keratin protein and seals it with heat. Nanoplasty
-      formulas are engineered at a smaller molecular size specifically to work without formaldehyde, which is why
-      it's grouped with other
-      <a href="/cysteine-treatment/" class="text-brand-600 font-medium">formaldehyde-free options</a>
-      like cysteine treatments. Expect results that are a little more subtle than a full traditional keratin
-      treatment, with a similar or slightly shorter lifespan.
-    </p>
-    <h2>Is Nanoplasty Right for You?</h2>
-    <p>
-      If avoiding formaldehyde is a priority but you still want meaningful frizz control and shine, nanoplasty is
-      worth asking about. Availability and technique vary by stylist since it's a newer service — request a quote
-      and we'll confirm whether it's offered for your appointment.
+      Nanoplasty (also spelled <em>nanoplastia</em>) is a semi-permanent smoothing and straightening service. Its
+      nano-sized molecules go deeper into the hair shaft than a standard keratin coating does. The result is
+      noticeably less frizz, relaxed waves and curls, more shine, and a much shorter blow-dry. It's usually marketed
+      as a formaldehyde-free alternative to Brazilian-style smoothing, which is why most people asking about it want
+      strong results with gentler chemistry.
     </p>
     <p>
-      Not sure which treatment fits your hair? Start with our full
-      <a href="/" class="text-brand-600 font-medium">keratin treatment overview →</a>
+      For a full explanation of how it works, the safety questions to ask, and side effects, read our
+      <a href="/nanoplasty-hair-treatment/" class="text-brand-600 font-medium">complete nanoplasty guide →</a>
+    </p>
+
+    <h2>Why Chicago Hair Needs It</h2>
+    <p>
+      Chicago summers are humid, and that's when frizz is at its worst. Winters bring dry indoor heat, and our hard
+      Lake Michigan water dulls the cuticle. Nanoplasty seals and smooths the hair so it holds up through both
+      seasons. A lot of clients book in late spring before humidity season and again in the fall. See how smoothing
+      treatments handle
+      <a href="/keratin-for-frizz-humidity/" class="text-brand-600 font-medium">frizz and humidity →</a>
+    </p>
+
+    <h2>Nanoplasty vs. Keratin: Which Should You Book?</h2>
+    <ul>
+      <li><strong>Choose nanoplasty</strong> if you want deeper smoothing, longer wear, and no formaldehyde, and you're fine paying more.</li>
+      <li><strong>Choose keratin</strong> if you want a lower-cost, proven frizz fix and don't mind a 2–3 day no-wash period.</li>
+      <li><strong>Choose a <a href="/cysteine-treatment/" class="text-brand-600 font-medium">cysteine treatment</a></strong> if you want the gentlest, most natural-looking result.</li>
+    </ul>
+    <p>
+      For a side-by-side breakdown, see
+      <a href="/keratin-vs-nanoplasty/" class="text-brand-600 font-medium">keratin vs. nanoplasty →</a>
+    </p>
+
+    <h2>What to Expect at Your Appointment</h2>
+    <ol>
+      <li><strong>Consultation:</strong> the stylist checks your hair type, color history, and goals, and confirms the product used.</li>
+      <li><strong>Clarifying wash:</strong> opens the cuticle so the treatment can absorb.</li>
+      <li><strong>Application:</strong> the nanoplasty formula is applied section by section and left to process.</li>
+      <li><strong>Seal:</strong> hair is blow-dried, then flat-ironed in thin sections to lock in the result.</li>
+      <li><strong>Aftercare:</strong> you'll leave with instructions. Sulfate- and salt-free shampoo is the big one. See <a href="/keratin-aftercare/" class="text-brand-600 font-medium">aftercare tips →</a></li>
+    </ol>
+
+    <h2>Questions to Ask Any Nanoplasty Salon</h2>
+    <ul>
+      <li>Which brand and product do you use, and can I see the ingredient list?</li>
+      <li>How many nanoplasty treatments have you done on hair like mine?</li>
+      <li>Is the price fixed, or does it go up for length and thickness?</li>
+      <li>When can I wash my hair, and can I color it before or after?</li>
+    </ul>
+
+    <h2>Areas We Serve</h2>
+    <p>
+      We connect clients with nanoplasty specialists across Chicago's Northwest and West Side neighborhoods,
+      including {chicagoAreas.join(", ")}, and in the nearby suburbs of {suburbs.join(", ")}. If you're elsewhere in
+      the Chicago area, call anyway and we'll tell you what's realistic.
+    </p>
+
+    <h2>Nanoplasty FAQs</h2>
+    {faqs.map((f) => (
+      <p><strong>{f.q}</strong> {f.a}</p>
+    ))}
+
+    <p>
+      Ready to book or just want a price?
+      <a href={`tel:${SITE.phone}`} class="text-brand-600 font-medium">Call {SITE.phoneDisplay}</a> or send a quick
+      request below.
     </p>
   </div>
-  <section class="max-w-md mx-auto px-4 pb-16">
+
+  <section id="quote" class="max-w-md mx-auto px-4 pb-16">
     <QuoteForm compact />
   </section>
 </Layout>
